@@ -1,0 +1,11 @@
+# config & keys
+.env
+
+# dependencies
+node_modules
+
+# distribution
+dist
+
+# misc
+.DS_Store

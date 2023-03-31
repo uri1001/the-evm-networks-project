@@ -1,0 +1,32 @@
+{
+    "name": "the-evm-networks-project",
+    "version": "1.0.0",
+    "description": "EVM Networks & Node Providers Parameters Documentation",
+    "author": "Oriol Rodríguez Setó",
+    "license": "MIT",
+    "main": "index.ts",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "scripts": {
+        "lint": "eslint . --config .eslintrc.json",
+        "lint:fix": "eslint . --fix --config .eslintrc.json",
+        "format": "eslint src/**/*.ts --fix",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "devDependencies": {
+        "@types/node": "^18.15.11",
+        "@typescript-eslint/eslint-plugin": "^5.57.0",
+        "eslint": "^8.37.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-config-standard-with-typescript": "^34.0.1",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-n": "^15.7.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-promise": "^6.1.1",
+        "prettier": "^2.8.7",
+        "prettier-plugin-organize-imports": "^3.2.2",
+        "typescript": "^5.0.3"
+    }
+}
