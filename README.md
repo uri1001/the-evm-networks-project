@@ -61,6 +61,7 @@
 <br />
 <details>
   <summary>Table of Contents</summary>
+<br />
   <ol>
     <li>
         <a href="#1-about-the-project">About The Project</a>
@@ -114,8 +115,6 @@
 <!-- ABOUT THE PROJECT -->
 
 ## 1. About The Project
-
-Hardhat Environment Template with a Professional Basic & Customized Setup
 
 The goal is to keep all parameters related to the connection and operation with an EVM network documented under a formal and complete format.
 <br/>

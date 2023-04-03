@@ -1,38 +1,89 @@
-import { type Network } from '@/networks/interfaces'
+import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
+import { type Network } from '../utils/interfaces'
+
+import { blast, moonbeamProvider, onfinality } from '../providers'
 
 export const moonriver = {
     id: 1285,
     name: 'Moonriver',
     network: 'moonriver',
+    infoUrl: 'https://moonbeam.network/',
+    docsUrl: 'https://docs.moonbeam.network/learn/platform/networks/moonriver/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1285.json',
     nativeCurrency: {
-        decimals: 18,
         name: 'MOVR',
         symbol: 'MOVR',
+        decimals: 18,
     },
-    rpcUrls: {
-        public: {
+    rpcNodes: {
+        blast: {
             http: ['https://moonriver.public.blastapi.io/'],
-            webSocket: ['wss://moonriver.public.blastapi.io/'],
+            provider: blast,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        onfinality: {
+            http: [
+                'https://moonriver.public.blastapi.io/',
+                'https://moonriver.api.onfinality.io/public/',
+            ],
+            wss: [
+                'wss://moonriver.public.blastapi.io/',
+                'wss://moonriver.api.onfinality.io/public-ws/',
+            ],
+            provider: onfinality,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        moonbeamProvider: {
+            http: ['https://rpc.api.moonriver.moonbeam.network/'],
+            wss: ['wss://wss.api.moonriver.moonbeam.network/'],
+            provider: moonbeamProvider,
+            dataPrivacy: RpcDataPrivacyType.TBD,
+        },
+        public: {
+            http: ['https://rpc.api.moonriver.moonbeam.network/'],
+            wss: ['wss://wss.api.moonriver.moonbeam.network/'],
+            provider: moonbeamProvider,
+            dataPrivacy: RpcDataPrivacyType.TBD,
         },
         default: {
-            http: ['https://moonriver.public.blastapi.io/'],
-            webSocket: ['wss://moonriver.public.blastapi.io/'],
+            http: ['https://rpc.api.moonriver.moonbeam.network/'],
+            wss: ['wss://wss.api.moonriver.moonbeam.network/'],
+            provider: moonbeamProvider,
+            dataPrivacy: RpcDataPrivacyType.TBD,
         },
     },
     blockExplorers: {
+        moonriverSubscan: {
+            name: 'Moonriver Blockchain Explorer',
+            type: BlockExplorerType.Subscan,
+            browserUrl: 'https://moonriver.subscan.io/',
+            apiUrl: 'https://moonriver.api.subscan.io/',
+            docsUrl: 'https://support.subscan.io/#introduction',
+            standard: BlockExplorerStandard.TBD,
+        },
+        moonriverExplorer: {
+            name: 'Moonriver Blockchain Explorer',
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.moonriver.moonbeam.network/',
+            apiUrl: 'https://blockscout.moonriver.moonbeam.network/api/',
+            docsUrl: 'https://blockscout.moonriver.moonbeam.network/api-docs/',
+            standard: BlockExplorerStandard.EIP3091,
+        },
         moonscan: {
-            name: 'Moonscan',
-            urls: {
-                apiUrl: 'https://moonriver.moonscan.io/api/',
-                browserUrl: 'https://moonriver.moonscan.io/',
-            },
+            name: 'Moonriver Moonscan',
+            type: BlockExplorerType.Etherscan,
+            browserUrl: 'https://moonriver.moonscan.io/',
+            apiUrl: 'https://api-moonriver.moonscan.io/api/',
+            docsUrl: 'https://moonriver.moonscan.io/apis/',
+            standard: BlockExplorerStandard.EIP3091,
         },
         default: {
-            name: 'Moonscan',
-            urls: {
-                apiUrl: 'https://moonriver.moonscan.io/api/',
-                browserUrl: 'https://moonriver.moonscan.io/',
-            },
+            name: 'Moonriver Moonscan',
+            type: BlockExplorerType.Etherscan,
+            browserUrl: 'https://moonriver.moonscan.io/',
+            apiUrl: 'https://api-moonriver.moonscan.io/api/',
+            docsUrl: 'https://moonriver.moonscan.io/apis/',
+            standard: BlockExplorerStandard.EIP3091,
         },
     },
     contracts: {
