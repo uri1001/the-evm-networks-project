@@ -1,39 +1,68 @@
-import { type Network } from '@/networks/interfaces'
+import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
+import { type Network } from '../utils/interfaces'
+
+import { gnosisProvider } from '../providers'
 
 export const gnosisChiado = {
     id: 10200,
     name: 'Gnosis Chiado',
     network: 'chiado',
+    infoUrl: 'https://www.gnosis.io/',
+    docsUrl: 'https://docs.gnosischain.com/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-10200.json',
     nativeCurrency: {
-        decimals: 18,
         name: 'Gnosis',
         symbol: 'xDAI',
+        decimals: 18,
     },
-    rpcUrls: {
-        default: { http: ['https://rpc.chiadochain.net/'] },
-        public: { http: ['https://rpc.chiadochain.net/'] },
+    rpcNodes: {
+        gnosisProvider: {
+            http: [
+                'https://rpc.chiadochain.net/',
+                'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
+            ],
+            provider: gnosisProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        public: {
+            http: [
+                'https://rpc.chiadochain.net/',
+                'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
+            ],
+            provider: gnosisProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        default: {
+            http: [
+                'https://rpc.chiadochain.net/',
+                'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
+            ],
+            provider: gnosisProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
     },
     blockExplorers: {
-        blockscout: {
-            name: 'Blockscout',
-            urls: {
-                apiUrl: 'https://blockscout.chiadochain.net/api/',
-                browserUrl: 'https://blockscout.chiadochain.net/',
-            },
+        gnosisExplorerBlockscout: {
+            name: 'Gnosis Chiado Blockchain Explorer',
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.chiadochain.net/',
+            standard: BlockExplorerStandard.EIP3091,
         },
         gnosisExplorer: {
             name: 'Gnosis Chiado Blockchain Explorer',
-            urls: {
-                apiUrl: 'https://blockscout.com/gnosis/chiado/api/',
-                browserUrl: 'https://blockscout.com/gnosis/chiado/',
-            },
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.com/gnosis/chiado/',
+            apiUrl: 'https://blockscout.com/gnosis/chiado/api/',
+            docsUrl: 'https://blockscout.com/gnosis/chiado/api-docs/',
+            standard: BlockExplorerStandard.EIP3091,
         },
         default: {
             name: 'Gnosis Chiado Blockchain Explorer',
-            urls: {
-                apiUrl: 'https://blockscout.com/gnosis/chiado/api/',
-                browserUrl: 'https://blockscout.com/gnosis/chiado/',
-            },
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.com/gnosis/chiado/',
+            apiUrl: 'https://blockscout.com/gnosis/chiado/api/',
+            docsUrl: 'https://blockscout.com/gnosis/chiado/api-docs/',
+            standard: BlockExplorerStandard.EIP3091,
         },
     },
     testnet: true,

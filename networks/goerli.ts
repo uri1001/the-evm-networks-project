@@ -1,18 +1,36 @@
 import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
 import { type Network } from '../utils/interfaces'
 
-import { ankr, blast, fantomProvider, infura, omnia } from '../providers'
+import {
+    alchemy,
+    ankr,
+    blast,
+    blockpi,
+    flashbots,
+    infura,
+    omnia,
+    onfinality,
+    thirdweb,
+} from '../providers'
 
 export const goerli = {
     id: 5,
     name: 'Goerli',
     network: 'goerli',
     infoUrl: 'https://goerli.net/#about',
-    nativeCurrency: { name: 'Goerli Ether', symbol: 'ETH', decimals: 18 },
+    docsUrl: 'https://github.com/eth-clients/goerli/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-5.json',
+    nativeCurrency: {
+        name: 'Goerli Ether',
+        symbol: 'ETH',
+        decimals: 18,
+    },
     rpcNodes: {
         alchemy: {
             http: ['https://eth-goerli.g.alchemy.com/v2/'],
-            webSocket: ['wss://eth-goerli.g.alchemy.com/v2/'],
+            wss: ['wss://eth-goerli.g.alchemy.com/v2/'],
+            provider: alchemy,
+            dataPrivacy: RpcDataPrivacyType.TBD,
         },
         infura: {
             http: ['https://goerli.infura.io/v3/'],
@@ -21,35 +39,67 @@ export const goerli = {
             dataPrivacy: RpcDataPrivacyType.TBD,
         },
         thirdweb: {
-            http: ['https://goerli.rpc-staging.thirdweb.com'],
+            http: ['https://goerli.rpc-staging.thirdweb.com/'],
+            provider: thirdweb,
+            dataPrivacy: RpcDataPrivacyType.TBD,
         },
-        mudit: {
-            http: ['https://rpc.goerli.mudit.blog/'],
+        onfinality: {
+            http: ['https://eth-goerli.api.onfinality.io/public/'],
+            provider: onfinality,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        blast: {
+            http: ['https://eth-goerli.public.blastapi.io/'],
+            provider: blast,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        blockpi: {
+            http: ['https://goerli.blockpi.network/v1/rpc/public/'],
+            provider: blockpi,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
         },
         ankr: {
             http: ['https://rpc.ankr.com/eth_goerli/'],
+            provider: ankr,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        flashbots: {
+            http: ['https://relay-goerli.flashbots.net/'],
+            provider: flashbots,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
+        },
+        omnia: {
+            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            provider: omnia,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
         },
         public: {
-            http: ['https://rpc.ankr.com/eth_goerli/'],
+            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            provider: omnia,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
         },
         default: {
-            http: ['https://rpc.ankr.com/eth_goerli/'],
+            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            provider: omnia,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
         },
     },
     blockExplorers: {
         etherscan: {
-            name: 'Etherscan',
+            name: 'Goerli Etherscan',
+            type: BlockExplorerType.Etherscan,
             browserUrl: 'https://goerli.etherscan.io/',
             apiUrl: 'https://api-goerli.etherscan.io/',
             docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan/',
-            standard: 'EIP3091',
+            standard: BlockExplorerStandard.EIP3091,
         },
         default: {
-            name: 'Etherscan',
+            name: 'Goerli Etherscan',
+            type: BlockExplorerType.Etherscan,
             browserUrl: 'https://goerli.etherscan.io/',
             apiUrl: 'https://api-goerli.etherscan.io/',
             docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan/',
-            standard: 'EIP3091',
+            standard: BlockExplorerStandard.EIP3091,
         },
     },
     contracts: {

@@ -2,13 +2,18 @@
     "name": "the-evm-networks-project",
     "version": "0.1.0",
     "description": "EVM Networks & Node Providers Parameters Documentation",
-    "author": "Oriol Rodríguez Setó",
+    "author": "Oriol Rodríguez Setó <uri1001@pm.me>",
     "license": "MIT",
     "main": "index.ts",
+    "homepage": "https://github.com/uri1001/the-evm-networks-project#readme",
     "repository": {
         "type": "git",
         "url": "https://github.com/uri1001/the-evm-networks-project"
     },
+    "bugs": "https://github.com/uri1001/the-evm-networks-project/issues",
+    "contributors": [
+        "uri1001 <uri1001@pm.me>"
+    ],
     "scripts": {
         "lint": "eslint . --config .eslintrc.json",
         "lint:fix": "eslint . --fix --config .eslintrc.json",
@@ -28,5 +33,14 @@
         "prettier": "^2.8.7",
         "prettier-plugin-organize-imports": "^3.2.2",
         "typescript": "^5.0.3"
-    }
+    },
+    "keywords": [
+        "eth",
+        "ethereum",
+        "dapps",
+        "networks",
+        "chains",
+        "web3",
+        "blockchain"
+    ]
 }

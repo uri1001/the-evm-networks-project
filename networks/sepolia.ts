@@ -1,49 +1,105 @@
 import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
 import { type Network } from '../utils/interfaces'
 
-import { ankr, blast, fantomProvider, infura, omnia } from '../providers'
+import { alchemy, blast, blockpi, flashbots, infura, omnia, sepoliaProvider } from '../providers'
 
 export const sepolia = {
     id: 11155111,
     name: 'Sepolia',
     network: 'sepolia',
-    infoUrl: 'https://sepolia.otterscan.io',
-    nativeCurrency: { name: 'Sepolia Ether', symbol: 'SEP', decimals: 18 },
+    infoUrl: 'https://sepolia.dev/',
+    docsUrl: 'https://github.com/eth-clients/sepolia/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-11155111.json',
+    nativeCurrency: {
+        name: 'Sepolia Ether',
+        symbol: 'ETH',
+        decimals: 18,
+    },
     rpcNodes: {
+        alchemy: {
+            http: ['https://eth-sepolia.g.alchemy.com/v2/demo/'],
+            provider: alchemy,
+            dataPrivacy: RpcDataPrivacyType.TBD,
+        },
         infura: {
             http: ['https://sepolia.infura.io/v3/'],
             wss: ['wss://sepolia.infura.io/ws/v3/'],
             provider: infura,
             dataPrivacy: RpcDataPrivacyType.TBD,
         },
-        default: {
-            http: ['https://rpc.sepolia.org/'],
+        blast: {
+            http: ['https://eth-sepolia.public.blastapi.io/'],
+            provider: blast,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        blockpi: {
+            http: ['https://ethereum-sepolia.blockpi.network/v1/rpc/public/'],
+            provider: blockpi,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        flashbots: {
+            http: ['https://relay-sepolia.flashbots.net/'],
+            provider: flashbots,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
+        },
+        omnia: {
+            http: ['https://endpoints.omniatech.io/v1/eth/sepolia/public/'],
+            provider: omnia,
+            dataPrivacy: RpcDataPrivacyType.Privacy,
+        },
+        sepoliaProvider: {
+            http: [
+                'https://rpc.sepolia.dev',
+                'https://rpc.sepolia.org/',
+                'https://rpc2.sepolia.org/',
+                'https://rpc.sepolia.online/',
+            ],
+            provider: sepoliaProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
         },
         public: {
-            http: ['https://rpc.sepolia.org/'],
+            http: [
+                'https://rpc.sepolia.dev',
+                'https://rpc.sepolia.org/',
+                'https://rpc2.sepolia.org/',
+                'https://rpc.sepolia.online/',
+            ],
+            provider: sepoliaProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        default: {
+            http: [
+                'https://rpc.sepolia.dev',
+                'https://rpc.sepolia.org/',
+                'https://rpc2.sepolia.org/',
+                'https://rpc.sepolia.online/',
+            ],
+            provider: sepoliaProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
         },
     },
     blockExplorers: {
-        etherscan: {
-            name: 'Etherscan',
-            browserUrl: 'https://sepolia.etherscan.io/',
-            apiUrl: 'https://api-sepolia.etherscan.io/',
-            docsUrl: 'https://docs.etherscan.io/v/sepolia-etherscan/',
-            standard: 'EIP3091',
-        },
         otterscan: {
             name: 'Otterscan Sepolia',
             browserUrl: 'https://sepolia.otterscan.io/',
-            apiUrl: '',
-            docsUrl: '',
-            standard: 'EIP3091',
+            type: BlockExplorerType.Independent,
+            standard: BlockExplorerStandard.EIP3091,
         },
-        default: {
-            name: 'Etherscan',
+        etherscan: {
+            name: 'Sepolia Etherscan',
+            type: BlockExplorerType.Etherscan,
             browserUrl: 'https://sepolia.etherscan.io/',
             apiUrl: 'https://api-sepolia.etherscan.io/',
             docsUrl: 'https://docs.etherscan.io/v/sepolia-etherscan/',
-            standard: 'EIP3091',
+            standard: BlockExplorerStandard.EIP3091,
+        },
+        default: {
+            name: 'Sepolia Etherscan',
+            type: BlockExplorerType.Etherscan,
+            browserUrl: 'https://sepolia.etherscan.io/',
+            apiUrl: 'https://api-sepolia.etherscan.io/',
+            docsUrl: 'https://docs.etherscan.io/v/sepolia-etherscan/',
+            standard: BlockExplorerStandard.EIP3091,
         },
     },
     contracts: {

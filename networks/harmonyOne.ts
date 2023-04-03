@@ -1,32 +1,64 @@
-import { type Network } from '@/networks/interfaces'
+import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
+import { type Network } from '../utils/interfaces'
+
+import { ankr, harmonyProvider, onfinality, pokt } from '../providers'
 
 export const harmonyOne = {
     id: 1666600000,
-    name: 'Harmony One',
+    name: 'Harmony One Mainnet Shard 0',
     network: 'harmony',
+    infoUrl: 'https://www.harmony.one/',
+    docsUrl: 'https://docs.harmony.one/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1666600000.json',
     nativeCurrency: {
         name: 'Harmony',
         symbol: 'ONE',
         decimals: 18,
     },
-    rpcUrls: {
-        public: { http: ['https://rpc.ankr.com/harmony/'] },
-        default: { http: ['https://rpc.ankr.com/harmony/'] },
+    rpcNodes: {
+        onfinality: {
+            http: ['https://harmony.api.onfinality.io/public/'],
+            provider: onfinality,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        ankr: {
+            http: ['https://rpc.ankr.com/harmony/'],
+            provider: ankr,
+            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+        },
+        pokt: {
+            http: ['https://harmony-0-rpc.gateway.pokt.network/'],
+            provider: pokt,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        harmonyProvider: {
+            http: ['https://api.harmony.one/'],
+            provider: harmonyProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        public: {
+            http: ['https://api.harmony.one/'],
+            provider: harmonyProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
+        default: {
+            http: ['https://api.harmony.one/'],
+            provider: harmonyProvider,
+            dataPrivacy: RpcDataPrivacyType.NoInfo,
+        },
     },
     blockExplorers: {
         harmonyExplorer: {
-            name: 'Harmony Explorer',
-            urls: {
-                apiUrl: 'https://explorer.harmony.one/api/',
-                browserUrl: 'https://explorer.harmony.one/',
-            },
+            name: 'Harmony One Blockchain Explorer',
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://explorer.harmony.one/',
+            standard: BlockExplorerStandard.EIP3091,
         },
         default: {
-            name: 'Harmony Explorer',
-            urls: {
-                apiUrl: 'https://explorer.harmony.one/api/',
-                browserUrl: 'https://explorer.harmony.one/',
-            },
+            name: 'Harmony One Blockchain Explorer',
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://explorer.harmony.one/',
+            standard: BlockExplorerStandard.EIP3091,
         },
     },
     contracts: {

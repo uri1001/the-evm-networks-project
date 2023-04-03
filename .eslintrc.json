@@ -18,15 +18,15 @@
         "project": "./tsconfig.json"
     },
     "rules": {
-        "prettier/prettier": "error",
-        "import/order": [
-            "warn",
-            {
-                "groups": [
-                    ["external", "internal"],
-                    ["index", "sibling", "parent", "internal"]
-                ]
-            }
-        ]
+        "prettier/prettier": "warn"
+        // "import/order": [
+        //     "warn",
+        //     {
+        //         "groups": [
+        //             ["external", "internal"],
+        //             ["index", "sibling", "parent", "internal"]
+        //         ]
+        //     }
+        // ]
     }
 }

@@ -37,7 +37,7 @@
     </a>
     <br />
     <br />
-    <a href="https://github.com/uri1001/the-evm-networks-project/blob/master/LICENSE">
+    <a href="https://github.com/uri1001/the-evm-networks-project/">
         <img src="https://img.shields.io/badge/Ethereum-3C3C3D?style=for-the-badge&logo=Ethereum&logoColor=white" alt="Ethereum">
     </a>
     <br />
@@ -238,7 +238,6 @@ TO BE DONE
 -   Wagmi Compatible Networks: [Spenhouet](https://spenhouet.com/chains/)
 
 -   Ethereum Testnets Faucet Status: [FaucetLink](https://faucetlink.to/)
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
