@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { baseProvider, blast } from '../providers'
+import { baseProvider, blast, quicknode } from '../providers'
 
 export const base = {
     id: 8453,
@@ -13,28 +13,35 @@ export const base = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         blast: {
             http: [''],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         base: {
             http: [''],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: [''],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: [''],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

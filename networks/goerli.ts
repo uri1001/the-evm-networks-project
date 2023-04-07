@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import {
     alchemy,
@@ -10,6 +10,7 @@ import {
     infura,
     omnia,
     onfinality,
+    quicknode,
     thirdweb,
 } from '../providers'
 
@@ -23,6 +24,7 @@ export const goerli = {
     nativeCurrency: {
         name: 'Goerli Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -30,58 +32,68 @@ export const goerli = {
             http: ['https://eth-goerli.g.alchemy.com/v2/'],
             wss: ['wss://eth-goerli.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://eth-goerli.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://eth-goerli.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://goerli.infura.io/v3/'],
             wss: ['wss://goerli.infura.io/ws/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+            authenticatedWss: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://goerli.rpc-staging.thirdweb.com/'],
             provider: thirdweb,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://eth-goerli.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://eth-goerli.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://goerli.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/eth_goerli/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         flashbots: {
             http: ['https://relay-goerli.flashbots.net/'],
             provider: flashbots,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         public: {
             http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         default: {
             http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
     },
     blockExplorers: {

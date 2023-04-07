@@ -1,7 +1,7 @@
-import BlockExplorer from './blockExplorer'
-import Contract from './contract'
-import NativeCurrency from './nativeCurrency'
-import RpcNode from './rpcNode'
+import type BlockExplorer from './blockExplorer'
+import type Contract from './contract'
+import type NativeCurrency from './nativeCurrency'
+import type RpcNode from './rpcNode'
 
 interface Network {
     id: number

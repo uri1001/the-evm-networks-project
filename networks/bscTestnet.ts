@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { binance, omnia } from '../providers'
+import { binance, omnia, quicknode } from '../providers'
 
 export const bscTestnet = {
     id: 97,
@@ -13,13 +13,20 @@ export const bscTestnet = {
     nativeCurrency: {
         name: 'Build & Build',
         symbol: 'tBNB',
+        uSymbol: 'tJager',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/bsc/testnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         binance: {
             http: [
@@ -28,7 +35,7 @@ export const bscTestnet = {
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: [
@@ -37,7 +44,7 @@ export const bscTestnet = {
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: [
@@ -46,7 +53,7 @@ export const bscTestnet = {
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

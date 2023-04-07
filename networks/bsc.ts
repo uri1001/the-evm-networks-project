@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { ankr, binance, omnia, onerpc, pokt, publicnode } from '../providers'
+import { ankr, binance, omnia, onerpc, pokt, publicnode, quicknode } from '../providers'
 
 export const bsc = {
     id: 56,
@@ -13,48 +13,55 @@ export const bsc = {
     nativeCurrency: {
         name: 'Build & Build',
         symbol: 'BNB',
+        uSymbol: 'Jager',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         onerpc: {
             http: ['https://1rpc.io/bnb/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         pokt: {
             http: ['https://bsc-mainnet.gateway.pokt.network/v1/lb/6136201a7bad1500343e248d/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/bsc/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://bsc.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/bsc/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         binance: {
             http: ['https://bsc-dataseed.binance.org/'],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://bsc-dataseed.binance.org/'],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://bsc-dataseed.binance.org/'],
             provider: binance,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

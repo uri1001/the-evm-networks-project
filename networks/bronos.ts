@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { bronosProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const bronos = {
     nativeCurrency: {
         name: 'Bronos Coin',
         symbol: 'BRO',
+        uSymbol: 'aBRO',
         decimals: 18,
     },
     rpcNodes: {
         bronos: {
             http: ['https://evm.bronos.org/'],
             provider: bronosProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://evm.bronos.org/'],
             provider: bronosProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://evm.bronos.org/'],
             provider: bronosProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

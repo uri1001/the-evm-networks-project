@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, arbitrumProvider, blast, infura, omnia } from '../providers'
+import { alchemy, arbitrumProvider, blast, infura, omnia, quicknode } from '../providers'
 
 export const arbitrumGoerli = {
     id: 421613,
@@ -12,7 +12,8 @@ export const arbitrumGoerli = {
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-421613.json',
     nativeCurrency: {
         name: 'Arbitrum Goerli Ether',
-        symbol: 'AGOR',
+        symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -20,37 +21,46 @@ export const arbitrumGoerli = {
             http: ['https://arb-goerli.g.alchemy.com/v2/'],
             wss: ['wss://arb-goerli.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.NoPrivacy,
+            authenticated: true,
+            authenticatedHttp: ['https://arb-goerli.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://arb-goerli.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://arbitrum-goerli.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://arbitrum-goerli.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/arbitrum/goerli/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         arbitrum: {
             http: ['https://goerli-rollup.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://goerli-rollup.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://goerli-rollup.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

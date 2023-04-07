@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { ankr, filecoinProvider } from '../providers'
 
@@ -13,28 +13,29 @@ export const filecoin = {
     nativeCurrency: {
         name: 'Filecoin',
         symbol: 'FIL',
+        uSymbol: 'aFIL',
         decimals: 18,
     },
     rpcNodes: {
         ankr: {
             http: ['https://rpc.ankr.com/filecoin/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         filecoin: {
             http: ['https://api.node.glif.io/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.node.glif.io/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.node.glif.io/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

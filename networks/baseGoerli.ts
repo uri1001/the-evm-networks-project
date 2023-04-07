@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { baseProvider, blast } from '../providers'
 
@@ -13,28 +13,29 @@ export const baseGoerli = {
     nativeCurrency: {
         name: 'Base Goerli Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
         blast: {
             http: ['https://base-goerli.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         base: {
             http: ['https://goerli.base.org/'],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://goerli.base.org/'],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://goerli.base.org/'],
             provider: baseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

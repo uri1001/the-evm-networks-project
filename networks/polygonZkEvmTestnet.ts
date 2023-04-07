@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { polygonProvider } from '../providers'
+import { alchemy, polygonProvider, quicknode } from '../providers'
 
 export const polygonZkEvmTestnet = {
     id: 1442,
@@ -13,23 +13,38 @@ export const polygonZkEvmTestnet = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
+        alchemy: {
+            http: ['https://polygonzkevm-testnet.g.alchemy.com/v2/'],
+            wss: ['wss://polygonzkevm-testnet.g.alchemy.com/v2/'],
+            provider: alchemy,
+            authenticated: true,
+            authenticatedHttp: ['https://polygonzkevm-testnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://polygonzkevm-testnet.g.alchemy.com/v2/<private-key>'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         polygonProvider: {
             http: ['https://rpc.public.zkevm-test.net/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.public.zkevm-test.net/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.public.zkevm-test.net/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

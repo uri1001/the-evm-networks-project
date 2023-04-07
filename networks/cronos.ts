@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { blockpi, cronosProvider, publicnode } from '../providers'
 
@@ -13,33 +13,34 @@ export const cronos = {
     nativeCurrency: {
         name: 'Cronos',
         symbol: 'CRO',
+        uSymbol: 'baseCRO',
         decimals: 18,
     },
     rpcNodes: {
         blockpi: {
             http: ['https://cronos.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://cronos-evm.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         cronos: {
             http: ['https://evm.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://evm.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://evm.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

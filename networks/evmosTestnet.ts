@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { blockdaemon, nodestake } from '../providers'
 
@@ -13,31 +13,32 @@ export const evmosTestnet = {
     nativeCurrency: {
         name: 'Test Evmos',
         symbol: 'tEVMOS',
+        uSymbol: 'atEVMOS',
         decimals: 18,
     },
     rpcNodes: {
         nodestake: {
             http: ['https://jsonrpc-t.evmos.nodestake.top/'],
             provider: nodestake,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         blockdaemon: {
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

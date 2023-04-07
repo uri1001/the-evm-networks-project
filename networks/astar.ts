@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { astarProvider, blast, onerpc, onfinality } from '../providers'
+import { alchemy, astarProvider, blast, onerpc, onfinality } from '../providers'
 
 export const astar = {
     id: 592,
@@ -13,39 +13,48 @@ export const astar = {
     nativeCurrency: {
         name: 'Astar',
         symbol: 'ASTR',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
+        alchemy: {
+            http: ['https://astar-mainnet.g.alchemy.com/v2/'],
+            wss: ['wss://astar-mainnet.g.alchemy.com/v2/'],
+            provider: alchemy,
+            authenticated: true,
+            authenticatedHttp: ['https://astar-mainnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://astar-mainnet.g.alchemy.com/v2/<private-key>'],
+        },
         onfinality: {
             http: ['https://astar.api.onfinality.io/public/'],
             wss: ['wss://astar.api.onfinality.io/public-ws/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://astar.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/astr/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         astar: {
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network/'],
             provider: astarProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network/'],
             provider: astarProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network/'],
             provider: astarProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

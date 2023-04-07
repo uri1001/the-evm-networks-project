@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import {
     alchemy,
@@ -15,6 +15,7 @@ import {
     onfinality,
     pokt,
     publicnode,
+    quicknode,
     thirdweb,
 } from '../providers'
 
@@ -28,6 +29,7 @@ export const mainnet = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -35,86 +37,96 @@ export const mainnet = {
             http: ['https://eth-mainnet.g.alchemy.com/v2/'],
             wss: ['wss://eth-mainnet.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://eth-mainnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://eth-mainnet.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://mainnet.infura.io/v3/'],
             wss: ['wss://mainnet.infura.io/ws/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+            authenticatedWss: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://ethereum.rpc.thirdweb.com/'],
             provider: thirdweb,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         blast: {
             http: ['https://eth-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://ethereum.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/eth/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://harmony.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         cloudflare: {
             http: ['https://cloudflare-eth.com/'],
             provider: cloudflare,
-            dataPrivacy: RpcDataPrivacyType.NoPrivacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/eth/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/eth/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         pokt: {
             http: ['https://eth-rpc.gateway.pokt.network/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://ethereum.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         flashbots: {
             http: ['https://rpc.flashbots.net/'],
             provider: flashbots,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         llama: {
             http: ['https://eth.llamarpc.com/'],
             wss: ['wss://eth.llamarpc.com/'],
             provider: llama,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         public: {
             http: ['https://eth.llamarpc.com/'],
             wss: ['wss://eth.llamarpc.com/'],
             provider: llama,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         default: {
             http: ['https://eth.llamarpc.com/'],
             wss: ['wss://eth.llamarpc.com/'],
             provider: llama,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
     },
     blockExplorers: {

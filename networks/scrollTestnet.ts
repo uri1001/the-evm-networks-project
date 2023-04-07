@@ -1,25 +1,66 @@
-import { Chain } from './types'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
+
+import { blast, scrollProvider } from '../providers'
 
 export const scrollTestnet = {
-  id: 534_353,
-  name: 'Scroll Testnet',
-  network: 'scroll-testnet',
-  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
-  rpcUrls: {
-    default: {
-      http: ['https://alpha-rpc.scroll.io/l2'],
-      webSocket: ['wss://alpha-rpc.scroll.io/l2/ws'],
+    id: 534353,
+    name: 'Scroll Testnet',
+    network: 'scroll-testnet',
+    infoUrl: 'https://scroll.io/',
+    docsUrl: 'https://scroll.io/alpha/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-534353.json',
+    nativeCurrency: {
+        name: 'Ether',
+        symbol: 'ETH',
+        uSymbol: 'Wei',
+        decimals: 18,
     },
-    public: {
-      http: ['https://alpha-rpc.scroll.io/l2'],
-      webSocket: ['wss://alpha-rpc.scroll.io/l2/ws'],
+    rpcNodes: {
+        blast: {
+            http: ['https://scroll-alphanet.public.blastapi.io/'],
+            provider: blast,
+            authenticated: false,
+        },
+        scrollProvider: {
+            http: ['https://alpha-rpc.scroll.io/l2/'],
+            wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
+            provider: scrollProvider,
+            authenticated: false,
+            authenticatedHttp: ['TBD'],
+        },
+        public: {
+            http: ['https://alpha-rpc.scroll.io/l2/'],
+            wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
+            provider: scrollProvider,
+            authenticated: false,
+            authenticatedHttp: ['TBD'],
+        },
+        default: {
+            http: ['https://alpha-rpc.scroll.io/l2/'],
+            wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
+            provider: scrollProvider,
+            authenticated: false,
+            authenticatedHttp: ['TBD'],
+        },
     },
-  },
-  blockExplorers: {
-    default: {
-      name: 'Blockscout',
-      url: 'https://blockscout.scroll.io',
+    blockExplorers: {
+        scrollExplorer: {
+            name: 'Scroll Block Explorer',
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.scroll.io/',
+            apiUrl: 'https://blockscout.scroll.io/api/',
+            docsUrl: 'https://blockscout.scroll.io/api-docs/',
+            standard: BlockExplorerStandard.EIP3091,
+        },
+        default: {
+            name: 'Scroll Block Explorer',
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://blockscout.scroll.io/',
+            apiUrl: 'https://blockscout.scroll.io/api/',
+            docsUrl: 'https://blockscout.scroll.io/api-docs/',
+            standard: BlockExplorerStandard.EIP3091,
+        },
     },
-  },
-  testnet: true,
-} as const satisfies Chain
+    testnet: true,
+} as const satisfies Network

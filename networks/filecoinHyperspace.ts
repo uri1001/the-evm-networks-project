@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { ankr, filecoinProvider } from '../providers'
 
@@ -13,28 +13,29 @@ export const filecoinHyperspace = {
     nativeCurrency: {
         name: 'Testnet Filecoin',
         symbol: 'tFIL',
+        uSymbol: 'atFIL',
         decimals: 18,
     },
     rpcNodes: {
         ankr: {
             http: ['https://rpc.ankr.com/filecoin_testnet/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         filecoin: {
             http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

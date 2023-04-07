@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { forno, infura, onerpc } from '../providers'
+import { forno, infura, onerpc, quicknode } from '../providers'
 
 export const celo = {
     id: 42220,
@@ -13,36 +13,44 @@ export const celo = {
     nativeCurrency: {
         name: 'Celo',
         symbol: 'CELO',
+        uSymbol: 'aCELO',
         decimals: 18,
     },
     rpcNodes: {
         infura: {
             http: ['https://celo-mainnet.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         onerpc: {
             http: ['https://1rpc.io/celo/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         forno: {
             http: ['https://forno.celo.org/'],
             wss: ['wss://forno.celo.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://forno.celo.org/'],
             wss: ['wss://forno.celo.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://forno.celo.org/'],
             wss: ['wss://forno.celo.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,26 +1,50 @@
-import { type Network } from '@/networks/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
+
+import { telosProvider } from '../providers'
 
 export const telos = {
     id: 40,
     name: 'Telos',
     network: 'telos',
+    infoUrl: 'https://telos.net/',
+    docsUrl: 'https://docs.telos.net/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-40.json',
     nativeCurrency: {
-        decimals: 18,
         name: 'Telos',
         symbol: 'TLOS',
+        uSymbol: 'ARC',
+        decimals: 18,
     },
-    rpcUrls: {
-        default: { http: ['https://mainnet.telos.net/evm/'] },
-        public: { http: ['https://mainnet.telos.net/evm/'] },
+    rpcNodes: {
+        telosProvider: {
+            http: ['https://mainnet.telos.net/evm/'],
+            provider: telosProvider,
+            authenticated: false,
+        },
+        public: {
+            http: ['https://mainnet.telos.net/evm/'],
+            provider: telosProvider,
+            authenticated: false,
+        },
+        default: {
+            http: ['https://mainnet.telos.net/evm/'],
+            provider: telosProvider,
+            authenticated: false,
+        },
     },
     blockExplorers: {
         teloscan: {
             name: 'Teloscan',
-            urls: { apiUrl: 'https://www.teloscan.io/api/', browserUrl: 'https://www.teloscan.io/' },
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://www.teloscan.io/',
+            standard: BlockExplorerStandard.None,
         },
         default: {
             name: 'Teloscan',
-            urls: { apiUrl: 'https://www.teloscan.io/api/', browserUrl: 'https://www.teloscan.io/' },
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://www.teloscan.io/',
+            standard: BlockExplorerStandard.None,
         },
     },
     contracts: {

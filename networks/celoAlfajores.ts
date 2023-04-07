@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { forno, infura } from '../providers'
 
@@ -13,31 +13,33 @@ export const celoAlfajores = {
     nativeCurrency: {
         name: 'Celo',
         symbol: 'A-CELO',
+        uSymbol: 'aA-CELO',
         decimals: 18,
     },
     rpcNodes: {
         infura: {
             http: ['https://celo-alfajores.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         forno: {
             http: ['https://alfajores-forno.celo-testnet.org/'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://alfajores-forno.celo-testnet.org/'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://alfajores-forno.celo-testnet.org/'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws/'],
             provider: forno,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

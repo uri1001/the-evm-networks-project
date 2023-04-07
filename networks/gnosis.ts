@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { ankr, blast, blockpi, gnosisProvider, onfinality, pokt } from '../providers'
+import { ankr, blast, blockpi, gnosisProvider, onfinality, pokt, quicknode } from '../providers'
 
 export const gnosis = {
     id: 100,
@@ -13,28 +13,35 @@ export const gnosis = {
     nativeCurrency: {
         name: 'Gnosis',
         symbol: 'xDAI',
+        uSymbol: 'axDAI',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         ankr: {
             http: ['https://rpc.ankr.com/gnosis/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://gnosis-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://gnosis.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://gnosis.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         pokt: {
             http: [
@@ -42,25 +49,25 @@ export const gnosis = {
                 'https://xdai-rpc.gateway.pokt.network',
             ],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         gnosisProvider: {
             http: ['https://rpc.gnosischain.com/'],
             wss: ['wss://rpc.gnosischain.com/wss/'],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.gnosischain.com/'],
             wss: ['wss://rpc.gnosischain.com/wss/'],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.gnosischain.com/'],
             wss: ['wss://rpc.gnosischain.com/wss/'],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

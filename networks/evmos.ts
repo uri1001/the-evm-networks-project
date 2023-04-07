@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { blast, blockdaemon, notional, onfinality, pokt, publicnode } from '../providers'
 
@@ -13,49 +13,50 @@ export const evmos = {
     nativeCurrency: {
         name: 'Evmos',
         symbol: 'EVMOS',
+        uSymbol: 'aEVMOS',
         decimals: 18,
     },
     rpcNodes: {
         blast: {
             http: ['https://evmos-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://evmos.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         pokt: {
             http: ['https://evmos-mainnet.gateway.pokt.network/v1/lb/627586ddea1b320039c95205/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         blockdaemon: {
             http: ['https://eth.bd.evmos.org:8545'],
             wss: ['wss://eth.bd.evmos.org:8546'],
             provider: blockdaemon,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         notional: {
             http: ['https://jsonrpc-evmos-ia.cosmosia.notional.ventures/'],
             provider: notional,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://evmos-evm.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         public: {
             http: ['https://evmos-evm.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         default: {
             http: ['https://evmos-evm.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,5 +1,4 @@
-import { RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { type Network } from '../interfaces'
 
 import { localhostProvider } from '../providers'
 
@@ -13,18 +12,19 @@ export const hardhat = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
         public: {
             http: ['http://127.0.0.1:8545'],
             provider: localhostProvider,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         default: {
             http: ['http://127.0.0.1:8545'],
             provider: localhostProvider,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
     },
     testnet: true,

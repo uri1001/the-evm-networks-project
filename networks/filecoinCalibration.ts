@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { filecoinProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const filecoinCalibration = {
     nativeCurrency: {
         name: 'Testnet Filecoin',
         symbol: 'tFIL',
+        uSymbol: 'atFIL',
         decimals: 18,
     },
     rpcNodes: {
         filecoin: {
             http: ['https://api.calibration.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.calibration.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.calibration.node.glif.io/rpc/v1/'],
             provider: filecoinProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

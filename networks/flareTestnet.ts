@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { flareProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const flareTestnet = {
     nativeCurrency: {
         name: 'Coston Flare',
         symbol: 'CFLR',
+        uSymbol: 'aCFLR',
         decimals: 18,
     },
     rpcNodes: {
         flareProvider: {
             http: ['https://coston-api.flare.network/ext/bc/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://coston-api.flare.network/ext/bc/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://coston-api.flare.network/ext/bc/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

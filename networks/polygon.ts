@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import {
     alchemy,
@@ -14,6 +14,7 @@ import {
     pokt,
     polygonProvider,
     publicnode,
+    quicknode,
 } from '../providers'
 
 export const polygon = {
@@ -26,6 +27,7 @@ export const polygon = {
     nativeCurrency: {
         name: 'MATIC',
         symbol: 'MATIC',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -33,73 +35,82 @@ export const polygon = {
             http: ['https://polygon-mainnet.g.alchemy.com/v2/'],
             wss: ['wss://polygon-mainnet.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://polygon-mainnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://polygon-mainnet.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://polygon-mainnet.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://polygon-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://polygon.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/polygon/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://polygon.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/matic/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/matic/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         pokt: {
             http: ['https://poly-rpc.gateway.pokt.network/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://polygon-bor.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         llama: {
             http: ['https://polygon.llamarpc.com/'],
             wss: ['wss://polygon.llamarpc.com/'],
             provider: llama,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         polygonProvider: {
             http: ['https://polygon-rpc.com/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://polygon-rpc.com/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://polygon-rpc.com/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

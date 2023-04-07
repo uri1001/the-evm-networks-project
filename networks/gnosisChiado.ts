@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { gnosisProvider } from '../providers'
 
@@ -13,6 +13,7 @@ export const gnosisChiado = {
     nativeCurrency: {
         name: 'Gnosis',
         symbol: 'xDAI',
+        uSymbol: 'axDAI',
         decimals: 18,
     },
     rpcNodes: {
@@ -22,7 +23,7 @@ export const gnosisChiado = {
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
             ],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: [
@@ -30,7 +31,7 @@ export const gnosisChiado = {
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
             ],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: [
@@ -38,7 +39,7 @@ export const gnosisChiado = {
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado/',
             ],
             provider: gnosisProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

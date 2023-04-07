@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { harmonyProvider } from '../providers'
+import { harmonyProvider, quicknode } from '../providers'
 
 export const harmonyTestnet = {
     id: 1666700000,
@@ -13,23 +13,30 @@ export const harmonyTestnet = {
     nativeCurrency: {
         name: 'Harmony',
         symbol: 'ONE',
+        uSymbol: 'Atto',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         harmonyProvider: {
             http: ['https://api.s0.b.hmny.io/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.s0.b.hmny.io/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.s0.b.hmny.io/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

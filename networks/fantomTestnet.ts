@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { ankr, blast, fantomProvider, omnia } from '../providers'
 
@@ -13,38 +13,39 @@ export const fantomTestnet = {
     nativeCurrency: {
         name: 'Fantom',
         symbol: 'FTM',
+        uSymbol: 'aFTM',
         decimals: 18,
     },
     rpcNodes: {
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/fantom/testnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/fantom_testnet/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://fantom-testnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         fantom: {
             http: ['https://rpc.testnet.fantom.network/'],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.testnet.fantom.network/'],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.testnet.fantom.network/'],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

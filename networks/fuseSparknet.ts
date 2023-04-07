@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { fuseProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const fuseSparknet = {
     nativeCurrency: {
         name: 'Spark',
         symbol: 'SPARK',
+        uSymbol: 'aSPARK',
         decimals: 18,
     },
     rpcNodes: {
         fuse: {
             http: ['https://rpc.fusespark.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.fusespark.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.fusespark.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

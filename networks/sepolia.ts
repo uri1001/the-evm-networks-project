@@ -1,7 +1,16 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, blast, blockpi, flashbots, infura, omnia, sepoliaProvider } from '../providers'
+import {
+    alchemy,
+    blast,
+    blockpi,
+    flashbots,
+    infura,
+    omnia,
+    quicknode,
+    sepoliaProvider,
+} from '../providers'
 
 export const sepolia = {
     id: 11155111,
@@ -13,39 +22,55 @@ export const sepolia = {
     nativeCurrency: {
         name: 'Sepolia Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://eth-sepolia.g.alchemy.com/v2/demo/'],
+            http: ['https://eth-sepolia.g.alchemy.com/v2/<private-key>'],
+            wss: ['wss://eth-sepolia.g.alchemy.com/v2/<private-key>'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://eth-sepolia.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://eth-sepolia.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://sepolia.infura.io/v3/'],
             wss: ['wss://sepolia.infura.io/ws/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        alchemyPublic: {
+            http: ['https://eth-sepolia.g.alchemy.com/v2/demo/'],
+            provider: alchemy,
+            authenticated: false,
         },
         blast: {
             http: ['https://eth-sepolia.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://ethereum-sepolia.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         flashbots: {
             http: ['https://relay-sepolia.flashbots.net/'],
             provider: flashbots,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/eth/sepolia/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         sepoliaProvider: {
             http: [
@@ -55,7 +80,7 @@ export const sepolia = {
                 'https://rpc.sepolia.online/',
             ],
             provider: sepoliaProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: [
@@ -65,7 +90,7 @@ export const sepolia = {
                 'https://rpc.sepolia.online/',
             ],
             provider: sepoliaProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: [
@@ -75,7 +100,7 @@ export const sepolia = {
                 'https://rpc.sepolia.online/',
             ],
             provider: sepoliaProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

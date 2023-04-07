@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { ankr, blast, fantomProvider, omnia, onerpc, publicnode } from '../providers'
+import { ankr, blast, fantomProvider, omnia, onerpc, publicnode, quicknode } from '../providers'
 
 export const fantom = {
     id: 250,
@@ -13,33 +13,40 @@ export const fantom = {
     nativeCurrency: {
         name: 'Fantom',
         symbol: 'FTM',
+        uSymbol: 'aFTM',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/fantom/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/ftm/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://fantom.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/fantom/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://fantom-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         fantom: {
             http: [
@@ -49,7 +56,7 @@ export const fantom = {
                 'https://rpc3.fantom.network/',
             ],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: [
@@ -59,7 +66,7 @@ export const fantom = {
                 'https://rpc3.fantom.network/',
             ],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: [
@@ -69,7 +76,7 @@ export const fantom = {
                 'https://rpc3.fantom.network/',
             ],
             provider: fantomProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

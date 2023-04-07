@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, arbitrumProvider, blast, infura, omnia, onerpc } from '../providers'
+import { alchemy, arbitrumProvider, blast, infura, omnia, onerpc, quicknode } from '../providers'
 
 export const arbitrumOne = {
     id: 42161,
@@ -13,6 +13,7 @@ export const arbitrumOne = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -20,42 +21,51 @@ export const arbitrumOne = {
             http: ['https://arb-mainnet.g.alchemy.com/v2/'],
             wss: ['wss://arb-mainnet.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.NoPrivacy,
+            authenticated: true,
+            authenticatedHttp: ['https://arb-mainnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://arb-mainnet.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://arbitrum-mainnet.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://arbitrum-one.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/arb/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/arbitrum/one/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         arbitrum: {
             http: ['https://arb1.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://arb1.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://arb1.arbitrum.io/rpc/'],
             provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

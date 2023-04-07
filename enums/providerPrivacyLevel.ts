@@ -1,4 +1,4 @@
-enum RpcDataPrivacyType {
+enum ProviderPrivacyLevel {
     Privacy = 'privacy',
     PartialPrivacy = 'partial privacy',
     NoPrivacy = 'no privacy',
@@ -6,4 +6,4 @@ enum RpcDataPrivacyType {
     TBD = 'PRIVACY RESEARCH TO BE DONE',
 }
 
-export default RpcDataPrivacyType
+export default ProviderPrivacyLevel

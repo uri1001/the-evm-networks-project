@@ -3,6 +3,7 @@ enum BlockExplorerType {
     Etherscan = 'etherscan',
     Independent = 'independent',
     Subscan = 'subscan',
+    Null = 'null',
 }
 
 export default BlockExplorerType

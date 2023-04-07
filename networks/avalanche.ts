@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import {
     ankr,
@@ -10,6 +10,7 @@ import {
     onerpc,
     pokt,
     publicnode,
+    quicknode,
 } from '../providers'
 
 export const avalanche = {
@@ -22,60 +23,68 @@ export const avalanche = {
     nativeCurrency: {
         name: 'Avalanche',
         symbol: 'AVAX',
+        uSymbol: 'aAVAX',
         decimals: 18,
     },
     rpcNodes: {
         infura: {
             http: ['https://avalanche-mainnet.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         pokt: {
             http: [
                 'https://avax-mainnet.gateway.pokt.network/v1/lb/605238bf6b986eea7cf36d5e/ext/bc/C/rpc/',
             ],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/avax/c/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/avax/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         publicnode: {
             http: ['https://avalanche-c-chain.publicnode.com/'],
             provider: publicnode,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://avalanche.public-rpc.com/', 'https://rpc.ankr.com/avalanche/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         avalanche: {
             http: ['https://api.avax.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.avax.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.avax.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

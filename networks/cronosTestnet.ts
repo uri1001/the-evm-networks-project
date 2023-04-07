@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { cronosProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const cronosTestnet = {
     nativeCurrency: {
         name: 'Cronos',
         symbol: 'TCRO',
+        uSymbol: 'baseTCRO',
         decimals: 18,
     },
     rpcNodes: {
         cronos: {
             http: ['https://evm-t3.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://evm-t3.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://evm-t3.cronos.org/'],
             provider: cronosProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

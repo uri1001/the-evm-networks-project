@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { blast, moonbeamProvider, onfinality } from '../providers'
 
@@ -13,13 +13,14 @@ export const moonriver = {
     nativeCurrency: {
         name: 'MOVR',
         symbol: 'MOVR',
+        uSymbol: 'aMOVR',
         decimals: 18,
     },
     rpcNodes: {
         blast: {
             http: ['https://moonriver.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: [
@@ -31,25 +32,25 @@ export const moonriver = {
                 'wss://moonriver.api.onfinality.io/public-ws/',
             ],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         moonbeamProvider: {
             http: ['https://rpc.api.moonriver.moonbeam.network/'],
             wss: ['wss://wss.api.moonriver.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.api.moonriver.moonbeam.network/'],
             wss: ['wss://wss.api.moonriver.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.api.moonriver.moonbeam.network/'],
             wss: ['wss://wss.api.moonriver.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { ankr, harmonyProvider, onfinality, pokt } from '../providers'
+import { ankr, harmonyProvider, onfinality, pokt, quicknode } from '../providers'
 
 export const harmonyOne = {
     id: 1666600000,
@@ -13,38 +13,45 @@ export const harmonyOne = {
     nativeCurrency: {
         name: 'Harmony',
         symbol: 'ONE',
+        uSymbol: 'Atto',
         decimals: 18,
     },
     rpcNodes: {
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
         onfinality: {
             http: ['https://harmony.api.onfinality.io/public/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/harmony/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         pokt: {
             http: ['https://harmony-0-rpc.gateway.pokt.network/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         harmonyProvider: {
             http: ['https://api.harmony.one/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.harmony.one/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.harmony.one/'],
             provider: harmonyProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

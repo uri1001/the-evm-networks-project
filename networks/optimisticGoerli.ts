@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, blast, infura, omnia, optimismProvider, thirdweb } from '../providers'
+import { alchemy, blast, infura, omnia, optimismProvider, quicknode, thirdweb } from '../providers'
 
 export const optimisticGoerli = {
     id: 420,
@@ -13,6 +13,7 @@ export const optimisticGoerli = {
     nativeCurrency: {
         name: 'Goerli Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -20,42 +21,51 @@ export const optimisticGoerli = {
             http: ['https://opt-goerli.g.alchemy.com/v2/'],
             wss: ['wss://opt-goerli.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://opt-goerli.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://opt-goerli.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://optimism-goerli.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://optimism-goerli.rpc-staging.thirdweb.com'],
             provider: thirdweb,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         blast: {
             http: ['https://optimism-goerli.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         omniatech: {
             http: ['https://endpoints.omniatech.io/v1/op/goerli/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         optimism: {
             http: ['https://goerli.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://goerli.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://goerli.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

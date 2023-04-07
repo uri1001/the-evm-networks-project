@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import {
     alchemy,
@@ -10,6 +10,7 @@ import {
     omnia,
     onerpc,
     optimismProvider,
+    quicknode,
     thirdweb,
 } from '../providers'
 
@@ -23,6 +24,7 @@ export const optimisticEthereum = {
     nativeCurrency: {
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -30,57 +32,66 @@ export const optimisticEthereum = {
             http: ['https://opt-mainnet.g.alchemy.com/v2/'],
             wss: ['wss://opt-mainnet.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://opt-mainnet.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://opt-mainnet.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://optimism-mainnet.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: [''],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://optimism.rpc-staging.thirdweb.com'],
             provider: thirdweb,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/optimism/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://optimism-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://optimism.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/op/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         omniatech: {
             http: ['https://endpoints.omniatech.io/v1/op/mainnet/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         optimism: {
             http: ['https://mainnet.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://mainnet.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://mainnet.optimism.io/'],
             provider: optimismProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

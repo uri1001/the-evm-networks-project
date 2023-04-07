@@ -1,7 +1,16 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, ankr, blast, blockpi, infura, omnia, polygonProvider } from '../providers'
+import {
+    alchemy,
+    ankr,
+    blast,
+    blockpi,
+    infura,
+    omnia,
+    polygonProvider,
+    quicknode,
+} from '../providers'
 
 export const polygonMumbai = {
     id: 80001,
@@ -13,6 +22,7 @@ export const polygonMumbai = {
     nativeCurrency: {
         name: 'MATIC',
         symbol: 'MATIC',
+        uSymbol: 'Wei',
         decimals: 18,
     },
     rpcNodes: {
@@ -20,47 +30,56 @@ export const polygonMumbai = {
             http: ['https://polygon-mumbai.g.alchemy.com/v2/'],
             wss: ['wss://polygon-mumbai.g.alchemy.com/v2/'],
             provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['https://polygon-mumbai.g.alchemy.com/v2/<private-key>'],
+            authenticatedWss: ['wss://polygon-mumbai.g.alchemy.com/v2/<private-key>'],
         },
         infura: {
             http: ['https://polygon-mumbai.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://polygon-testnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         blockpi: {
             http: ['https://polygon-mumbai.blockpi.network/v1/rpc/public/'],
             provider: blockpi,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/polygon_mumbai/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/matic/mumbai/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         polygonProvider: {
             http: ['https://rpc-mumbai.matic.today/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc-mumbai.matic.today/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc-mumbai.matic.today/'],
             provider: polygonProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

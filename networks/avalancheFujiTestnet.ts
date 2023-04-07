@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { ankr, avalancheProvider, blast, infura, omnia } from '../providers'
+import { ankr, avalancheProvider, blast, infura, omnia, quicknode } from '../providers'
 
 export const avalancheFujiTestnet = {
     id: 43113,
@@ -13,43 +13,51 @@ export const avalancheFujiTestnet = {
     nativeCurrency: {
         name: 'Avalanche Fuji',
         symbol: 'AVAX',
+        uSymbol: 'aAVAX',
         decimals: 18,
     },
     rpcNodes: {
         infura: {
             http: ['https://avalanche-fuji.infura.io/v3/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
+        },
+        quicknode: {
+            http: ['TBD'],
+            provider: quicknode,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/avax/fuji/public/'],
             provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         blast: {
             http: ['https://ava-testnet.public.blastapi.io/ext/bc/C/rpc/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/avalanche_fuji/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         avalanche: {
             http: ['https://api.avax-test.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://api.avax-test.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://api.avax-test.network/ext/bc/C/rpc/'],
             provider: avalancheProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

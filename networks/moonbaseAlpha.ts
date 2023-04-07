@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { blast, moonbeamProvider, onfinality } from '../providers'
 
@@ -13,37 +13,38 @@ export const moonbaseAlpha = {
     nativeCurrency: {
         name: 'Dev',
         symbol: 'DEV',
+        uSymbol: 'aDEV',
         decimals: 18,
     },
     rpcNodes: {
         blast: {
             http: ['https://moonbase-alpha.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://moonbeam-alpha.api.onfinality.io/public/'],
             wss: ['wss://moonbeam-alpha.api.onfinality.io/public-ws/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         moonbeamProvider: {
             http: ['https://rpc.api.moonbase.moonbeam.network/'],
             wss: ['wss://wss.api.moonbase.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.api.moonbase.moonbeam.network/'],
             wss: ['wss://wss.api.moonbase.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.api.moonbase.moonbeam.network/'],
             wss: ['wss://wss.api.moonbase.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

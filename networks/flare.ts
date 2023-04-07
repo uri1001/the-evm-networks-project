@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { flareProvider } from '../providers'
 
@@ -13,23 +13,24 @@ export const flare = {
     nativeCurrency: {
         name: 'Flare',
         symbol: 'FLR',
+        uSymbol: 'aFLR',
         decimals: 18,
     },
     rpcNodes: {
         flareProvider: {
             http: ['https://flare-api.flare.network/ext/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://flare-api.flare.network/ext/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://flare-api.flare.network/ext/C/rpc/'],
             provider: flareProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

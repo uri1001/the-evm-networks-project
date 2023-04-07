@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { ankr, blast, moonbeamProvider, onerpc, onfinality } from '../providers'
 
@@ -13,47 +13,48 @@ export const moonbeam = {
     nativeCurrency: {
         name: 'GLMR',
         symbol: 'GLMR',
+        uSymbol: 'aGLMR',
         decimals: 18,
     },
     rpcNodes: {
         blast: {
             http: ['https://moonbeam.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         onfinality: {
             http: ['https://moonbeam.api.onfinality.io/public/'],
             wss: ['wss://moonbeam.api.onfinality.io/public-ws/'],
             provider: onfinality,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
+            authenticated: false,
         },
         ankr: {
             http: ['https://rpc.ankr.com/moonbeam/'],
             provider: ankr,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         onerpc: {
             http: ['https://1rpc.io/glmr/'],
             provider: onerpc,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
+            authenticated: false,
         },
         moonbeamProvider: {
             http: ['https://rpc.api.moonbeam.network/'],
             wss: ['wss://wss.api.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.api.moonbeam.network/'],
             wss: ['wss://wss.api.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.api.moonbeam.network/'],
             wss: ['wss://wss.api.moonbeam.network/'],
             provider: moonbeamProvider,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: false,
         },
     },
     blockExplorers: {

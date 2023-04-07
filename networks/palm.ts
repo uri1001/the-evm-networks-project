@@ -1,80 +1,63 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
-import { alchemy, arbitrumProvider, blast, infura, omnia } from '../providers'
+import { blast, infura } from '../providers'
 
 export const palm = {
     id: 11297108109,
     name: 'Palm',
     network: 'palm',
-    infoUrl: 'https://arbitrum.io/',
-    docsUrl: 'https://developer.arbitrum.io/public-chains/',
-    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-421613.json',
+    infoUrl: 'https://palm.io/',
+    docsUrl: '',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-11297108109.json',
     nativeCurrency: {
-        name: 'Arbitrum Goerli Ether',
-        symbol: 'AGOR',
+        name: 'PALM',
+        symbol: 'PALM',
+        uSymbol: 'aPALM',
         decimals: 18,
     },
     rpcNodes: {
-        alchemy: {
-            http: ['https://arb-goerli.g.alchemy.com/v2/'],
-            wss: ['wss://arb-goerli.g.alchemy.com/v2/'],
-            provider: alchemy,
-            dataPrivacy: RpcDataPrivacyType.NoPrivacy,
-        },
         infura: {
-            http: ['https://palm-mainnet.infura.io/v3/'],
+            http: [
+                'https://palm-mainnet.infura.io/v3/3a961d6501e54add9a41aa53f15de99b/',
+                'https://palm-mainnet.infura.io/v3/',
+            ],
             wss: ['wss://palm-mainnet.infura.io/'],
             provider: infura,
-            dataPrivacy: RpcDataPrivacyType.TBD,
+            authenticated: true,
+            authenticatedHttp: ['TBD'],
         },
         blast: {
-            http: ['https://arbitrum-goerli.public.blastapi.io/'],
+            http: ['https://palm-mainnet.public.blastapi.io/'],
             provider: blast,
-            dataPrivacy: RpcDataPrivacyType.PartialPrivacy,
-        },
-        omnia: {
-            http: ['https://endpoints.omniatech.io/v1/arbitrum/goerli/public/'],
-            provider: omnia,
-            dataPrivacy: RpcDataPrivacyType.Privacy,
-        },
-        arbitrum: {
-            http: ['https://goerli-rollup.arbitrum.io/rpc/'],
-            provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
-            http: ['https://goerli-rollup.arbitrum.io/rpc/'],
-            provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            http: ['https://palm-mainnet.public.blastapi.io/'],
+            provider: blast,
+            authenticated: false,
         },
         default: {
-            http: ['https://goerli-rollup.arbitrum.io/rpc/'],
-            provider: arbitrumProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            http: ['https://palm-mainnet.public.blastapi.io/'],
+            provider: blast,
+            authenticated: false,
         },
     },
     blockExplorers: {
-        arbitrumExplorer: {
-            name: 'Arbitrum Explorer',
+        palmExplorer: {
+            name: 'Palm Explorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://goerli-rollup-explorer.arbitrum.io/',
-            standard: BlockExplorerStandard.EIP3091,
-        },
-        arbiscan: {
-            name: 'Arbiscan',
-            type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.arbiscan.io/',
-            apiUrl: 'https://api-goerli.arbiscan.io/',
-            docsUrl: 'https://docs.arbiscan.io/v/goerli-arbiscan/',
+            browserUrl: 'https://explorer.palm.io/',
+            apiUrl: 'https://explorer.palm.io/api/',
+            docsUrl: 'https://explorer.palm.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
         },
         default: {
-            name: 'Arbiscan',
-            type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.arbiscan.io/',
-            apiUrl: 'https://api-goerli.arbiscan.io/',
-            docsUrl: 'https://docs.arbiscan.io/v/goerli-arbiscan/',
+            name: 'Palm Explorer',
+            type: BlockExplorerType.Blockscout,
+            browserUrl: 'https://explorer.palm.io/',
+            apiUrl: 'https://explorer.palm.io/api/',
+            docsUrl: 'https://explorer.palm.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
         },
     },
@@ -84,5 +67,5 @@ export const palm = {
             blockCreated: 88114,
         },
     },
-    testnet: true,
+    testnet: false,
 } as const satisfies Network

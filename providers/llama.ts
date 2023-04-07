@@ -1,8 +1,10 @@
-import { type RpcNodeProvider } from '../utils/interfaces'
+import { ProviderPrivacyLevel } from '../enums'
+import { type RpcNodeProvider } from '../interfaces'
 
 export const llama = {
     provider: 'Llama Nodes',
     url: 'https://llamanodes.com/',
+    privacyLevel: ProviderPrivacyLevel.Privacy,
     privacyPolicy: [
         'https://llamanodes.notion.site/Privacy-Practices-f20fd8fdd02a469d9d4f42a5989bb936',
     ],

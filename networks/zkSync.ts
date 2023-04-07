@@ -1,38 +1,55 @@
-import { type Network } from '@/networks/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
+
+import { zkSyncProvider } from '../providers'
 
 export const zkSync = {
     id: 324,
     name: 'zkSync',
     network: 'zksync',
+    infoUrl: 'https://era.zksync.io/docs/',
+    docsUrl: 'https://era.zksync.io/docs/dev/',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-324.json',
     nativeCurrency: {
-        decimals: 18,
         name: 'Ether',
         symbol: 'ETH',
+        uSymbol: 'Wei',
+        decimals: 18,
     },
-    rpcUrls: {
-        default: {
-            http: ['https://zksync2-mainnet.zksync.io/'],
-            webSocket: ['wss://zksync2-mainnet.zksync.io/ws/'],
+    rpcNodes: {
+        zkSyncProvider: {
+            http: ['https://zksync2-mainnet.zksync.io/', 'https://mainnet.era.zksync.io/'],
+            wss: ['wss://zksync2-mainnet.zksync.io/ws/'],
+            provider: zkSyncProvider,
+            authenticated: false,
         },
         public: {
-            http: ['https://zksync2-mainnet.zksync.io/'],
-            webSocket: ['wss://zksync2-mainnet.zksync.io/ws/'],
+            http: ['https://zksync2-mainnet.zksync.io/', 'https://mainnet.era.zksync.io/'],
+            wss: ['wss://zksync2-mainnet.zksync.io/ws/'],
+            provider: zkSyncProvider,
+            authenticated: false,
+        },
+        default: {
+            http: ['https://zksync2-mainnet.zksync.io/', 'https://mainnet.era.zksync.io/'],
+            wss: ['wss://zksync2-mainnet.zksync.io/ws/'],
+            provider: zkSyncProvider,
+            authenticated: false,
         },
     },
     blockExplorers: {
-        zkExplorer: {
-            name: 'zkExplorer',
-            urls: {
-                apiUrl: 'https://explorer.zksync.io/api/',
-                browserUrl: 'https://explorer.zksync.io/',
-            },
+        zkSyncExplorer: {
+            name: 'ZkSync Explorer',
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://explorer.zksync.io/',
+            docsUrl: 'https://era.zksync.io/docs/dev/',
+            standard: BlockExplorerStandard.TBD,
         },
         default: {
-            name: 'zkExplorer',
-            urls: {
-                apiUrl: 'https://explorer.zksync.io/api/',
-                browserUrl: 'https://explorer.zksync.io/',
-            },
+            name: 'ZkSync Explorer',
+            type: BlockExplorerType.Independent,
+            browserUrl: 'https://explorer.zksync.io/',
+            docsUrl: 'https://era.zksync.io/docs/dev/',
+            standard: BlockExplorerStandard.TBD,
         },
     },
     testnet: false,

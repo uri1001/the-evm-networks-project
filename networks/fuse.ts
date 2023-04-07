@@ -1,5 +1,5 @@
-import { BlockExplorerStandard, BlockExplorerType, RpcDataPrivacyType } from '../utils/enums'
-import { type Network } from '../utils/interfaces'
+import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { type Network } from '../interfaces'
 
 import { fuseProvider, pokt } from '../providers'
 
@@ -13,28 +13,29 @@ export const fuse = {
     nativeCurrency: {
         name: 'Fuse',
         symbol: 'FUSE',
+        uSymbol: 'aFUSE',
         decimals: 18,
     },
     rpcNodes: {
         pokt: {
             http: ['https://fuse-rpc.gateway.pokt.network/'],
             provider: pokt,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         fuse: {
             http: ['https://rpc.fuse.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         public: {
             http: ['https://rpc.fuse.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
         default: {
             http: ['https://rpc.fuse.io/'],
             provider: fuseProvider,
-            dataPrivacy: RpcDataPrivacyType.NoInfo,
+            authenticated: false,
         },
     },
     blockExplorers: {

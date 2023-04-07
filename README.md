@@ -13,8 +13,8 @@
     EVM Networks & Node Providers Parameters Documentation
     <br />
     <br />
-    <a href="https://github.com/uri1001/the-evm-networks-project/graphs/contributors">
-        <img src="https://img.shields.io/github/contributors/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Contributors">
+    <a href="https://github.com/uri1001/the-evm-networks-project/stars">
+        <img src="https://img.shields.io/github/stars/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Stars">
     </a>
     <a href="https://github.com/uri1001/the-evm-networks-project/forks">
         <img src="https://img.shields.io/github/forks/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Forks">
@@ -22,18 +22,25 @@
     <a href="https://github.com/uri1001/the-evm-networks-project/issues">
         <img src="https://img.shields.io/github/issues/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Issues">
     </a>
+        <a href="https://github.com/uri1001/the-evm-networks-project/pulse">
+        <img src="https://img.shields.io/github/watchers/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Watchers">
+    </a>
     <a href="https://github.com/uri1001/the-evm-networks-project/graphs/commit-activity">
         <img src="https://img.shields.io/github/commit-activity/m/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Commits">
     </a>
-    <a href="https://github.com/uri1001/the-evm-networks-project/pulse">
-        <img src="https://img.shields.io/github/watchers/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Watchers">
-    </a>
     <br />
-    <a href="https://github.com/uri1001/the-evm-networks-project/issues">
-        <img src="https://img.shields.io/badge/version-0.1.0-X?colorA=21262d&colorB=161b22&style=flat" alt="Version">
-    </a>
+  <a href="https://www.npmjs.com/package/evm-networks">
+    <img src="https://img.shields.io/npm/v/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Version">
+  </a>
+  <a href="https://www.npmjs.com/package/evm-networks">
+    <img src="https://img.shields.io/npm/dm/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Downloads per month">
+  </a>
     <a href="https://github.com/uri1001/the-evm-networks-project/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="License">
+    </a>
+        <br />
+    <a href="https://github.com/uri1001/the-evm-networks-project/graphs/contributors">
+        <img src="https://img.shields.io/github/contributors/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Contributors">
     </a>
     <br />
     <br />
@@ -136,17 +143,19 @@ The completness comes from providing all resoruces needed for a full operability
 -   [ ] Native Currency
     -   [ ] Name - official human readable EVM network native currency name
     -   [ ] Symbol - official EVM network native currency symbol
-    -   [ ] USymbol - official EVM network native currency smallest unit symbol (TBD - eg in Ethereum is the Wei)
+    -   [ ] USymbol - official EVM network native currency smallest unit symbol
     -   [ ] Decimals - official EVM network native currency decimals
 -   [ ] RPC Node
-    -   [ ] HTTP - http connection endpoint
-    -   [ ] WSS - websocket connection endpoint
+    -   [ ] HTTP - http connection endpoint (for authenticated endpoints is the base endpoint url)
+    -   [ ] WSS - websocket connection endpoint (for authenticated endpoints is the base endpoint url)
     -   [ ] Provider - service provider information
-    -   [ ] Data Privacy - node connection level of data privacy offered
-    -   [ ] Protected - if node endpoints required authentication key (TBD)
+    -   [ ] Authenticated - if node endpoints requires authentication key (protected endpoints should be the ones used in production)
+    -   [ ] Authenticated HTTP - full endpoint example if authentication key required
+    -   [ ] Authenticated WSS - full endpoint example if authentication key required
 -   [ ] RPC Node Provider
     -   [ ] Provider - provider official human readable name
     -   [ ] URL - provider official website link
+    -   [ ] Data Privacy Level - level of data privacy offered in the provider node service
     -   [ ] Privacy Policy - provider privacy policy information link
 -   [ ] Block Explorer
     -   [ ] Name - official human readable name
@@ -276,7 +285,7 @@ TO BE DONE
 
 -   Ethereum Community EVM Networks List - [Networks List](https://github.com/ethereum-lists/chains/)
 
--   Wagmi SH EVM Networks Repository - [Networks Repository](https://github.com/wagmi-dev/references/tree/f0f19f3c36400058ff8fdf9eb01541a2f43a92fe/packages/chains/)
+-   WagmiSH EVM Networks Repository - [Networks Repository](https://github.com/wagmi-dev/references/tree/f0f19f3c36400058ff8fdf9eb01541a2f43a92fe/packages/chains/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
