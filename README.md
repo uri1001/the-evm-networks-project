@@ -153,7 +153,8 @@ The completness comes from providing all resoruces needed for a full operability
     -   [ ] Authenticated HTTP - full endpoint example if authentication key required
     -   [ ] Authenticated WSS - full endpoint example if authentication key required
 -   [ ] RPC Node Provider
-    -   [ ] Provider - provider official human readable name
+    -   [ ] Name - provider official human readable name
+    -   [ ] Provider - project internal provider name
     -   [ ] URL - provider official website link
     -   [ ] Data Privacy Level - level of data privacy offered in the provider node service
     -   [ ] Privacy Policy - provider privacy policy information link

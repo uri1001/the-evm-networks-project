@@ -15,10 +15,13 @@
         "uri1001 <uri1001@pm.me>"
     ],
     "scripts": {
+        "build": "npx tsc --build",
+        "compile": "npx tsc",
+        "test-utils": "npx tsc && node ./dist/src/utils/test.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint . --config .eslintrc.json",
         "lint:fix": "eslint . --fix --config .eslintrc.json",
-        "format": "eslint src/**/*.ts --fix",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "format": "eslint src/**/*.ts --fix"
     },
     "devDependencies": {
         "@types/node": "^18.15.11",
