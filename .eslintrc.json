@@ -19,14 +19,5 @@
     },
     "rules": {
         "prettier/prettier": "warn"
-        // "import/order": [
-        //     "warn",
-        //     {
-        //         "groups": [
-        //             ["external", "internal"],
-        //             ["index", "sibling", "parent", "internal"]
-        //         ]
-        //     }
-        // ]
     }
 }

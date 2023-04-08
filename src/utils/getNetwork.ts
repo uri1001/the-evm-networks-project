@@ -1,6 +1,6 @@
 import * as networks from '../networks'
 
-import { type Network } from '../interfaces'
+import { type Network } from '../types/types'
 
 // ID can be network ID as number or string or network name as string
 const getNetwork = (id: number | string): Network | undefined => {

@@ -1,10 +1,12 @@
 import * as networks from '../networks'
 
-import { type RpcEndpointsFilter } from '../interfaces'
-import type RpcNode from '../interfaces/rpcNode'
+import type RpcNode from '../types/rpcNode'
+import { type RpcEndpointsFilter } from '../types/types'
 
 // ID can be network ID as number or string or network name as string
 const getNetworkRpcUrls = (id: number | string, filter?: RpcEndpointsFilter): string[] => {
+    console.log(filter)
+
     const n = Object.values(networks)
 
     const urls: string[] = []

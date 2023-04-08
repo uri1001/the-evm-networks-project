@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../interfaces'
+import { type Network } from '../types/types'
 
 import { blast, scrollProvider } from '../providers'
 

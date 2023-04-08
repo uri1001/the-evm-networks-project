@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../interfaces'
+import { type RpcNodeProvider } from '../types/types'
 
 export const zkSyncProvider = {
     name: 'ZkSync',

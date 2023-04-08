@@ -1,6 +1,6 @@
 import * as providers from '../providers'
 
-import { type RpcNodeProvider } from '../interfaces'
+import { type RpcNodeProvider } from '../types/types'
 
 const getAllProviders = (): RpcNodeProvider[] => {
     return Object.values(providers)

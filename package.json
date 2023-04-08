@@ -4,7 +4,7 @@
     "description": "EVM Networks & Node Providers Parameters Documentation",
     "author": "Oriol Rodríguez Setó <uri1001@pm.me>",
     "license": "MIT",
-    "main": "index.ts",
+    "main": "src/index.ts",
     "homepage": "https://github.com/uri1001/the-evm-networks-project#readme",
     "repository": {
         "type": "git",
@@ -16,8 +16,8 @@
     ],
     "scripts": {
         "build": "npx tsc --build",
-        "compile": "npx tsc",
-        "test-utils": "npx tsc && node ./dist/src/utils/test.js",
+        "compile": "tsc",
+        "test-utils": "tsc && node ./dist/src/utils/test.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint . --config .eslintrc.json",
         "lint:fix": "eslint . --fix --config .eslintrc.json",

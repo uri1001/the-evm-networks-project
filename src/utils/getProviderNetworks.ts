@@ -1,7 +1,7 @@
 import * as networks from '../networks'
 
-import { type Network } from '../interfaces'
-import type RpcNode from '../interfaces/rpcNode'
+import type RpcNode from '../types/rpcNode'
+import { type Network } from '../types/types'
 
 const getProviderNetworks = (name: string): Network[] => {
     const n: Network[] = Object.values(networks)

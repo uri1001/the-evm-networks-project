@@ -1,4 +1,4 @@
-import { type Network } from '../interfaces'
+import { type Network } from '../types/types'
 
 import { localhostProvider } from '../providers'
 

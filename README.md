@@ -304,7 +304,7 @@ TO BE DONE
 
 Oriol Rodríguez Setó - uri1001@pm.me
 
-Project Link: [https://github.com/uri1001/the-evm-networks-project](https://github.com/uri1001/the-hardhat-project)
+Project Link: [https://github.com/uri1001/the-evm-networks-project](https://github.com/uri1001/the-evm-networks-project)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

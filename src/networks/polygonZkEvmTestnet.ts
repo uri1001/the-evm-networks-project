@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../interfaces'
+import { type Network } from '../types/types'
 
 import { alchemy, polygonProvider, quicknode } from '../providers'
 
