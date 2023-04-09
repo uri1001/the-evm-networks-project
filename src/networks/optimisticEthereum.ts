@@ -29,24 +29,20 @@ export const optimisticEthereum = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://opt-mainnet.g.alchemy.com/v2/'],
-            wss: ['wss://opt-mainnet.g.alchemy.com/v2/'],
+            http: [`https://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://optimism-mainnet.infura.io/v3/'],
+            http: [`https://optimism-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: [''],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://optimism.rpc-staging.thirdweb.com'],

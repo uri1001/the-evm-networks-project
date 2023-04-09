@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
 import { type Network } from '../types/types'
 
 import {
@@ -28,16 +28,14 @@ export const avalanche = {
     },
     rpcNodes: {
         infura: {
-            http: ['https://avalanche-mainnet.infura.io/v3/'],
+            http: [`https://avalanche-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         pokt: {
             http: [

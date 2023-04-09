@@ -21,7 +21,6 @@ export const bscTestnet = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/bsc/testnet/public/'],

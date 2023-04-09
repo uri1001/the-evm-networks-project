@@ -18,22 +18,15 @@ export const polygonZkEvm = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://polygonzkevm-mainnet.g.alchemy.com/v2/'],
-            wss: ['wss://polygonzkevm-mainnet.g.alchemy.com/v2/'],
+            http: [`https://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [
-                `https://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`,
-            ],
-            authenticatedWss: [
-                `wss://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`,
-            ],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         polygonProvider: {
             http: ['https://zkevm-rpc.com/'],

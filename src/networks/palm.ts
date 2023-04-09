@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
 import { type Network } from '../types/types'
 
 import { blast, infura } from '../providers'
@@ -22,10 +22,9 @@ export const palm = {
                 'https://palm-mainnet.infura.io/v3/3a961d6501e54add9a41aa53f15de99b/',
                 'https://palm-mainnet.infura.io/v3/',
             ],
-            wss: ['wss://palm-mainnet.infura.io/'],
+            wss: [`wss://palm-mainnet.infura.io/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://palm-mainnet.public.blastapi.io/'],

@@ -27,25 +27,21 @@ export const sepolia = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://eth-sepolia.g.alchemy.com/v2/'],
-            wss: ['wss://eth-sepolia.g.alchemy.com/v2/'],
+            http: [`https://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://sepolia.infura.io/v3/'],
-            wss: ['wss://sepolia.infura.io/ws/v3/'],
+            http: [`https://sepolia.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://sepolia.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         alchemyPublic: {
             http: ['https://eth-sepolia.g.alchemy.com/v2/demo/'],

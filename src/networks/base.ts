@@ -21,7 +21,6 @@ export const base = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: [''],

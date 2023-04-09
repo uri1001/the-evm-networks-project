@@ -21,7 +21,6 @@ export const gnosis = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         ankr: {
             http: ['https://rpc.ankr.com/gnosis/'],

@@ -34,26 +34,21 @@ export const mainnet = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://eth-mainnet.g.alchemy.com/v2/'],
-            wss: ['wss://eth-mainnet.g.alchemy.com/v2/'],
+            http: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://mainnet.infura.io/v3/'],
-            wss: ['wss://mainnet.infura.io/ws/v3/'],
+            http: [`https://mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://mainnet.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
-            authenticatedWss: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://ethereum.rpc.thirdweb.com/'],

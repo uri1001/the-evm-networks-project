@@ -21,7 +21,6 @@ export const fantom = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/fantom/mainnet/public/'],

@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
 import { type Network } from '../types/types'
 
 import { forno, infura, onerpc, quicknode } from '../providers'
@@ -18,16 +18,14 @@ export const celo = {
     },
     rpcNodes: {
         infura: {
-            http: ['https://celo-mainnet.infura.io/v3/'],
+            http: [`https://celo-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         onerpc: {
             http: ['https://1rpc.io/celo/'],

@@ -146,12 +146,10 @@ The completness comes from providing all resoruces needed for a full operability
     -   [ ] USymbol - official EVM network native currency smallest unit symbol
     -   [ ] Decimals - official EVM network native currency decimals
 -   [ ] RPC Node
-    -   [ ] HTTP - http connection endpoint (for authenticated endpoints is the base endpoint url)
-    -   [ ] WSS - websocket connection endpoint (for authenticated endpoints is the base endpoint url)
+    -   [ ] HTTP - http connection endpoint
+    -   [ ] WSS - websocket connection endpoint
     -   [ ] Provider - service provider information
     -   [ ] Authenticated - if node endpoints requires authentication key (protected endpoints should be the ones used in production)
-    -   [ ] Authenticated HTTP - full endpoint example if authentication key required
-    -   [ ] Authenticated WSS - full endpoint example if authentication key required
 -   [ ] RPC Node Provider
     -   [ ] Name - provider official human readable name
     -   [ ] Provider - project internal provider name

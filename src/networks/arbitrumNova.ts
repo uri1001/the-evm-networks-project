@@ -21,7 +21,6 @@ export const arbitrumNova = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://arbitrum-nova.public.blastapi.io/'],

@@ -21,7 +21,6 @@ export const harmonyOne = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         onfinality: {
             http: ['https://harmony.api.onfinality.io/public/'],

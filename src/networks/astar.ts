@@ -18,12 +18,10 @@ export const astar = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://astar-mainnet.g.alchemy.com/v2/'],
-            wss: ['wss://astar-mainnet.g.alchemy.com/v2/'],
+            http: [`https://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         onfinality: {
             http: ['https://astar.api.onfinality.io/public/'],

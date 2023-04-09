@@ -2,8 +2,10 @@ import * as networks from '../networks'
 
 import { type Network } from '../types/types'
 
+import { unknownNetwork } from './constants'
+
 // ID can be network ID as number or string or network name as string
-const getNetwork = (id: number | string): Network | undefined => {
+const getNetwork = (id: number | string): Network => {
     const n = Object.values(networks)
 
     if (isNaN(+id)) {
@@ -20,7 +22,7 @@ const getNetwork = (id: number | string): Network | undefined => {
             if (n[i].id === Number(id)) return n[i]
         }
     }
-    return undefined
+    return unknownNetwork
 }
 
 export default getNetwork

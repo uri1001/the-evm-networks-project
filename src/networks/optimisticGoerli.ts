@@ -18,24 +18,20 @@ export const optimisticGoerli = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://opt-goerli.g.alchemy.com/v2/'],
-            wss: ['wss://opt-goerli.g.alchemy.com/v2/'],
+            http: [`https://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://optimism-goerli.infura.io/v3/'],
+            http: [`https://optimism-goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://optimism-goerli.rpc-staging.thirdweb.com'],

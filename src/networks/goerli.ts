@@ -29,26 +29,21 @@ export const goerli = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://eth-goerli.g.alchemy.com/v2/'],
-            wss: ['wss://eth-goerli.g.alchemy.com/v2/'],
+            http: [`https://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://goerli.infura.io/v3/'],
-            wss: ['wss://goerli.infura.io/ws/v3/'],
+            http: [`https://goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://goerli.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
-            authenticatedWss: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         thirdweb: {
             http: ['https://goerli.rpc-staging.thirdweb.com/'],

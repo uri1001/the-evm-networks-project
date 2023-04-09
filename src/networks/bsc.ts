@@ -21,7 +21,6 @@ export const bsc = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         onerpc: {
             http: ['https://1rpc.io/bnb/'],

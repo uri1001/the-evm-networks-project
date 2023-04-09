@@ -21,7 +21,6 @@ export const harmonyTestnet = {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         harmonyProvider: {
             http: ['https://api.s0.b.hmny.io/'],

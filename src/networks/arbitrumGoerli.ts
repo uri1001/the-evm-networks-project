@@ -18,24 +18,20 @@ export const arbitrumGoerli = {
     },
     rpcNodes: {
         alchemy: {
-            http: ['https://arb-goerli.g.alchemy.com/v2/'],
-            wss: ['wss://arb-goerli.g.alchemy.com/v2/'],
+            http: [`https://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
-            authenticatedHttp: [`https://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            authenticatedWss: [`wss://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
         },
         infura: {
-            http: ['https://arbitrum-goerli.infura.io/v3/'],
+            http: [`https://arbitrum-goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         blast: {
             http: ['https://arbitrum-goerli.public.blastapi.io/'],

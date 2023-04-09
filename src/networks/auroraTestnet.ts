@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
 import { type Network } from '../types/types'
 
 import { auroraProvider, infura, omnia } from '../providers'
@@ -18,10 +18,9 @@ export const auroraTestnet = {
     },
     rpcNodes: {
         infura: {
-            http: ['https://aurora-testnet.infura.io/v3/'],
+            http: [`https://aurora-testnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: [''],
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/aurora/testnet/public/'],

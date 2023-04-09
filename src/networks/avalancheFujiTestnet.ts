@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
 import { type Network } from '../types/types'
 
 import { ankr, avalancheProvider, blast, infura, omnia, quicknode } from '../providers'
@@ -18,16 +18,14 @@ export const avalancheFujiTestnet = {
     },
     rpcNodes: {
         infura: {
-            http: ['https://avalanche-fuji.infura.io/v3/'],
+            http: [`https://avalanche-fuji.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         quicknode: {
             http: ['TBD'],
             provider: quicknode,
             authenticated: true,
-            authenticatedHttp: ['TBD'],
         },
         omnia: {
             http: ['https://endpoints.omniatech.io/v1/avax/fuji/public/'],

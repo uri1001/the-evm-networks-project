@@ -27,21 +27,18 @@ export const scrollTestnet = {
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
             authenticated: false,
-            authenticatedHttp: ['TBD'],
         },
         public: {
             http: ['https://alpha-rpc.scroll.io/l2/'],
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
             authenticated: false,
-            authenticatedHttp: ['TBD'],
         },
         default: {
             http: ['https://alpha-rpc.scroll.io/l2/'],
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
             authenticated: false,
-            authenticatedHttp: ['TBD'],
         },
     },
     blockExplorers: {
