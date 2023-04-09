@@ -1,10 +1,11 @@
 {
-    "name": "the-evm-networks-project",
+    "name": "evm-networks",
     "version": "0.1.0",
     "description": "EVM Networks & Node Providers Parameters Documentation",
     "author": "Oriol Rodríguez Setó <uri1001@pm.me>",
     "license": "MIT",
-    "main": "src/index.ts",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "homepage": "https://github.com/uri1001/the-evm-networks-project#readme",
     "repository": {
         "type": "git",
