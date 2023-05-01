@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const klaytnProvider = {
     name: 'Klaytn Foundation',
@@ -7,4 +7,4 @@ export const klaytnProvider = {
     url: 'https://klaytn.foundation/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://klaytn.foundation/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

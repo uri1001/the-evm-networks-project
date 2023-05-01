@@ -1,14 +1,14 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { type Network } from '../types'
 
-import { metisProvider } from '../providers'
+import { metisProvider, pokt } from '../providers'
 
 export const metis = {
     id: 1088,
     name: 'Metis Andromeda Mainnet',
-    network: 'metis-andromeda',
-    infoUrl: 'https://www.metis.io/',
-    docsUrl: 'https://docs.metis.io/dev/',
+    network: 'metis',
+    infoUrl: 'https://www.metis.io',
+    docsUrl: 'https://docs.metis.io/dev',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1088.json',
     nativeCurrency: {
         name: 'Metis',
@@ -17,18 +17,27 @@ export const metis = {
         decimals: 18,
     },
     rpcNodes: {
-        metisProvider: {
-            http: ['https://andromeda.metis.io/?owner=1088/'],
+        pokt: {
+            rpcNode: 'pokt',
+            http: [`https://metis-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            provider: pokt,
+            authenticated: true,
+        },
+        metis: {
+            rpcNode: 'metis',
+            http: ['https://andromeda.metis.io/?owner=1088'],
             provider: metisProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://andromeda.metis.io/?owner=1088/'],
+            rpcNode: 'public',
+            http: ['https://andromeda.metis.io/?owner=1088'],
             provider: metisProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://andromeda.metis.io/?owner=1088/'],
+            rpcNode: 'default',
+            http: ['https://andromeda.metis.io/?owner=1088'],
             provider: metisProvider,
             authenticated: false,
         },
@@ -36,19 +45,21 @@ export const metis = {
     blockExplorers: {
         metisExplorer: {
             name: 'Metis Block Explorer',
+            blockExplorer: 'metisExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://andromeda-explorer.metis.io/',
-            apiUrl: 'https://andromeda-explorer.metis.io/api/',
-            docsUrl: 'https://andromeda-explorer.metis.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://andromeda-explorer.metis.io',
+            apiUrl: 'https://andromeda-explorer.metis.io/api',
+            docsUrl: 'https://andromeda-explorer.metis.io/api-docs',
         },
         default: {
             name: 'Metis Block Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://andromeda-explorer.metis.io/',
-            apiUrl: 'https://andromeda-explorer.metis.io/api/',
-            docsUrl: 'https://andromeda-explorer.metis.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://andromeda-explorer.metis.io',
+            apiUrl: 'https://andromeda-explorer.metis.io/api',
+            docsUrl: 'https://andromeda-explorer.metis.io/api-docs',
         },
     },
     testnet: false,

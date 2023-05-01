@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { goChainProvider } from '../providers'
 
 export const goChainTestnet = {
     id: 31337,
     name: 'GoChain Testnet',
-    network: 'gochain-testnet',
+    network: 'goChainTestnet',
     infoUrl: 'https://gochain.io',
-    docsUrl: 'https://gochain.io/developers/',
+    docsUrl: 'https://gochain.io/developers',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-31337.json',
     nativeCurrency: {
         name: 'GoChain Ether',
@@ -17,18 +17,21 @@ export const goChainTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        goChainProvider: {
-            http: ['https://testnet-rpc.gochain.io/'],
+        goChain: {
+            rpcNode: 'goChain',
+            http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://testnet-rpc.gochain.io/'],
+            rpcNode: 'public',
+            http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://testnet-rpc.gochain.io/'],
+            rpcNode: 'default',
+            http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
             authenticated: false,
         },
@@ -36,16 +39,19 @@ export const goChainTestnet = {
     blockExplorers: {
         gochainExplorer: {
             name: 'GoChain Testnet Explorer',
+            blockExplorer: 'gochainExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://testnet-explorer.gochain.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet-explorer.gochain.io',
         },
         default: {
             name: 'GoChain Testnet Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://testnet-explorer.gochain.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet-explorer.gochain.io',
         },
     },
     testnet: true,
+    mainnetId: 60,
 } as const satisfies Network

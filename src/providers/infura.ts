@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const infura = {
     name: 'Infura',
@@ -10,4 +10,4 @@ export const infura = {
         'https://consensys.net/privacy-policy/',
         'https://consensys.net/blog/news/consensys-data-retention-update/',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

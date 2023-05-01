@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { ankr, filecoinProvider } from '../providers'
 
 export const filecoinHyperspace = {
     id: 3141,
     name: 'Filecoin Hyperspace',
-    network: 'filecoin-hyperspace',
-    infoUrl: 'https://filecoin.io/',
-    docsUrl: 'https://docs.filecoin.io/',
+    network: 'filecoinHyperspace',
+    infoUrl: 'https://filecoin.io',
+    docsUrl: 'https://docs.filecoin.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-3141.json',
     nativeCurrency: {
         name: 'Testnet Filecoin',
@@ -18,22 +18,26 @@ export const filecoinHyperspace = {
     },
     rpcNodes: {
         ankr: {
-            http: ['https://rpc.ankr.com/filecoin_testnet/'],
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/filecoin_testnet'],
             provider: ankr,
             authenticated: false,
         },
         filecoin: {
-            http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
+            rpcNode: 'filecoin',
+            http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
+            rpcNode: 'public',
+            http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://api.hyperspace.node.glif.io/rpc/v1/'],
+            rpcNode: 'default',
+            http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
@@ -41,28 +45,33 @@ export const filecoinHyperspace = {
     blockExplorers: {
         filscan: {
             name: 'Hyperspace Filscan',
+            blockExplorer: 'filscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://hyperspace.filscan.io/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://hyperspace.filscan.io',
         },
         filscout: {
             name: 'Hyperspace Filscout',
+            blockExplorer: 'filscout',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://hyperspace.filscout.com/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://hyperspace.filscout.com',
         },
         filfox: {
             name: 'Hyperspace Filfox',
+            blockExplorer: 'filfox',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://hyperspace.filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://hyperspace.filfox.info',
         },
         default: {
             name: 'Hyperspace Filfox',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://hyperspace.filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://hyperspace.filfox.info',
         },
     },
     testnet: true,
+    mainnetId: 314,
 } as const satisfies Network

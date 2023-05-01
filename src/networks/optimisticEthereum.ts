@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import {
     alchemy,
@@ -10,16 +10,16 @@ import {
     omnia,
     onerpc,
     optimismProvider,
-    quicknode,
+    pokt,
     thirdweb,
 } from '../providers'
 
 export const optimisticEthereum = {
     id: 10,
     name: 'Optimism',
-    network: 'optimism',
-    infoUrl: 'https://optimism.io/',
-    docsUrl: 'https://community.optimism.io/',
+    network: 'optimisticEthereum',
+    infoUrl: 'https://optimism.io',
+    docsUrl: 'https://community.optimism.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-10.json',
     nativeCurrency: {
         name: 'Ether',
@@ -29,63 +29,95 @@ export const optimisticEthereum = {
     },
     rpcNodes: {
         alchemy: {
+            rpcNode: 'alchemy',
             http: [`https://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             wss: [`wss://opt-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
         },
         infura: {
+            rpcNode: 'infura',
             http: [`https://optimism-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
         },
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
+        pokt: {
+            rpcNode: 'pokt',
+            http: [`https://optimism-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            provider: pokt,
             authenticated: true,
         },
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: ['https://optimism-rpc.gateway.pokt.network'],
+            provider: pokt,
+            authenticated: false,
+        },
         thirdweb: {
+            rpcNode: 'thirdweb',
             http: ['https://optimism.rpc-staging.thirdweb.com'],
             provider: thirdweb,
             authenticated: false,
         },
         ankr: {
-            http: ['https://rpc.ankr.com/optimism/'],
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/optimism'],
             provider: ankr,
             authenticated: false,
         },
         blast: {
-            http: ['https://optimism-mainnet.public.blastapi.io/'],
+            rpcNode: 'blast',
+            http: [`https://optimism-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://optimism-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            provider: blast,
+            authenticated: true,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            http: ['https://optimism-mainnet.public.blastapi.io'],
             provider: blast,
             authenticated: false,
         },
         blockpi: {
-            http: ['https://optimism.blockpi.network/v1/rpc/public/'],
+            rpcNode: 'blockpi',
+            http: [`https://optimism.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://optimism.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            provider: blockpi,
+            authenticated: true,
+        },
+        blockpiPublic: {
+            rpcNode: 'blockpiPublic',
+            http: ['https://optimism.blockpi.network/v1/rpc/public'],
             provider: blockpi,
             authenticated: false,
         },
         onerpc: {
-            http: ['https://1rpc.io/op/'],
+            rpcNode: 'onerpc',
+            http: ['https://1rpc.io/op'],
             provider: onerpc,
             authenticated: false,
         },
-        omniatech: {
-            http: ['https://endpoints.omniatech.io/v1/op/mainnet/public/'],
+        omnia: {
+            rpcNode: 'omnia',
+            http: ['https://endpoints.omniatech.io/v1/op/mainnet/public'],
             provider: omnia,
             authenticated: false,
         },
         optimism: {
-            http: ['https://mainnet.optimism.io/'],
+            rpcNode: 'optimism',
+            http: ['https://mainnet.optimism.io'],
             provider: optimismProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://mainnet.optimism.io/'],
+            rpcNode: 'public',
+            http: ['https://mainnet.optimism.io'],
             provider: optimismProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://mainnet.optimism.io/'],
+            rpcNode: 'default',
+            http: ['https://mainnet.optimism.io'],
             provider: optimismProvider,
             authenticated: false,
         },
@@ -93,25 +125,30 @@ export const optimisticEthereum = {
     blockExplorers: {
         optimismScan: {
             name: 'Optimism Etherscan',
+            blockExplorer: 'optimismScan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://optimistic.etherscan.io/',
-            apiUrl: 'https://api-optimistic.etherscan.io/',
-            docsUrl: 'https://docs.optimism.etherscan.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://optimistic.etherscan.io',
+            apiUrl: 'https://api-optimistic.etherscan.io',
+            docsUrl: 'https://docs.optimism.etherscan.io',
         },
         default: {
             name: 'Optimism Etherscan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://optimistic.etherscan.io/',
-            apiUrl: 'https://api-optimistic.etherscan.io/',
-            docsUrl: 'https://docs.optimism.etherscan.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://optimistic.etherscan.io',
+            apiUrl: 'https://api-optimistic.etherscan.io',
+            docsUrl: 'https://docs.optimism.etherscan.io',
         },
     },
     contracts: {
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xca11bde05977b3631167028862be2a173976ca11',
-            blockCreated: 4286263,
+            deployBlock: 4286263,
+            deployTxHash: '0xb62f9191a2cf399c0d2afd33f5b8baf7c6b52af6dd2386e44121b1bab91b80e5',
         },
     },
     testnet: false,

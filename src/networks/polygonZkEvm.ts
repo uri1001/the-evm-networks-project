@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
-import { alchemy, polygonProvider, quicknode } from '../providers'
+import { alchemy, ankr, pokt, polygonProvider } from '../providers'
 
 export const polygonZkEvm = {
     id: 1101,
     name: 'Polygon zkEVM',
-    network: 'polygon-zkevm',
-    infoUrl: 'https://polygon.technology/',
-    docsUrl: 'https://wiki.polygon.technology/',
+    network: 'polygonZkEvm',
+    infoUrl: 'https://polygon.technology',
+    docsUrl: 'https://wiki.polygon.technology',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1101.json',
     nativeCurrency: {
         name: 'Ether',
@@ -18,28 +18,47 @@ export const polygonZkEvm = {
     },
     rpcNodes: {
         alchemy: {
+            rpcNode: 'alchemy',
             http: [`https://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             wss: [`wss://polygonzkevm-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
         },
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
+        pokt: {
+            rpcNode: 'pokt',
+            http: [
+                `https://polygon-zkevm-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+            ],
+            provider: pokt,
             authenticated: true,
         },
-        polygonProvider: {
-            http: ['https://zkevm-rpc.com/'],
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: ['https://zkevm-polygon-mainnet-rpc.gateway.pokt.network'],
+            provider: pokt,
+            authenticated: false,
+        },
+        ankr: {
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/polygon_zkevm'],
+            provider: ankr,
+            authenticated: false,
+        },
+        polygon: {
+            rpcNode: 'polygon',
+            http: ['https://zkevm-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://zkevm-rpc.com/'],
+            rpcNode: 'public',
+            http: ['https://zkevm-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://zkevm-rpc.com/'],
+            rpcNode: 'default',
+            http: ['https://zkevm-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
@@ -47,19 +66,21 @@ export const polygonZkEvm = {
     blockExplorers: {
         polygonScan: {
             name: 'zkEVM PolygonScan',
+            blockExplorer: 'polygonScan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://zkevm.polygonscan.com/',
-            apiUrl: 'https://api-zkevm.polygonscan.com/api/',
-            docsUrl: 'https://zkevm.polygonscan.com/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://zkevm.polygonscan.com',
+            apiUrl: 'https://api-zkevm.polygonscan.com/api',
+            docsUrl: 'https://zkevm.polygonscan.com/apis',
         },
         default: {
             name: 'zkEVM PolygonScan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://zkevm.polygonscan.com/',
-            apiUrl: 'https://api-zkevm.polygonscan.com/api/',
-            docsUrl: 'https://zkevm.polygonscan.com/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://zkevm.polygonscan.com',
+            apiUrl: 'https://api-zkevm.polygonscan.com/api',
+            docsUrl: 'https://zkevm.polygonscan.com/apis',
         },
     },
     testnet: false,

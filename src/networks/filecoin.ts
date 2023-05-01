@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { ankr, filecoinProvider } from '../providers'
 
 export const filecoin = {
     id: 314,
     name: 'Filecoin Mainnet',
-    network: 'filecoin-mainnet',
-    infoUrl: 'https://filecoin.io/',
-    docsUrl: 'https://docs.filecoin.io/',
+    network: 'filecoin',
+    infoUrl: 'https://filecoin.io',
+    docsUrl: 'https://docs.filecoin.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-314.json',
     nativeCurrency: {
         name: 'Filecoin',
@@ -18,22 +18,26 @@ export const filecoin = {
     },
     rpcNodes: {
         ankr: {
-            http: ['https://rpc.ankr.com/filecoin/'],
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/filecoin'],
             provider: ankr,
             authenticated: false,
         },
         filecoin: {
-            http: ['https://api.node.glif.io/'],
+            rpcNode: 'filecoin',
+            http: ['https://api.node.glif.io/rpc/v1', 'https://api.node.glif.io'],
             provider: filecoinProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://api.node.glif.io/'],
+            rpcNode: 'public',
+            http: ['https://api.node.glif.io/rpc/v1', 'https://api.node.glif.io'],
             provider: filecoinProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://api.node.glif.io/'],
+            rpcNode: 'default',
+            http: ['https://api.node.glif.io/rpc/v1', 'https://api.node.glif.io'],
             provider: filecoinProvider,
             authenticated: false,
         },
@@ -41,33 +45,38 @@ export const filecoin = {
     blockExplorers: {
         glif: {
             name: 'Glif Explorer',
+            blockExplorer: 'glif',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.glif.io/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://explorer.glif.io',
         },
         filscan: {
             name: 'Filscan',
+            blockExplorer: 'filscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://filscan.io/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://filscan.io',
         },
         filscout: {
             name: 'Filscout',
+            blockExplorer: 'filscout',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://www.filscout.com/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://www.filscout.com',
         },
         filfox: {
             name: 'Filfox',
+            blockExplorer: 'filfox',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://filfox.info',
         },
         default: {
             name: 'Filfox',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://filfox.info',
         },
     },
     testnet: false,

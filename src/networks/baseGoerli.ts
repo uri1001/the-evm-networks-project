@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { baseProvider, blast } from '../providers'
 
 export const baseGoerli = {
     id: 84531,
     name: 'Base Goerli',
-    network: 'base-goerli',
-    infoUrl: 'https://base.org/',
-    docsUrl: 'https://docs.base.org/',
+    network: 'baseGoerli',
+    infoUrl: 'https://base.org',
+    docsUrl: 'https://docs.base.org',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-84531.json',
     nativeCurrency: {
         name: 'Base Goerli Ether',
@@ -18,22 +18,26 @@ export const baseGoerli = {
     },
     rpcNodes: {
         blast: {
-            http: ['https://base-goerli.public.blastapi.io/'],
+            rpcNode: 'blast',
+            http: ['https://base-goerli.public.blastapi.io'],
             provider: blast,
             authenticated: false,
         },
         base: {
-            http: ['https://goerli.base.org/'],
+            rpcNode: 'base',
+            http: ['https://goerli.base.org'],
             provider: baseProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://goerli.base.org/'],
+            rpcNode: 'public',
+            http: ['https://goerli.base.org'],
             provider: baseProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://goerli.base.org/'],
+            rpcNode: 'default',
+            http: ['https://goerli.base.org'],
             provider: baseProvider,
             authenticated: false,
         },
@@ -41,28 +45,32 @@ export const baseGoerli = {
     blockExplorers: {
         baseExplorer: {
             name: 'Base Goerli Explorer',
+            blockExplorer: 'baseExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://base-goerli.blockscout.com/',
-            apiUrl: 'https://eth-goerli.blockscout.com/api/',
-            docsUrl: 'https://docs.blockscout.com/for-users/api/rpc-endpoints/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://base-goerli.blockscout.com',
+            apiUrl: 'https://eth-goerli.blockscout.com/api',
+            docsUrl: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
         },
         basescan: {
             name: 'Basescan Goerli',
+            blockExplorer: 'basescan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.basescan.org/',
-            apiUrl: 'https://api-goerli.basescan.org/api/',
-            docsUrl: 'https://goerli.basescan.org/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.basescan.org',
+            apiUrl: 'https://api-goerli.basescan.org/api',
+            docsUrl: 'https://goerli.basescan.org/apis',
         },
         default: {
             name: 'Basescan Goerli',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.basescan.org/',
-            apiUrl: 'https://api-goerli.basescan.org/api/',
-            docsUrl: 'https://goerli.basescan.org/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.basescan.or/',
+            apiUrl: 'https://api-goerli.basescan.org/api',
+            docsUrl: 'https://goerli.basescan.org/apis',
         },
     },
     testnet: true,
+    mainnetId: 8453,
 } as const satisfies Network

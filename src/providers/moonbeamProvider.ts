@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const moonbeamProvider = {
     name: 'Moonbeam Foundation',
@@ -7,4 +7,4 @@ export const moonbeamProvider = {
     url: 'https://moonbeam.network/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://moonbeam.foundation/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

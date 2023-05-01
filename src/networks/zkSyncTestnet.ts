@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { zkSyncProvider } from '../providers'
 
 export const zkSyncTestnet = {
     id: 280,
     name: 'zkSync Testnet',
-    network: 'zksync-testnet',
-    infoUrl: 'https://era.zksync.io/docs/',
-    docsUrl: 'https://era.zksync.io/docs/dev/',
+    network: 'zksyncTestnet',
+    infoUrl: 'https://era.zksync.io/docs',
+    docsUrl: 'https://era.zksync.io/docs/dev',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-280.json',
     nativeCurrency: {
         name: 'Ether',
@@ -17,21 +17,24 @@ export const zkSyncTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        zkSyncProvider: {
-            http: ['https://zksync2-testnet.zksync.dev/', 'https://testnet.era.zksync.dev/'],
-            wss: ['wss://zksync2-testnet.zksync.dev/ws/'],
+        zkSync: {
+            rpcNode: 'zkSync',
+            http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
+            wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://zksync2-testnet.zksync.dev/', 'https://testnet.era.zksync.dev/'],
-            wss: ['wss://zksync2-testnet.zksync.dev/ws/'],
+            rpcNode: 'public',
+            http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
+            wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://zksync2-testnet.zksync.dev/', 'https://testnet.era.zksync.dev/'],
-            wss: ['wss://zksync2-testnet.zksync.dev/ws/'],
+            rpcNode: 'default',
+            http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
+            wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
             authenticated: false,
         },
@@ -39,18 +42,21 @@ export const zkSyncTestnet = {
     blockExplorers: {
         zkSyncExplorer: {
             name: 'Testnet ZkSync Explorer',
+            blockExplorer: 'zkSyncExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://goerli.explorer.zksync.io/',
-            docsUrl: 'https://era.zksync.io/docs/dev/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.explorer.zksync.io',
+            docsUrl: 'https://era.zksync.io/docs/dev',
         },
         default: {
             name: 'Testnet ZkSync Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://goerli.explorer.zksync.io/',
-            docsUrl: 'https://era.zksync.io/docs/dev/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.explorer.zksync.io',
+            docsUrl: 'https://era.zksync.io/docs/dev',
         },
     },
     testnet: true,
+    mainnetId: 324,
 } as const satisfies Network

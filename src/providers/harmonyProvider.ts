@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const harmonyProvider = {
     name: 'Harmony Network',
@@ -7,4 +7,4 @@ export const harmonyProvider = {
     url: 'https://www.harmony.one/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://www.harmony.one/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

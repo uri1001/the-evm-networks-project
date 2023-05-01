@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const cronosProvider = {
     name: 'Cronos',
@@ -7,4 +7,4 @@ export const cronosProvider = {
     url: 'https://cronos.org/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://cronos.org/cronos-privacy-notice.pdf'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

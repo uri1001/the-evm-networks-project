@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { taraxaProvider } from '../providers'
 
@@ -7,8 +7,8 @@ export const taraxa = {
     id: 841,
     name: 'Taraxa Mainnet',
     network: 'taraxa',
-    infoUrl: 'https://taraxa.io/',
-    docsUrl: 'https://docs.taraxa.io/',
+    infoUrl: 'https://taraxa.io',
+    docsUrl: 'https://docs.taraxa.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-841.json',
     nativeCurrency: {
         name: 'Tara',
@@ -17,18 +17,21 @@ export const taraxa = {
         decimals: 18,
     },
     rpcNodes: {
-        taraxaProvider: {
-            http: ['https://rpc.mainnet.taraxa.io/'],
+        taraxa: {
+            rpcNode: 'taraxa',
+            http: ['https://rpc.mainnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc.mainnet.taraxa.io/'],
+            rpcNode: 'public',
+            http: ['https://rpc.mainnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc.mainnet.taraxa.io/'],
+            rpcNode: 'default',
+            http: ['https://rpc.mainnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
@@ -36,15 +39,17 @@ export const taraxa = {
     blockExplorers: {
         taraxaExplorer: {
             name: 'Taraxa Explorer',
+            blockExplorer: 'taraxaExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.mainnet.taraxa.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.mainnet.taraxa.io',
         },
         default: {
             name: 'Taraxa Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.mainnet.taraxa.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.mainnet.taraxa.io',
         },
     },
     testnet: false,

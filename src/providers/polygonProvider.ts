@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const polygonProvider = {
     name: 'Polygon Labs',
@@ -7,4 +7,4 @@ export const polygonProvider = {
     url: 'https://polygon.technology/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://polygon.technology/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

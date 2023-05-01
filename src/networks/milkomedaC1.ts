@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { milkomedaProvider } from '../providers'
 
 export const milkomedaC1 = {
     id: 2001,
     name: 'Milkomeda C1 Mainnet',
-    network: 'milkomeda-c1 mainnet',
-    infoUrl: 'https://milkomeda.com/',
-    docsUrl: 'https://dcspark.github.io/milkomeda-documentation/',
+    network: 'milkomedaC1',
+    infoUrl: 'https://milkomeda.com',
+    docsUrl: 'https://dcspark.github.io/milkomeda-documentation',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-2001.json',
     nativeCurrency: {
         name: 'MilkADA',
@@ -18,19 +18,22 @@ export const milkomedaC1 = {
     },
     rpcNodes: {
         milkomeda: {
-            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com/'],
+            rpcNode: 'milkomeda',
+            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             wss: ['wss://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             provider: milkomedaProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com/'],
+            rpcNode: 'public',
+            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             wss: ['wss://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             provider: milkomedaProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com/'],
+            rpcNode: 'default',
+            http: ['https://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             wss: ['wss://rpc-mainnet-cardano-evm.c1.milkomeda.com'],
             provider: milkomedaProvider,
             authenticated: false,
@@ -39,19 +42,21 @@ export const milkomedaC1 = {
     blockExplorers: {
         milkomedaExplorer: {
             name: 'Milkomeda C1 Explorer',
+            blockExplorer: 'milkomedaExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/',
-            apiUrl: 'https://localhost:4000/api/',
-            docsUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/api-docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com',
+            apiUrl: 'https://localhost:4000/api',
+            docsUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/api-docs',
         },
         default: {
             name: 'Milkomeda C1 Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/',
-            apiUrl: 'https://localhost:4000/api/',
-            docsUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/api-docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com',
+            apiUrl: 'https://localhost:4000/api',
+            docsUrl: 'https://explorer-mainnet-cardano-evm.c1.milkomeda.com/api-docs',
         },
     },
     testnet: false,

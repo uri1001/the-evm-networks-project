@@ -26,6 +26,7 @@ interface Network {
         multicall3?: Contract
     }
     testnet: boolean
+    mainnetId?: number
 }
 
 export default Network

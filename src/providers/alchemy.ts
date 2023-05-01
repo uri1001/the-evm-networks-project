@@ -1,10 +1,10 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const alchemy = {
     name: 'Alchemy',
     provider: 'alchemy',
-    url: 'https://www.alchemy.com/',
+    url: 'https://www.alchemy.com',
     privacyLevel: ProviderPrivacyLevel.NoPrivacy,
-    privacyPolicy: ['https://www.alchemy.com/policies/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+    privacyPolicy: ['https://www.alchemy.com/policies/privacy-policy'],
+} as const satisfies RpcProvider

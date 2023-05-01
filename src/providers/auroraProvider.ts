@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const auroraProvider = {
     name: 'Aurora',
@@ -7,4 +7,4 @@ export const auroraProvider = {
     url: 'https://aurora.dev/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://aurora.dev/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

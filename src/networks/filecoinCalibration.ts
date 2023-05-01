@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { filecoinProvider } from '../providers'
 
 export const filecoinCalibration = {
     id: 314159,
     name: 'Filecoin Calibration',
-    network: 'filecoin-calibration',
-    infoUrl: 'https://filecoin.io/',
-    docsUrl: 'https://docs.filecoin.io/',
+    network: 'filecoinCalibration',
+    infoUrl: 'https://filecoin.io',
+    docsUrl: 'https://docs.filecoin.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-314159.json',
     nativeCurrency: {
         name: 'Testnet Filecoin',
@@ -18,17 +18,20 @@ export const filecoinCalibration = {
     },
     rpcNodes: {
         filecoin: {
-            http: ['https://api.calibration.node.glif.io/rpc/v1/'],
+            rpcNode: 'filecoin',
+            http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://api.calibration.node.glif.io/rpc/v1/'],
+            rpcNode: 'public',
+            http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://api.calibration.node.glif.io/rpc/v1/'],
+            rpcNode: 'default',
+            http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
             authenticated: false,
         },
@@ -36,28 +39,33 @@ export const filecoinCalibration = {
     blockExplorers: {
         filscan: {
             name: 'Calibration Filscan',
+            blockExplorer: 'filscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://calibration.filscan.io/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://calibration.filscan.io',
         },
         filscout: {
             name: 'Calibration Filscout',
+            blockExplorer: 'filscout',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://calibration.filscout.com/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://calibration.filscout.com',
         },
         filfox: {
             name: 'Calibration Filfox',
+            blockExplorer: 'filfox',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://calibration.filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://calibration.filfox.info',
         },
         default: {
             name: 'Calibration Filfox',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://calibration.filfox.info/',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://calibration.filfox.info',
         },
     },
     testnet: true,
+    mainnetId: 314,
 } as const satisfies Network

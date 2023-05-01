@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const onfinality = {
     name: 'OnFinality',
@@ -7,4 +7,4 @@ export const onfinality = {
     url: 'https://onfinality.io/',
     privacyLevel: ProviderPrivacyLevel.PartialPrivacy,
     privacyPolicy: ['https://onfinality.io/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

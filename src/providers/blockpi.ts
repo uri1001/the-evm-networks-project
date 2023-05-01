@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const blockpi = {
     name: 'BlockPI Network',
@@ -7,4 +7,4 @@ export const blockpi = {
     url: 'https://blockpi.io/',
     privacyLevel: ProviderPrivacyLevel.PartialPrivacy,
     privacyPolicy: ['https://blockpi.io/privacy-policy'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

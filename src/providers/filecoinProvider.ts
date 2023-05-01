@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const filecoinProvider = {
     name: 'Protocol Labs',
@@ -7,4 +7,4 @@ export const filecoinProvider = {
     url: 'https://protocol.ai/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://protocol.ai/legal/#privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

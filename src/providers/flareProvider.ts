@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const flareProvider = {
     name: 'Flare Network',
@@ -7,4 +7,4 @@ export const flareProvider = {
     url: 'https://flare.network/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://flare.network/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

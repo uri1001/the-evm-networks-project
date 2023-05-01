@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { metisProvider } from '../providers'
 
 export const metisTestnet = {
     id: 599,
     name: 'Metis Testnet',
-    network: 'metis-testnet',
-    infoUrl: 'https://www.metis.io/',
-    docsUrl: 'https://docs.metis.io/dev/',
+    network: 'metisTestnet',
+    infoUrl: 'https://www.metis.io',
+    docsUrl: 'https://docs.metis.io/dev',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-599.json',
     nativeCurrency: {
         name: 'Test Metis',
@@ -17,18 +17,21 @@ export const metisTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        metisProvider: {
-            http: ['https://goerli.gateway.metisdevops.link/'],
+        metis: {
+            rpcNode: 'metis',
+            http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://goerli.gateway.metisdevops.link/'],
+            rpcNode: 'public',
+            http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://goerli.gateway.metisdevops.link/'],
+            rpcNode: 'default',
+            http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
             authenticated: false,
         },
@@ -36,20 +39,23 @@ export const metisTestnet = {
     blockExplorers: {
         metisExplorer: {
             name: 'Metis Testnet Block Explorer',
+            blockExplorer: 'metisExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://goerli.explorer.metisdevops.link/',
-            apiUrl: 'https://goerli.explorer.metisdevops.link/api/',
-            docsUrl: 'https://goerli.explorer.metisdevops.link/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.explorer.metisdevops.link',
+            apiUrl: 'https://goerli.explorer.metisdevops.link/api',
+            docsUrl: 'https://goerli.explorer.metisdevops.link/api-docs',
         },
         default: {
             name: 'Metis Testnet Block Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://goerli.explorer.metisdevops.link/',
-            apiUrl: 'https://goerli.explorer.metisdevops.link/api/',
-            docsUrl: 'https://goerli.explorer.metisdevops.link/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.explorer.metisdevops.link',
+            apiUrl: 'https://goerli.explorer.metisdevops.link/api',
+            docsUrl: 'https://goerli.explorer.metisdevops.link/api-docs',
         },
     },
-    testnet: false,
+    testnet: true,
+    mainnetId: 1088,
 } as const satisfies Network

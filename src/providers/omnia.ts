@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const omnia = {
     name: 'Omnia Tech',
@@ -10,4 +10,4 @@ export const omnia = {
         'https://www.omniaretail.com/privacy-policy',
         'https://blog.omniatech.io/how-omnia-handles-your-personal-data/',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

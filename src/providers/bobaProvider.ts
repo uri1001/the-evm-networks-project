@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const bobaProvider = {
     name: 'Boba',
@@ -7,4 +7,4 @@ export const bobaProvider = {
     url: 'https://boba.network/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://forum.boba.network/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

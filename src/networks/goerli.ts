@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import {
     alchemy,
@@ -10,7 +10,7 @@ import {
     infura,
     omnia,
     onfinality,
-    quicknode,
+    pokt,
     thirdweb,
 } from '../providers'
 
@@ -19,7 +19,7 @@ export const goerli = {
     name: 'Goerli',
     network: 'goerli',
     infoUrl: 'https://goerli.net/#about',
-    docsUrl: 'https://github.com/eth-clients/goerli/',
+    docsUrl: 'https://github.com/eth-clients/goerli',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-5.json',
     nativeCurrency: {
         name: 'Goerli Ether',
@@ -29,64 +29,99 @@ export const goerli = {
     },
     rpcNodes: {
         alchemy: {
+            rpcNode: 'alchemy',
             http: [`https://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             wss: [`wss://eth-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
         },
         infura: {
+            rpcNode: 'infura',
             http: [`https://goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
             wss: [`wss://goerli.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
         },
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
+        pokt: {
+            rpcNode: 'pokt',
+            http: [
+                `https://eth-goerli.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://goerli-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+            ],
+            provider: pokt,
             authenticated: true,
         },
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: ['https://eth-goerli-rpc.gateway.pokt.network'],
+            provider: pokt,
+            authenticated: false,
+        },
         thirdweb: {
-            http: ['https://goerli.rpc-staging.thirdweb.com/'],
+            rpcNode: 'thirdweb',
+            http: ['https://goerli.rpc-staging.thirdweb.com'],
             provider: thirdweb,
             authenticated: false,
         },
         onfinality: {
-            http: ['https://eth-goerli.api.onfinality.io/public/'],
+            rpcNode: 'onfinality',
+            http: ['https://eth-goerli.api.onfinality.io/public'],
             provider: onfinality,
             authenticated: false,
         },
         blast: {
-            http: ['https://eth-goerli.public.blastapi.io/'],
+            rpcNode: 'blast',
+            http: [`https://eth-goerli.blastapi.io/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://eth-goerli.blastapi.io/${EndpointAuth.PrivateKey}`],
+            provider: blast,
+            authenticated: true,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            http: ['https://eth-goerli.public.blastapi.io'],
             provider: blast,
             authenticated: false,
         },
         blockpi: {
-            http: ['https://goerli.blockpi.network/v1/rpc/public/'],
+            rpcNode: 'blockpi',
+            http: [`https://goerli.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://goerli.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            provider: blockpi,
+            authenticated: true,
+        },
+        blockpiPublic: {
+            rpcNode: 'blockpiPublic',
+            http: ['https://goerli.blockpi.network/v1/rpc/public'],
             provider: blockpi,
             authenticated: false,
         },
-        ankr: {
-            http: ['https://rpc.ankr.com/eth_goerli/'],
-            provider: ankr,
-            authenticated: false,
-        },
         flashbots: {
-            http: ['https://relay-goerli.flashbots.net/'],
+            rpcNode: 'flashbots',
+            http: ['https://relay-goerli.flashbots.net'],
             provider: flashbots,
             authenticated: false,
         },
         omnia: {
-            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            rpcNode: 'omnia',
+            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public'],
             provider: omnia,
             authenticated: false,
         },
+        ankr: {
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/eth_goerli'],
+            provider: ankr,
+            authenticated: false,
+        },
         public: {
-            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            rpcNode: 'public',
+            http: ['https://rpc.ankr.com/eth_goerli'],
             provider: omnia,
             authenticated: false,
         },
         default: {
-            http: ['https://endpoints.omniatech.io/v1/eth/goerli/public/'],
+            rpcNode: 'default',
+            http: ['hhttps://rpc.ankr.com/eth_goerli'],
             provider: omnia,
             authenticated: false,
         },
@@ -94,33 +129,46 @@ export const goerli = {
     blockExplorers: {
         etherscan: {
             name: 'Goerli Etherscan',
+            blockExplorer: 'etherscan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.etherscan.io/',
-            apiUrl: 'https://api-goerli.etherscan.io/',
-            docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.etherscan.io',
+            apiUrl: 'https://api-goerli.etherscan.io',
+            docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan',
         },
         default: {
             name: 'Goerli Etherscan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://goerli.etherscan.io/',
-            apiUrl: 'https://api-goerli.etherscan.io/',
-            docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://goerli.etherscan.io',
+            apiUrl: 'https://api-goerli.etherscan.io',
+            docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan',
         },
     },
     contracts: {
         ensRegistry: {
+            name: 'ENS Registry',
+            contract: 'ensRegistry',
             address: '0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e',
+            deployBlock: 2086611,
+            deployTxHash: '0x408a700dd95c50c3b76f373047a9901185824dce4e99e3831f41a4cbbf0b4f1b',
         },
         ensUniversalResolver: {
+            name: 'ENS Universal Resolver',
+            contract: 'ensUniversalResolver',
             address: '0xA292E2E58d4ddEb29C33c63173d0E8B7a2A4c62e',
-            blockCreated: 8610406,
+            deployBlock: 8610406,
+            deployTxHash: '0xedd332c4ff23dec8cfa4fdd8014915a5e078d12b0b8fb4155d46cb5d989fb365',
         },
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xca11bde05977b3631167028862be2a173976ca11',
-            blockCreated: 6507670,
+            deployBlock: 6507670,
+            deployTxHash: '0x3153c4298595bf85f1bf2113fb05b7807fbd4e1ff6fbdc1a42ad918106c497ea',
         },
     },
     testnet: true,
+    mainnetId: 1,
 } as const satisfies Network

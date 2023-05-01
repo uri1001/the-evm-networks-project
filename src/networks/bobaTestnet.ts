@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { bobaProvider } from '../providers'
 
 export const bobaTestnet = {
     id: 2888,
     name: 'Boba Network Goerli Testnet',
-    network: 'boba-goerli',
-    infoUrl: 'https://boba.network/',
-    docsUrl: 'https://docs.boba.network/',
+    network: 'bobaTestnet',
+    infoUrl: 'https://boba.network',
+    docsUrl: 'https://docs.boba.network',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-2888.json',
     nativeCurrency: {
         name: 'Goerli Ether',
@@ -18,17 +18,20 @@ export const bobaTestnet = {
     },
     rpcNodes: {
         boba: {
-            http: ['https://goerli.boba.network/'],
+            rpcNode: 'boba',
+            http: ['https://goerli.boba.network'],
             provider: bobaProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://goerli.boba.network/'],
+            rpcNode: 'public',
+            http: ['https://goerli.boba.network'],
             provider: bobaProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://goerli.boba.network/'],
+            rpcNode: 'default',
+            http: ['https://goerli.boba.network'],
             provider: bobaProvider,
             authenticated: false,
         },
@@ -36,20 +39,23 @@ export const bobaTestnet = {
     blockExplorers: {
         bobascan: {
             name: 'BOBAScan Goerli Testnet',
+            blockExplorer: 'bobascan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://testnet.bobascan.com/',
-            apiUrl: 'https://api-testnet.bobascan.com/api/',
-            docsUrl: 'https://testnet.bobascan.com/apis/',
-            standard: BlockExplorerStandard.None,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet.bobascan.com',
+            apiUrl: 'https://api-testnet.bobascan.com/api',
+            docsUrl: 'https://testnet.bobascan.com/apis',
         },
         default: {
             name: 'BOBAScan Goerli Testnet',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://testnet.bobascan.com/',
-            apiUrl: 'https://api-testnet.bobascan.com/api/',
-            docsUrl: 'https://testnet.bobascan.com/apis/',
-            standard: BlockExplorerStandard.None,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet.bobascan.com',
+            apiUrl: 'https://api-testnet.bobascan.com/api',
+            docsUrl: 'https://testnet.bobascan.com/apis',
         },
     },
     testnet: true,
+    mainnetId: 288,
 } as const satisfies Network

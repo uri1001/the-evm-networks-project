@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const llama = {
     name: 'Llama Nodes',
@@ -9,4 +9,4 @@ export const llama = {
     privacyPolicy: [
         'https://llamanodes.notion.site/Privacy-Practices-f20fd8fdd02a469d9d4f42a5989bb936',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

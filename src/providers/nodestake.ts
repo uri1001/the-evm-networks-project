@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const nodestake = {
     name: 'NodeStake',
@@ -7,4 +7,4 @@ export const nodestake = {
     privacyLevel: ProviderPrivacyLevel.TBD,
     url: 'https://nodestake.top/',
     privacyPolicy: ['not found'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const goChainProvider = {
     name: 'Go Chain',
@@ -7,4 +7,4 @@ export const goChainProvider = {
     url: 'https://gochain.io/',
     privacyLevel: ProviderPrivacyLevel.NoInfo,
     privacyPolicy: ['not found'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

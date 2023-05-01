@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const milkomedaProvider = {
     name: 'Milkomeda',
@@ -7,4 +7,4 @@ export const milkomedaProvider = {
     url: 'https://milkomeda.com/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://milkomeda.com/terms-of-use/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

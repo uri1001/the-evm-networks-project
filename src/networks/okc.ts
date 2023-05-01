@@ -1,60 +1,74 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { type Network } from '../types'
 
-import { okx } from '../providers'
+import { okx, pokt } from '../providers'
 
 export const okc = {
     id: 66,
-    name: 'OKC',
+    name: 'OKT Chain',
     network: 'okc',
-    infoUrl: 'https://www.okex.com/okc/',
-    docsUrl: 'https://www.okx.com/oktc/build/',
+    infoUrl: 'https://www.okex.com/oktc',
+    docsUrl: 'https://www.okx.com/oktc/docs/dev/quick-start/overview',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-66.json',
     nativeCurrency: {
-        decimals: 18,
         name: 'OKT',
-        uSymbol: 'aOKT',
         symbol: 'OKT',
+        uSymbol: 'aOKT',
+        decimals: 18,
     },
     rpcNodes: {
+        pokt: {
+            rpcNode: 'pokt',
+            http: [`https://oKc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            provider: pokt,
+            authenticated: true,
+        },
         okex: {
-            http: ['https://exchainrpc.okex.org/'],
+            rpcNode: 'okex',
+            http: ['https://exchainrpc.okex.org'],
             provider: okx,
             authenticated: false,
         },
         public: {
-            http: ['https://exchainrpc.okex.org/'],
+            rpcNode: 'public',
+            http: ['https://exchainrpc.okex.org'],
             provider: okx,
             authenticated: false,
         },
         default: {
-            http: ['https://exchainrpc.okex.org/'],
+            rpcNode: 'default',
+            http: ['https://exchainrpc.okex.org'],
             provider: okx,
             authenticated: false,
         },
     },
     blockExplorers: {
         oklink: {
-            name: 'Oklink',
+            name: 'Oklink OKT Chain',
+            blockExplorer: 'oklink',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://www.oklink.com/okc/',
-            apiUrl: 'https://www.oklink.com/',
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://www.oklink.com/oktc',
+            apiUrl: 'https://www.oklink.com',
             docsUrl: 'https://www.oklink.com/docs/en/#overview',
-            standard: BlockExplorerStandard.TBD,
         },
         default: {
-            name: 'Oklink',
+            name: 'Oklink OKT Chain',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://www.oklink.com/okc/',
-            apiUrl: 'https://www.oklink.com/',
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://www.oklink.com/oktc',
+            apiUrl: 'https://www.oklink.com',
             docsUrl: 'https://www.oklink.com/docs/en/#overview',
-            standard: BlockExplorerStandard.TBD,
         },
     },
     contracts: {
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xca11bde05977b3631167028862be2a173976ca11',
-            blockCreated: 10364792,
+            deployBlock: 10364792,
+            deployTxHash: '0xc8cd3ea6ef045f598c9cd724e58bc31f6e9dcc3688d55a5244654bbeed9d69d8',
         },
     },
     testnet: false,

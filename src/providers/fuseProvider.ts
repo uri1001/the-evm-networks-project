@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const fuseProvider = {
     name: 'Fuse Network',
@@ -7,4 +7,4 @@ export const fuseProvider = {
     url: 'https://fuse.io/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://fuse.cash/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

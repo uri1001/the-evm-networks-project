@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { telosProvider } from '../providers'
 
@@ -7,8 +7,8 @@ export const telos = {
     id: 40,
     name: 'Telos',
     network: 'telos',
-    infoUrl: 'https://telos.net/',
-    docsUrl: 'https://docs.telos.net/',
+    infoUrl: 'https://telos.net',
+    docsUrl: 'https://docs.telos.net',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-40.json',
     nativeCurrency: {
         name: 'Telos',
@@ -17,18 +17,21 @@ export const telos = {
         decimals: 18,
     },
     rpcNodes: {
-        telosProvider: {
-            http: ['https://mainnet.telos.net/evm/'],
+        telos: {
+            rpcNode: 'telos',
+            http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://mainnet.telos.net/evm/'],
+            rpcNode: 'public',
+            http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://mainnet.telos.net/evm/'],
+            rpcNode: 'default',
+            http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
             authenticated: false,
         },
@@ -36,21 +39,26 @@ export const telos = {
     blockExplorers: {
         teloscan: {
             name: 'Teloscan',
+            blockExplorer: 'teloscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://www.teloscan.io/',
-            standard: BlockExplorerStandard.None,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://www.teloscan.io',
         },
         default: {
             name: 'Teloscan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://www.teloscan.io/',
-            standard: BlockExplorerStandard.None,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://www.teloscan.io',
         },
     },
     contracts: {
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xcA11bde05977b3631167028862bE2a173976CA11',
-            blockCreated: 246530709,
+            deployBlock: 246530709,
+            deployTxHash: '0x6f3fe9080217abefba80736d066b49d5eb46594acebf89e7fb6a982269c5cf56',
         },
     },
     testnet: false,

@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
-import { baseProvider, blast, quicknode } from '../providers'
+import { baseProvider, blast } from '../providers'
 
 export const base = {
     id: 8453,
     name: 'Base',
     network: 'base',
-    infoUrl: 'https://base.org/',
-    docsUrl: 'https://docs.base.org/',
+    infoUrl: 'https://base.org',
+    docsUrl: 'https://docs.base.org',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-8453.json',
     nativeCurrency: {
         name: 'Ether',
@@ -17,27 +17,26 @@ export const base = {
         decimals: 18,
     },
     rpcNodes: {
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
-            authenticated: true,
-        },
         blast: {
+            rpcNode: 'blast',
             http: [''],
             provider: blast,
             authenticated: false,
         },
         base: {
+            rpcNode: 'base',
             http: [''],
             provider: baseProvider,
             authenticated: false,
         },
         public: {
+            rpcNode: 'public',
             http: [''],
             provider: baseProvider,
             authenticated: false,
         },
         default: {
+            rpcNode: 'default',
             http: [''],
             provider: baseProvider,
             authenticated: false,
@@ -46,27 +45,30 @@ export const base = {
     blockExplorers: {
         baseExplorer: {
             name: 'Base Explorer',
-            type: BlockExplorerType.Blockscout,
+            blockExplorer: 'baseExplorer',
+            type: BlockExplorerType.Null,
+            standard: BlockExplorerStandard.Null,
             browserUrl: '',
             apiUrl: '',
             docsUrl: '',
-            standard: BlockExplorerStandard.TBD,
         },
         basescan: {
             name: 'Basescan',
-            type: BlockExplorerType.Etherscan,
+            blockExplorer: 'basescan',
+            type: BlockExplorerType.Null,
+            standard: BlockExplorerStandard.Null,
             browserUrl: '',
             apiUrl: '',
             docsUrl: '',
-            standard: BlockExplorerStandard.TBD,
         },
         default: {
             name: 'Basescan',
-            type: BlockExplorerType.Etherscan,
+            blockExplorer: 'default',
+            type: BlockExplorerType.Null,
+            standard: BlockExplorerStandard.Null,
             browserUrl: '',
             apiUrl: '',
             docsUrl: '',
-            standard: BlockExplorerStandard.TBD,
         },
     },
     testnet: false,

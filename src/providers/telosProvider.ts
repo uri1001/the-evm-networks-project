@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const telosProvider = {
     name: 'Telos',
@@ -7,4 +7,4 @@ export const telosProvider = {
     url: 'https://telos.net/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://www.telos.net/privacy-policy'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

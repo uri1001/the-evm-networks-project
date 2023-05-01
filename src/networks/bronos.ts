@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { bronosProvider } from '../providers'
 
@@ -7,8 +7,8 @@ export const bronos = {
     id: 1039,
     name: 'Bronos',
     network: 'bronos',
-    infoUrl: 'https://bronos.org/',
-    docsUrl: 'https://docs.bronos.org/',
+    infoUrl: 'https://bronos.org',
+    docsUrl: 'https://docs.bronos.org',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1039.json',
     nativeCurrency: {
         name: 'Bronos Coin',
@@ -18,17 +18,20 @@ export const bronos = {
     },
     rpcNodes: {
         bronos: {
-            http: ['https://evm.bronos.org/'],
+            rpcNode: 'bronos',
+            http: ['https://evm.bronos.org'],
             provider: bronosProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://evm.bronos.org/'],
+            rpcNode: 'public',
+            http: ['https://evm.bronos.org'],
             provider: bronosProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://evm.bronos.org/'],
+            rpcNode: 'default',
+            http: ['https://evm.bronos.org'],
             provider: bronosProvider,
             authenticated: false,
         },
@@ -36,11 +39,12 @@ export const bronos = {
     blockExplorers: {
         default: {
             name: '',
-            type: BlockExplorerType.Blockscout,
+            blockExplorer: '',
+            type: BlockExplorerType.Null,
+            standard: BlockExplorerStandard.Null,
             browserUrl: '',
             apiUrl: '',
             docsUrl: '',
-            standard: BlockExplorerStandard.TBD,
         },
     },
     testnet: false,

@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const binance = {
     name: 'Binance',
@@ -7,4 +7,4 @@ export const binance = {
     url: 'https://www.binance.com/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://www.bnbchain.org/en/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

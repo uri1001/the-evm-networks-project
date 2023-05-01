@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { milkomedaProvider } from '../providers'
 
 export const milkomedaA1 = {
     id: 2002,
     name: 'Milkomeda A1 Mainnet',
-    network: 'milkomeda-a1 mainnet',
-    infoUrl: 'https://milkomeda.com/',
-    docsUrl: 'https://dcspark.github.io/milkomeda-documentation/',
+    network: 'milkomedaA1',
+    infoUrl: 'https://milkomeda.com',
+    docsUrl: 'https://dcspark.github.io/milkomeda-documentation',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-2002.json',
     nativeCurrency: {
         name: 'MilkALGO',
@@ -18,20 +18,23 @@ export const milkomedaA1 = {
     },
     rpcNodes: {
         milkomeda: {
-            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com/'],
-            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws/'],
+            rpcNode: 'milkomeda',
+            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com'],
+            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws'],
             provider: milkomedaProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com/'],
-            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws/'],
+            rpcNode: 'public',
+            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com'],
+            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws'],
             provider: milkomedaProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com/'],
-            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws/'],
+            rpcNode: 'default',
+            http: ['https://rpc-mainnet-algorand-rollup.a1.milkomeda.com'],
+            wss: ['wss://rpc-mainnet-algorand-rollup.a1.milkomeda.com/ws'],
             provider: milkomedaProvider,
             authenticated: false,
         },
@@ -39,19 +42,21 @@ export const milkomedaA1 = {
     blockExplorers: {
         milkomedaExplorer: {
             name: 'Milkomeda A1 Explorer',
+            blockExplorer: 'milkomedaExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/',
-            apiUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api/',
-            docsUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api-docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com',
+            apiUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api',
+            docsUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api-docs',
         },
         default: {
             name: 'Milkomeda A1 Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/',
-            apiUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api/',
-            docsUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api-docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com',
+            apiUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api',
+            docsUrl: 'https://explorer-mainnet-algorand-rollup.a1.milkomeda.com/api-docs',
         },
     },
     testnet: false,

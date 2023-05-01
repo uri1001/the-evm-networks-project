@@ -1,14 +1,14 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { type Network } from '../types'
 
-import { ankr, binance, omnia, onerpc, pokt, publicnode, quicknode } from '../providers'
+import { ankr, binance, blast, blockpi, omnia, onerpc, pokt, publicnode } from '../providers'
 
 export const bsc = {
     id: 56,
     name: 'BNB Smart Chain',
     network: 'bsc',
-    infoUrl: 'https://www.bnbchain.org/',
-    docsUrl: 'https://docs.bnbchain.org/docs/overview/',
+    infoUrl: 'https://www.bnbchain.org',
+    docsUrl: 'https://docs.bnbchain.org/docs/overview',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-56.json',
     nativeCurrency: {
         name: 'Build & Build',
@@ -17,48 +17,83 @@ export const bsc = {
         decimals: 18,
     },
     rpcNodes: {
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
+        pokt: {
+            rpcNode: 'pokt',
+            http: [
+                `https://bsc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://bsc-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+            ],
+            provider: pokt,
             authenticated: true,
         },
-        onerpc: {
-            http: ['https://1rpc.io/bnb/'],
-            provider: onerpc,
-            authenticated: false,
-        },
-        pokt: {
-            http: ['https://bsc-mainnet.gateway.pokt.network/v1/lb/6136201a7bad1500343e248d/'],
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: [
+                'https://bsc-rpc.gateway.pokt.network',
+                'https://bsc-mainnet.gateway.pokt.network/v1/lb/6136201a7bad1500343e248d',
+            ],
             provider: pokt,
             authenticated: false,
         },
+        onerpc: {
+            rpcNode: 'onerpc',
+            http: ['https://1rpc.io/bnb'],
+            provider: onerpc,
+            authenticated: false,
+        },
         omnia: {
-            http: ['https://endpoints.omniatech.io/v1/bsc/mainnet/public/'],
+            rpcNode: 'omnia',
+            http: ['https://endpoints.omniatech.io/v1/bsc/mainnet/public'],
             provider: omnia,
             authenticated: false,
         },
         publicnode: {
-            http: ['https://bsc.publicnode.com/'],
+            rpcNode: 'publicnode',
+            http: ['https://bsc.publicnode.com'],
             provider: publicnode,
             authenticated: false,
         },
         ankr: {
-            http: ['https://rpc.ankr.com/bsc/'],
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/bsc'],
             provider: ankr,
             authenticated: false,
         },
+        blast: {
+            rpcNode: 'blast',
+            http: [`https://bsc-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://bsc-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            provider: blast,
+            authenticated: true,
+        },
+        blockpi: {
+            rpcNode: 'blockpi',
+            http: [`https://bsc.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://bsc.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            provider: blockpi,
+            authenticated: true,
+        },
+        blockpiPublic: {
+            rpcNode: 'blockpiPublic',
+            http: ['https://bsc.blockpi.network/v1/rpc/public'],
+            provider: blockpi,
+            authenticated: false,
+        },
         binance: {
-            http: ['https://bsc-dataseed.binance.org/'],
+            rpcNode: 'binance',
+            http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
             authenticated: false,
         },
         public: {
-            http: ['https://bsc-dataseed.binance.org/'],
+            rpcNode: 'public',
+            http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
             authenticated: false,
         },
         default: {
-            http: ['https://bsc-dataseed.binance.org/'],
+            rpcNode: 'default',
+            http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
             authenticated: false,
         },
@@ -66,25 +101,30 @@ export const bsc = {
     blockExplorers: {
         bscScan: {
             name: 'BscScan',
+            blockExplorer: 'bscScan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://bscscan.com/',
-            apiUrl: 'https://api.bscscan.com/',
-            docsUrl: 'https://docs.bscscan.com/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://bscscan.com',
+            apiUrl: 'https://api.bscscan.com',
+            docsUrl: 'https://docs.bscscan.com',
         },
         default: {
             name: 'BscScan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://bscscan.com/',
-            apiUrl: 'https://api.bscscan.com/',
-            docsUrl: 'https://docs.bscscan.com/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://bscscan.com',
+            apiUrl: 'https://api.bscscan.com',
+            docsUrl: 'https://docs.bscscan.com',
         },
     },
     contracts: {
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xca11bde05977b3631167028862be2a173976ca11',
-            blockCreated: 15921452,
+            deployBlock: 15921452,
+            deployTxHash: '0xcc0ddf5f791617ba9befce57995dbcb3a202946a1eefa3469742b01a0decdaf2',
         },
     },
     testnet: false,

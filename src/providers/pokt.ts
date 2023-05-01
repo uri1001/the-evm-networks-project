@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const pokt = {
     name: 'Pocket Network',
@@ -10,4 +10,4 @@ export const pokt = {
         'https://www.pokt.network/privacy-policy',
         'https://www.blog.pokt.network/rpc-logging-practices/',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

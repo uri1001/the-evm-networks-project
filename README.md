@@ -1,11 +1,14 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
+
 <br />
 <div align="center">
   <a href="https://github.com/uri1001/the-evm-networks-project">
     <img src="assets/logo.png" alt="Logo" width="80" height="130">
   </a>
+
+<!-- PROJECT TITLES & BADGES -->
 
 <h3 align="center">The EVM Networks Project</h3>
 
@@ -65,6 +68,7 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
+
 <br />
 <details>
   <summary>Table of Contents</summary>

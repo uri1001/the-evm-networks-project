@@ -1,9 +1,10 @@
-import type RpcNodeProvider from './rpcNodeProvider'
+import type RpcProvider from './rpcProvider'
 
 interface RpcNode {
+    rpcNode: string
     http: readonly string[]
     wss?: readonly string[]
-    provider: RpcNodeProvider
+    provider: RpcProvider
     authenticated: boolean
 }
 

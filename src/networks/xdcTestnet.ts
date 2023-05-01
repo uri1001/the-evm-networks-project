@@ -1,15 +1,15 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { xdcProvider } from '../providers'
 
 export const xdcTestnet = {
-    id: 50,
+    id: 51,
     name: 'XinFin Testnet Network',
-    network: 'xdc',
-    infoUrl: 'https://xinfin.org/',
-    docsUrl: 'https://howto.xinfin.org/',
-    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-50.json',
+    network: 'xdcTestnet',
+    infoUrl: 'https://xinfin.org',
+    docsUrl: 'https://howto.xinfin.org',
+    eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-51.json',
     nativeCurrency: {
         name: 'XinFin',
         symbol: 'XDC',
@@ -17,30 +17,21 @@ export const xdcTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        xdcProvider: {
-            http: [
-                'https://erpc.xinfin.network',
-                'https://rpc.xinfin.network/',
-                'https://rpc1.xinfin.network/',
-            ],
+        xdc: {
+            rpcNode: 'xdc',
+            http: ['https://erpc.apothem.network'],
             provider: xdcProvider,
             authenticated: false,
         },
         public: {
-            http: [
-                'https://erpc.xinfin.network',
-                'https://rpc.xinfin.network/',
-                'https://rpc1.xinfin.network/',
-            ],
+            rpcNode: 'public',
+            http: ['https://erpc.apothem.network'],
             provider: xdcProvider,
             authenticated: false,
         },
         default: {
-            http: [
-                'https://erpc.xinfin.network',
-                'https://rpc.xinfin.network/',
-                'https://rpc1.xinfin.network/',
-            ],
+            rpcNode: 'default',
+            http: ['https://erpc.apothem.network'],
             provider: xdcProvider,
             authenticated: false,
         },
@@ -48,28 +39,32 @@ export const xdcTestnet = {
     blockExplorers: {
         xdcExplorer: {
             name: 'XinFin Explorer',
+            blockExplorer: 'xdcExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.xinfin.network/',
-            apiUrl: 'https://xdc.blocksscan.io/api/',
-            docsUrl: 'https://xdc.blocksscan.io/docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.None,
+            browserUrl: 'https://explorer.apothem.network',
+            apiUrl: 'https://xdc.blocksscan.io/api',
+            docsUrl: 'https://xdc.blocksscan.io/docs',
         },
         xdcBlockscan: {
             name: 'XinFin Blockscan',
+            blockExplorer: 'xdcBlockscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://xdc.blocksscan.io/',
-            apiUrl: 'https://xdc.blocksscan.io/api/',
-            docsUrl: 'https://xdc.blocksscan.io/docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.None,
+            browserUrl: 'https://apothem.blocksscan.io',
+            apiUrl: 'https://xdc.blocksscan.io/api',
+            docsUrl: 'https://xdc.blocksscan.io/docs',
         },
         default: {
             name: 'XinFin Blockscan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://xdc.blocksscan.io/',
-            apiUrl: 'https://xdc.blocksscan.io/api/',
-            docsUrl: 'https://xdc.blocksscan.io/docs/',
-            standard: BlockExplorerStandard.TBD,
+            standard: BlockExplorerStandard.None,
+            browserUrl: 'https://apothem.blocksscan.io',
+            apiUrl: 'https://xdc.blocksscan.io/api',
+            docsUrl: 'https://xdc.blocksscan.io/docs',
         },
     },
     testnet: true,
+    mainnetId: 50,
 } as const satisfies Network

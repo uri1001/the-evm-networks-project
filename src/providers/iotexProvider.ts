@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const iotexProvider = {
     name: 'IoTeX Foundation',
@@ -7,4 +7,4 @@ export const iotexProvider = {
     url: 'https://iotex.io/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://iotex.io/policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

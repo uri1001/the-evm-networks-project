@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const zkSyncProvider = {
     name: 'ZkSync',
@@ -7,4 +7,4 @@ export const zkSyncProvider = {
     url: 'https://era.zksync.io/docs/',
     privacyLevel: ProviderPrivacyLevel.NoInfo,
     privacyPolicy: ['not found'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const flashbots = {
     name: 'Flashbots Research',
@@ -12,4 +12,4 @@ export const flashbots = {
         'https://docs.flashbots.net/flashbots-protect/rpc/quick-start/',
         'https://collective.flashbots.net/search?q=transparancy%20report%20%23ship%20in%3Atitle',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

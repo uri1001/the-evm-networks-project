@@ -1,14 +1,14 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { type Network } from '../types'
 
 import { fuseProvider, pokt } from '../providers'
 
 export const fuse = {
     id: 122,
     name: 'Fuse Mainnet',
-    network: 'fuse-mainnet',
-    infoUrl: 'https://fuse.io/',
-    docsUrl: 'https://docs.fuse.io/v2/',
+    network: 'fuse',
+    infoUrl: 'https://fuse.io',
+    docsUrl: 'https://docs.fuse.io/v2',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-122.json',
     nativeCurrency: {
         name: 'Fuse',
@@ -18,22 +18,35 @@ export const fuse = {
     },
     rpcNodes: {
         pokt: {
-            http: ['https://fuse-rpc.gateway.pokt.network/'],
+            rpcNode: 'pokt',
+            http: [
+                `https://fuse-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://fuse-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+            ],
+            provider: pokt,
+            authenticated: true,
+        },
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: ['https://fuse-rpc.gateway.pokt.network'],
             provider: pokt,
             authenticated: false,
         },
         fuse: {
-            http: ['https://rpc.fuse.io/'],
+            rpcNode: 'fuse',
+            http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc.fuse.io/'],
+            rpcNode: 'public',
+            http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc.fuse.io/'],
+            rpcNode: 'default',
+            http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
             authenticated: false,
         },
@@ -41,19 +54,21 @@ export const fuse = {
     blockExplorers: {
         fuseExplorer: {
             name: 'Fuse Explorer',
+            blockExplorer: 'fuseExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer.fuse.io/',
-            apiUrl: 'https://explorer.fuse.io/api/',
-            docsUrl: 'https://explorer.fuse.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.fuse.io',
+            apiUrl: 'https://explorer.fuse.io/api',
+            docsUrl: 'https://explorer.fuse.io/api-docs',
         },
         default: {
             name: 'Fuse Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer.fuse.io/',
-            apiUrl: 'https://explorer.fuse.io/api/',
-            docsUrl: 'https://explorer.fuse.io/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.fuse.io',
+            apiUrl: 'https://explorer.fuse.io/api',
+            docsUrl: 'https://explorer.fuse.io/api-docs',
         },
     },
     testnet: false,

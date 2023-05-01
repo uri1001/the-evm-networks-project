@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const quicknode = {
     name: 'Quicknode',
@@ -7,4 +7,4 @@ export const quicknode = {
     url: 'https://www.quicknode.com/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://www.quicknode.com/privacy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

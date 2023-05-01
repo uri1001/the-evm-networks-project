@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const arbitrumProvider = {
     name: 'Arbitrum',
@@ -7,4 +7,4 @@ export const arbitrumProvider = {
     url: 'https://arbitrum.io/',
     privacyLevel: ProviderPrivacyLevel.NoInfo,
     privacyPolicy: ['not found'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

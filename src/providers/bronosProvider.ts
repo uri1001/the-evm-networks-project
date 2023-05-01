@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const bronosProvider = {
     name: 'Bronos',
@@ -7,4 +7,4 @@ export const bronosProvider = {
     url: 'https://bronos.org/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://bronos.org/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

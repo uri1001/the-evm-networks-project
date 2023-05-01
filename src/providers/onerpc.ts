@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const onerpc = {
     name: 'Ata Network - 1RPC',
@@ -10,4 +10,4 @@ export const onerpc = {
         'https://www.ata.network/privacy',
         'https://docs.ata.network/1rpc/desgin/#tracking-prevention',
     ],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

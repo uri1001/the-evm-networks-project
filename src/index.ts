@@ -1,7 +1,4 @@
-import * as n from './networks'
-import * as p from './providers'
-
-export const networks = Object.values(n)
-export const providers = Object.values(p)
-
-export type { Network, RpcEndpointsFilter, RpcNodeProvider } from './types/types'
+export * as networks from './networks'
+export * as providers from './providers'
+export type { Network, RpcProvider } from './types'
+export type { NetworkFilter } from './utils/types'

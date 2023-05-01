@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
-import { alchemy, polygonProvider, quicknode } from '../providers'
+import { alchemy, ankr, polygonProvider } from '../providers'
 
 export const polygonZkEvmTestnet = {
     id: 1442,
     name: 'Polygon zkEVM Testnet',
-    network: 'polygon-zkevm-testnet',
-    infoUrl: 'https://polygon.technology/',
-    docsUrl: 'https://wiki.polygon.technology/',
+    network: 'polygonZkEvmTestnet',
+    infoUrl: 'https://polygon.technology',
+    docsUrl: 'https://wiki.polygon.technology',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1442.json',
     nativeCurrency: {
         name: 'Ether',
@@ -18,28 +18,33 @@ export const polygonZkEvmTestnet = {
     },
     rpcNodes: {
         alchemy: {
+            rpcNode: 'alchemy',
             http: [`https://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             wss: [`wss://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
         },
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
-            authenticated: true,
+        ankr: {
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/polygon_zkevm_testnet'],
+            provider: ankr,
+            authenticated: false,
         },
-        polygonProvider: {
-            http: ['https://rpc.public.zkevm-test.net/'],
+        polygon: {
+            rpcNode: 'polygon',
+            http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc.public.zkevm-test.net/'],
+            rpcNode: 'public',
+            http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc.public.zkevm-test.net/'],
+            rpcNode: 'default',
+            http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
             authenticated: false,
         },
@@ -47,28 +52,32 @@ export const polygonZkEvmTestnet = {
     blockExplorers: {
         polygonExplorer: {
             name: 'Polygon zkEVM Testnet Blockchain Explorer',
+            blockExplorer: 'polygonExplorer',
             type: BlockExplorerType.Blockscout,
-            browserUrl: 'https://explorer.public.zkevm-test.net/',
-            apiUrl: 'https://explorer.public.zkevm-test.net/api/',
-            docsUrl: 'https://explorer.public.zkevm-test.net/api-docs/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.public.zkevm-test.net',
+            apiUrl: 'https://explorer.public.zkevm-test.net/api',
+            docsUrl: 'https://explorer.public.zkevm-test.net/api-docs',
         },
         polygonScan: {
             name: 'zkEVM Testnet PolygonScan',
+            blockExplorer: 'polygonScan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://testnet-zkevm.polygonscan.com/',
-            apiUrl: 'https://api-testnet-zkevm.polygonscan.com/api/',
-            docsUrl: 'https://testnet-zkevm.polygonscan.com/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet-zkevm.polygonscan.com',
+            apiUrl: 'https://api-testnet-zkevm.polygonscan.com/api',
+            docsUrl: 'https://testnet-zkevm.polygonscan.com/apis',
         },
         default: {
             name: 'zkEVM Testnet PolygonScan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://testnet-zkevm.polygonscan.com/',
-            apiUrl: 'https://api-testnet-zkevm.polygonscan.com/api/',
-            docsUrl: 'https://testnet-zkevm.polygonscan.com/apis/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://testnet-zkevm.polygonscan.com',
+            apiUrl: 'https://api-testnet-zkevm.polygonscan.com/api',
+            docsUrl: 'https://testnet-zkevm.polygonscan.com/apis',
         },
     },
     testnet: true,
+    mainnetId: 1101,
 } as const satisfies Network

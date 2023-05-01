@@ -1,5 +1,5 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import {
     alchemy,
@@ -14,15 +14,14 @@ import {
     pokt,
     polygonProvider,
     publicnode,
-    quicknode,
 } from '../providers'
 
 export const polygon = {
     id: 137,
     name: 'Polygon',
-    network: 'matic',
-    infoUrl: 'https://polygon.technology/',
-    docsUrl: 'https://wiki.polygon.technology/',
+    network: 'polygon',
+    infoUrl: 'https://polygon.technology',
+    docsUrl: 'https://wiki.polygon.technology',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-137.json',
     nativeCurrency: {
         name: 'MATIC',
@@ -32,79 +31,111 @@ export const polygon = {
     },
     rpcNodes: {
         alchemy: {
+            rpcNode: 'alchemy',
             http: [`https://polygon-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             wss: [`wss://polygon-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
             provider: alchemy,
             authenticated: true,
         },
         infura: {
+            rpcNode: 'infura',
             http: [`https://polygon-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
             provider: infura,
             authenticated: true,
         },
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
+        pokt: {
+            rpcNode: 'pokt',
+            http: [
+                `https://poly-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://poly-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+            ],
+            provider: pokt,
             authenticated: true,
         },
+        poktPublic: {
+            rpcNode: 'poktPublic',
+            http: ['https://poly-rpc.gateway.pokt.network'],
+            provider: pokt,
+            authenticated: false,
+        },
         blast: {
-            http: ['https://polygon-mainnet.public.blastapi.io/'],
+            rpcNode: 'blast',
+            http: [`https://polygon-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://polygon-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            provider: blast,
+            authenticated: false,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            http: ['https://polygon-mainnet.public.blastapi.io'],
             provider: blast,
             authenticated: false,
         },
         blockpi: {
-            http: ['https://polygon.blockpi.network/v1/rpc/public/'],
+            rpcNode: 'blockpi',
+            http: [`https://polygon.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
+            wss: [`wss://polygon.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            provider: blockpi,
+            authenticated: false,
+        },
+        blockpiPublic: {
+            rpcNode: 'blockpiPublic',
+            http: ['https://polygon.blockpi.network/v1/rpc/public'],
             provider: blockpi,
             authenticated: false,
         },
         ankr: {
-            http: ['https://rpc.ankr.com/polygon/'],
+            rpcNode: 'ankr',
+            http: ['https://rpc.ankr.com/polygon'],
             provider: ankr,
             authenticated: false,
         },
         onfinality: {
-            http: ['https://polygon.api.onfinality.io/public/'],
+            rpcNode: 'onfinality',
+            http: ['https://polygon.api.onfinality.io/public'],
             provider: onfinality,
             authenticated: false,
         },
         onerpc: {
-            http: ['https://1rpc.io/matic/'],
+            rpcNode: 'onerpc',
+            http: ['https://1rpc.io/matic'],
             provider: onerpc,
             authenticated: false,
         },
         omnia: {
-            http: ['https://endpoints.omniatech.io/v1/matic/mainnet/public/'],
+            rpcNode: 'omnia',
+            http: ['https://endpoints.omniatech.io/v1/matic/mainnet/public'],
             provider: omnia,
             authenticated: false,
         },
-        pokt: {
-            http: ['https://poly-rpc.gateway.pokt.network/'],
-            provider: pokt,
-            authenticated: false,
-        },
         publicnode: {
-            http: ['https://polygon-bor.publicnode.com/'],
+            rpcNode: 'publicnode',
+            http: ['https://polygon-bor.publicnode.com'],
             provider: publicnode,
             authenticated: false,
         },
         llama: {
-            http: ['https://polygon.llamarpc.com/'],
-            wss: ['wss://polygon.llamarpc.com/'],
+            rpcNode: 'llama',
+            http: ['https://polygon.llamarpc.com'],
+            wss: ['wss://polygon.llamarpc.com'],
             provider: llama,
             authenticated: false,
         },
-        polygonProvider: {
-            http: ['https://polygon-rpc.com/'],
+        polygon: {
+            rpcNode: 'polygon',
+            http: ['https://polygon-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://polygon-rpc.com/'],
+            rpcNode: 'public',
+            http: ['https://polygon-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://polygon-rpc.com/'],
+            rpcNode: 'default',
+            http: ['https://polygon-rpc.com'],
             provider: polygonProvider,
             authenticated: false,
         },
@@ -112,25 +143,30 @@ export const polygon = {
     blockExplorers: {
         polygonScan: {
             name: 'PolygonScan',
+            blockExplorer: 'polygonScan',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://polygonscan.com/',
-            apiUrl: 'https://api.polygonscan.com/',
-            docsUrl: 'https://docs.polygonscan.com/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://polygonscan.com',
+            apiUrl: 'https://api.polygonscan.com',
+            docsUrl: 'https://docs.polygonscan.com',
         },
         default: {
             name: 'PolygonScan',
+            blockExplorer: 'default',
             type: BlockExplorerType.Etherscan,
-            browserUrl: 'https://polygonscan.com/',
-            apiUrl: 'https://api.polygonscan.com/',
-            docsUrl: 'https://docs.polygonscan.com/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://polygonscan.com',
+            apiUrl: 'https://api.polygonscan.com',
+            docsUrl: 'https://docs.polygonscan.com',
         },
     },
     contracts: {
         multicall3: {
+            name: 'Multicall V3',
+            contract: 'multicall3',
             address: '0xca11bde05977b3631167028862be2a173976ca11',
-            blockCreated: 25770160,
+            deployBlock: 25770160,
+            deployTxHash: '0x25d385667b12d6992742127dc7682e570136397806e2773dc47922eba0001989',
         },
     },
     testnet: false,

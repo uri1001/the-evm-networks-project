@@ -1,5 +1,5 @@
 import { ProviderPrivacyLevel } from '../enums'
-import { type RpcNodeProvider } from '../types/types'
+import { type RpcProvider } from '../types'
 
 export const gnosisProvider = {
     name: 'Gnosis Chain',
@@ -7,4 +7,4 @@ export const gnosisProvider = {
     url: 'https://www.gnosis.io/',
     privacyLevel: ProviderPrivacyLevel.TBD,
     privacyPolicy: ['https://www.gnosis.io/privacy-policy/'],
-} as const satisfies RpcNodeProvider
+} as const satisfies RpcProvider

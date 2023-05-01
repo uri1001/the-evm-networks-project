@@ -1,8 +1,9 @@
-import type Address from './address'
-
 interface Contract {
-    address: Address
-    blockCreated?: number
+    name: string
+    contract: string
+    address: string
+    deployBlock: number
+    deployTxHash: string
 }
 
 export default Contract

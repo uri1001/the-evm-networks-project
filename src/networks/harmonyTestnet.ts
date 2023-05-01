@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
-import { harmonyProvider, quicknode } from '../providers'
+import { harmonyProvider } from '../providers'
 
 export const harmonyTestnet = {
     id: 1666700000,
     name: 'Harmony One Testnet Shard 0',
-    network: 'harmony-testnet',
-    infoUrl: 'https://www.harmony.one/',
-    docsUrl: 'https://docs.harmony.one/',
+    network: 'harmonyTestnet',
+    infoUrl: 'https://www.harmony.one',
+    docsUrl: 'https://docs.harmony.one',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-1666700000.json',
     nativeCurrency: {
         name: 'Harmony',
@@ -17,23 +17,21 @@ export const harmonyTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        quicknode: {
-            http: ['TBD'],
-            provider: quicknode,
-            authenticated: true,
-        },
-        harmonyProvider: {
-            http: ['https://api.s0.b.hmny.io/'],
+        harmony: {
+            rpcNode: 'harmony',
+            http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://api.s0.b.hmny.io/'],
+            rpcNode: 'public',
+            http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://api.s0.b.hmny.io/'],
+            rpcNode: 'default',
+            http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
             authenticated: false,
         },
@@ -41,16 +39,19 @@ export const harmonyTestnet = {
     blockExplorers: {
         harmonyExplorer: {
             name: 'Harmony Testnet Blockchain Explorer',
+            blockExplorer: 'harmonyExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.pops.one/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.pops.one',
         },
         default: {
             name: 'Harmony Testnet Blockchain Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.pops.one/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.pops.one',
         },
     },
     testnet: true,
+    mainnetId: 1666600000,
 } as const satisfies Network

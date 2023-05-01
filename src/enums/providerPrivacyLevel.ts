@@ -2,8 +2,9 @@ enum ProviderPrivacyLevel {
     Privacy = 'privacy',
     PartialPrivacy = 'partial privacy',
     NoPrivacy = 'no privacy',
-    NoInfo = 'no privacy information',
-    TBD = 'PRIVACY RESEARCH TO BE DONE',
+    NoInfo = 'no info',
+    Null = 'null',
+    TBD = 'tbd',
 }
 
 export default ProviderPrivacyLevel

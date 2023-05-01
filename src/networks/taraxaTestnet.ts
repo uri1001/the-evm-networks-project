@@ -1,14 +1,14 @@
 import { BlockExplorerStandard, BlockExplorerType } from '../enums'
-import { type Network } from '../types/types'
+import { type Network } from '../types'
 
 import { taraxaProvider } from '../providers'
 
 export const taraxaTestnet = {
     id: 842,
     name: 'Taraxa Testnet',
-    network: 'taraxa-testnet',
-    infoUrl: 'https://taraxa.io/',
-    docsUrl: 'https://docs.taraxa.io/',
+    network: 'taraxaTestnet',
+    infoUrl: 'https://taraxa.io',
+    docsUrl: 'https://docs.taraxa.io',
     eipUrl: 'https://github.com/ethereum-lists/chains/blob/master/_data/chains/eip155-842.json',
     nativeCurrency: {
         name: 'Tara',
@@ -17,18 +17,21 @@ export const taraxaTestnet = {
         decimals: 18,
     },
     rpcNodes: {
-        taraxaProvider: {
-            http: ['https://rpc.testnet.taraxa.io/'],
+        taraxa: {
+            rpcNode: 'taraxa',
+            http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
         public: {
-            http: ['https://rpc.testnet.taraxa.io/'],
+            rpcNode: 'public',
+            http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
         default: {
-            http: ['https://rpc.testnet.taraxa.io/'],
+            rpcNode: 'default',
+            http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
             authenticated: false,
         },
@@ -36,16 +39,19 @@ export const taraxaTestnet = {
     blockExplorers: {
         taraxaExplorer: {
             name: 'Taraxa Testnet Explorer',
+            blockExplorer: 'taraxaExplorer',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.testnet.taraxa.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.testnet.taraxa.io',
         },
         default: {
             name: 'Taraxa Testnet Explorer',
+            blockExplorer: 'default',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://explorer.testnet.taraxa.io/',
             standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://explorer.testnet.taraxa.io',
         },
     },
     testnet: true,
+    mainnetId: 841,
 } as const satisfies Network
