@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { confluxProvider } from '../providers'
@@ -19,21 +19,21 @@ export const confluxESpace = {
     rpcNodes: {
         conflux: {
             rpcNode: 'conflux',
+            type: EndpointType.Public,
             http: ['https://evm.confluxrpc.org'],
             provider: confluxProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm.confluxrpc.org'],
             provider: confluxProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm.confluxrpc.org'],
             provider: confluxProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

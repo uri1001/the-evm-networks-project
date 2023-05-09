@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, blockpi, klaytnProvider } from '../providers'
+import { ankr, blockpi, klaytnProvider, onerpc } from '../providers'
 
 export const klaytnTestnet = {
     id: 1001,
@@ -19,49 +19,61 @@ export const klaytnTestnet = {
     rpcNodes: {
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/klaytn_testnet/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/klaytn_testnet'],
             provider: ankr,
-            authenticated: false,
+        },
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/klay'],
+            provider: onerpc,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://klaytn-baobab.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://klaytn-baobab.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://klaytn-baobab.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://klaytn-baobab.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: false,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://klaytn-baobab.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         klaytn: {
             rpcNode: 'klaytn',
+            type: EndpointType.Public,
             http: [
                 'https://public-node-api.klaytnapi.com/v1/baobab',
                 'https://api.baobab.klaytn.net:8651',
             ],
             provider: klaytnProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://public-node-api.klaytnapi.com/v1/baobab',
                 'https://api.baobab.klaytn.net:8651',
             ],
             provider: klaytnProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://public-node-api.klaytnapi.com/v1/baobab',
                 'https://api.baobab.klaytn.net:8651',
             ],
             provider: klaytnProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

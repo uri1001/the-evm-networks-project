@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { taraxaProvider } from '../providers'
@@ -19,21 +19,21 @@ export const taraxaTestnet = {
     rpcNodes: {
         taraxa: {
             rpcNode: 'taraxa',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.taraxa.io'],
             provider: taraxaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

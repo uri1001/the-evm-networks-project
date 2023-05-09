@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { kavaProvider } from '../providers'
@@ -19,24 +19,24 @@ export const kavaTestnet = {
     rpcNodes: {
         kava: {
             rpcNode: 'kava',
+            type: EndpointType.Public,
             http: ['https://evm.testnet.kava.io'],
             wss: ['wss://wevm.testnet.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm.testnet.kava.io'],
             wss: ['wss://wevm.testnet.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm.testnet.kava.io'],
             wss: ['wss://wevm.testnet.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

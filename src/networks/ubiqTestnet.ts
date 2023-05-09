@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ubiqProvider } from '../providers'
@@ -19,15 +19,15 @@ export const ubiqTestnet = {
     rpcNodes: {
         public: {
             rpcNode: 'public',
+            type: EndpointType.Null,
             http: [''],
             provider: ubiqProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Null,
             http: [''],
             provider: ubiqProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

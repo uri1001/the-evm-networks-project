@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, arbitrumProvider, blast } from '../providers'
+import { ankr, arbitrumProvider, blast, lava } from '../providers'
 
 export const arbitrumNova = {
     id: 42170,
@@ -19,40 +19,54 @@ export const arbitrumNova = {
     rpcNodes: {
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/arbitrumnova/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/arbitrumnova'],
             provider: ankr,
-            authenticated: false,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/arbn/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/arbn/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://arbitrum-nova.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://arbitrum-nova.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://arbitrum-nova.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://arbitrum-nova.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://arbitrum-nova.public.blastapi.io'],
+            wss: ['wss://arbitrum-nova.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         arbitrum: {
             rpcNode: 'arbitrum',
+            type: EndpointType.Public,
             http: ['https://nova.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://nova.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://nova.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

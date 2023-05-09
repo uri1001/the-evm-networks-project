@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { zkSyncProvider } from '../providers'
@@ -19,24 +19,24 @@ export const zkSyncTestnet = {
     rpcNodes: {
         zkSync: {
             rpcNode: 'zkSync',
+            type: EndpointType.Public,
             http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
             wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
             wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://zksync2-testnet.zksync.dev', 'https://testnet.era.zksync.dev'],
             wss: ['wss://zksync2-testnet.zksync.dev/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

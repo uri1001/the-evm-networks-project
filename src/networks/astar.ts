@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { alchemy, astarProvider, blast, onerpc, onfinality } from '../providers'
@@ -19,54 +19,55 @@ export const astar = {
     rpcNodes: {
         alchemy: {
             rpcNode: 'alchemy',
-            http: [`https://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
+            wss: [`wss://astar-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
             provider: alchemy,
-            authenticated: true,
         },
         onfinality: {
             rpcNode: 'onfinality',
+            type: EndpointType.Public,
             http: ['https://astar.api.onfinality.io/public'],
             wss: ['wss://astar.api.onfinality.io/public-ws'],
             provider: onfinality,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://astar.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://astar.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://astar.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://astar.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://astar.public.blastapi.io'],
+            wss: ['wss://astar.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/astr'],
             provider: onerpc,
-            authenticated: false,
         },
         astar: {
             rpcNode: 'astar',
+            type: EndpointType.Public,
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network'],
             provider: astarProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network'],
             provider: astarProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.astar.network:8545', 'https://evm.astar.network'],
             provider: astarProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

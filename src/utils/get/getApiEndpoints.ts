@@ -5,7 +5,7 @@
 // FILTERING BY BLOCK EXPLORER SHOULD BE POSSIBLE
 // ACCEPTS ARRAY OF NETWORKS
 const getApiEndpoints = (
-    action?:
+    _action?:
         | 'none'
         | 'getcontractcreation'
         | 'getsourcecode'

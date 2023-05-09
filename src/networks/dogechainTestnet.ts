@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { dogechainProvider } from '../providers'
@@ -19,21 +19,21 @@ export const dogechainTestnet = {
     rpcNodes: {
         dogechain: {
             rpcNode: 'dogechain',
+            type: EndpointType.Public,
             http: ['https://rpc-testnet.dogechain.dog'],
             provider: dogechainProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc-testnet.dogechain.dog'],
             provider: dogechainProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc-testnet.dogechain.dog'],
             provider: dogechainProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

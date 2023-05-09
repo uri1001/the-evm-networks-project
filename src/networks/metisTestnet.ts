@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { metisProvider } from '../providers'
@@ -19,21 +19,21 @@ export const metisTestnet = {
     rpcNodes: {
         metis: {
             rpcNode: 'metis',
+            type: EndpointType.Public,
             http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://goerli.gateway.metisdevops.link'],
             provider: metisProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

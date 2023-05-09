@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { forno, infura } from '../providers'
+import { forno, infura, lava } from '../providers'
 
 export const celoAlfajores = {
     id: 44787,
@@ -19,30 +19,37 @@ export const celoAlfajores = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://celo-alfajores.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://celo-alfajores.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/alfajores/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/alfajores/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         forno: {
             rpcNode: 'forno',
+            type: EndpointType.Public,
             http: ['https://alfajores-forno.celo-testnet.org'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws'],
             provider: forno,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://alfajores-forno.celo-testnet.org'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws'],
             provider: forno,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://alfajores-forno.celo-testnet.org'],
             wss: ['wss://alfajores-forno.celo-testnet.org/ws'],
             provider: forno,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -2,12 +2,13 @@ import { type RpcNode } from '../../../types'
 import { type RpcNodeFilter } from '../../types'
 
 import {
-    validateBoolean,
+    validateEndpointType,
     validateFinalValidations,
     validateHttpEndpoints,
     validateString,
     validateWssEndpoints,
 } from './core'
+
 import validateRpcProvider from './rpcProvider'
 
 //
@@ -33,27 +34,27 @@ const validateRpcNode = (
 
     const isValidRpcNode = validateString(rpcNode.rpcNode, filter.rpcNode)
 
+    const isValidEndpointType = validateEndpointType(rpcNode.type, filter.type)
+
     const isValidHtpp = validateHttpEndpoints(rpcNode.http, filter.http)
     const isValidWss = validateWssEndpoints(rpcNode.wss, filter.wss)
 
     const isValidProvider = validateRpcProvider(rpcNode.provider, filter.provider)
 
-    const isValidAuthenticated = validateBoolean(rpcNode.authenticated, filter.authenticated)
-
     if (filter.optional != null) {
         filter.optional?.includes('rpcNode') ? or.push(isValidRpcNode) : and.push(isValidRpcNode)
+        filter.optional?.includes('type')
+            ? or.push(isValidEndpointType)
+            : and.push(isValidEndpointType)
         filter.optional?.includes('http') ? or.push(isValidHtpp) : and.push(isValidHtpp)
         filter.optional?.includes('wss') ? or.push(isValidWss) : and.push(isValidWss)
         filter.optional?.includes('provider') ? or.push(isValidProvider) : and.push(isValidProvider)
-        filter.optional?.includes('authenticated')
-            ? or.push(isValidAuthenticated)
-            : and.push(isValidAuthenticated)
     } else {
         and.push(isValidRpcNode)
+        and.push(isValidEndpointType)
         and.push(isValidHtpp)
         and.push(isValidWss)
         and.push(isValidProvider)
-        and.push(isValidAuthenticated)
     }
 
     const v = validateFinalValidations(and, or)

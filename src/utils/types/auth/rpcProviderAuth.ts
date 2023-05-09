@@ -1,19 +1,7 @@
-// {
-//     infura: {
-//         privateKey: '<infura-private-key>',
-//         projectId: '<infura-project-id>'
-//     },
-//     alchemy: {
-//         privateKey: '<alchemy-private-key>',
-//     },
-// }
-
-type RpcProviderAuth = Record<
-    string,
-    {
-        privateKey: string
-        projectId?: string
-    }
->
+type RpcProviderAuth = Array<{
+    provider: string
+    key: string
+    network?: number | string
+}>
 
 export default RpcProviderAuth

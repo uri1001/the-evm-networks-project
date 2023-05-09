@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, harmonyProvider, onfinality, pokt } from '../providers'
+import { ankr, harmonyProvider, onerpc, onfinality, pokt } from '../providers'
 
 export const harmonyOne = {
     id: 1666600000,
@@ -19,45 +19,57 @@ export const harmonyOne = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://harmony-0.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://harmony-0.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://harmony-0-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         onfinality: {
             rpcNode: 'onfinality',
+            type: EndpointType.Public,
             http: ['https://harmony.api.onfinality.io/public'],
             provider: onfinality,
-            authenticated: false,
+        },
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/one'],
+            provider: onerpc,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/harmony/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/harmony'],
             provider: ankr,
-            authenticated: false,
         },
         harmony: {
             rpcNode: 'harmony',
+            type: EndpointType.Public,
             http: ['https://api.harmony.one'],
             provider: harmonyProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.harmony.one'],
             provider: harmonyProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.harmony.one'],
             provider: harmonyProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

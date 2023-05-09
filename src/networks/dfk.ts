@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { dfkProvider, pokt } from '../providers'
@@ -19,33 +19,33 @@ export const dfk = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://avax-dfk.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://avax-dfk.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'pokt',
+            type: EndpointType.Public,
             http: ['https://avax-dfk-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         dfk: {
             rpcNode: 'dfk',
+            type: EndpointType.Public,
             http: ['https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc'],
             provider: dfkProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc'],
             provider: dfkProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://subnets.avax.network/defi-kingdoms/dfk-chain/rpc'],
             provider: dfkProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

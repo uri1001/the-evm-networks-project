@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, blast, moonbeamProvider, onerpc, onfinality, pokt } from '../providers'
@@ -19,69 +19,75 @@ export const moonbeam = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://moonbeam-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://moonbeam-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://moonbeam-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://moonbeam.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://moonbeam.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://moonbeam.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://moonbeam.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://moonbeam.public.blastapi.io'],
             wss: ['wss://moonbeam.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         onfinality: {
             rpcNode: 'onfinality',
+            type: EndpointType.Public,
             http: ['https://moonbeam.api.onfinality.io/public'],
             wss: ['wss://moonbeam.api.onfinality.io/public-ws'],
             provider: onfinality,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/moonbeam/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/moonbeam'],
             provider: ankr,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/glmr'],
             provider: onerpc,
-            authenticated: false,
         },
         moonbeam: {
             rpcNode: 'moonbeam',
+            type: EndpointType.Public,
             http: ['https://rpc.api.moonbeam.network'],
             wss: ['wss://wss.api.moonbeam.network'],
             provider: moonbeamProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.api.moonbeam.network'],
             wss: ['wss://wss.api.moonbeam.network'],
             provider: moonbeamProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.api.moonbeam.network'],
             wss: ['wss://wss.api.moonbeam.network'],
             provider: moonbeamProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

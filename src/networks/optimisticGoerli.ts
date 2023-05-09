@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { alchemy, ankr, blast, infura, omnia, optimismProvider, thirdweb } from '../providers'
+import { alchemy, ankr, blast, infura, lava, omnia, optimismProvider, thirdweb } from '../providers'
 
 export const optimisticGoerli = {
     id: 420,
@@ -19,65 +19,86 @@ export const optimisticGoerli = {
     rpcNodes: {
         alchemy: {
             rpcNode: 'alchemy',
-            http: [`https://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://opt-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://opt-goerli.g.alchemy.com/v2/${EndpointAuth.Key}`],
+            wss: [`wss://opt-goerli.g.alchemy.com/v2/${EndpointAuth.Key}`],
             provider: alchemy,
-            authenticated: true,
         },
         infura: {
             rpcNode: 'infura',
-            http: [`https://optimism-goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://optimism-goerli.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/optimism_testnet/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/optimism_testnet'],
             provider: ankr,
-            authenticated: false,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/optmt/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/optmt/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         thirdweb: {
             rpcNode: 'thirdweb',
+            type: EndpointType.Public,
             http: ['https://optimism-goerli.rpc-staging.thirdweb.com'],
             provider: thirdweb,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://optimism-goerli.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://optimism-goerli.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://optimism-goerli.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://optimism-goerli.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://optimism-goerli.public.blastapi.io'],
+            wss: ['wss://optimism-goerli.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/op/goerli/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/op/goerli/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/op/goerli/public'],
             provider: omnia,
-            authenticated: false,
         },
         optimism: {
             rpcNode: 'optimism',
+            type: EndpointType.Public,
             http: ['https://goerli.optimism.io'],
             provider: optimismProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://goerli.optimism.io'],
             provider: optimismProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://goerli.optimism.io'],
             provider: optimismProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -8,6 +8,6 @@
 //     },
 // }
 
-type blockExplorerAuth = Record<string, Record<string, string>>
+type BlockExplorerAuth = Record<string, Record<string, string>>
 
-export default blockExplorerAuth
+export default BlockExplorerAuth

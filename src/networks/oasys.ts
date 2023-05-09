@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { blockpi, oasysProvider, pokt } from '../providers'
@@ -19,49 +19,49 @@ export const oasys = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://oasys-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://oasys-mainnet-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://oasys-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://oasys-mainnet-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://oasys-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://oasys.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://oasys.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://oasys.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://oasys.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://oasys.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         oasys: {
             rpcNode: 'oasys',
+            type: EndpointType.Public,
             http: ['https://rpc.mainnet.oasys.games'],
             provider: oasysProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.mainnet.oasys.games'],
             provider: oasysProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.mainnet.oasys.games'],
             provider: oasysProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

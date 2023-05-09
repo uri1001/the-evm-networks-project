@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { infura, kovanProvider, pokt } from '../providers'
@@ -19,43 +19,43 @@ export const kovan = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://kovan.infura.io/v3/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://kovan.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://kovan.infura.io/v3/${EndpointAuth.Key}`],
+            wss: [`wss://kovan.infura.io/ws/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://poa-kovan.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://poa-kovan.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://eth-kovan-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         kovan: {
             rpcNode: 'kovan',
+            type: EndpointType.Public,
             http: ['https://kovan.poa.network', 'http://kovan.poa.network:8545'],
             wss: ['ws://kovan.poa.network:8546'],
             provider: kovanProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://kovan.poa.network', 'http://kovan.poa.network:8545'],
             wss: ['ws://kovan.poa.network:8546'],
             provider: kovanProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://kovan.poa.network', 'http://kovan.poa.network:8545'],
             wss: ['ws://kovan.poa.network:8546'],
             provider: kovanProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

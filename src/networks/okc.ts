@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { okx, pokt } from '../providers'
@@ -19,27 +19,27 @@ export const okc = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://oKc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://oKc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         okex: {
             rpcNode: 'okex',
+            type: EndpointType.Public,
             http: ['https://exchainrpc.okex.org'],
             provider: okx,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://exchainrpc.okex.org'],
             provider: okx,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://exchainrpc.okex.org'],
             provider: okx,
-            authenticated: false,
         },
     },
     blockExplorers: {

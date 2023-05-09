@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { cronosProvider } from '../providers'
@@ -19,21 +19,21 @@ export const cronosTestnet = {
     rpcNodes: {
         cronos: {
             rpcNode: 'cronos',
+            type: EndpointType.Public,
             http: ['https://evm-t3.cronos.org'],
             provider: cronosProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm-t3.cronos.org'],
             provider: cronosProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm-t3.cronos.org'],
             provider: cronosProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

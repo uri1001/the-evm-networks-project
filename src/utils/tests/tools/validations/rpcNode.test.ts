@@ -1,9 +1,9 @@
 import { expect } from 'chai'
 
-import { EndpointAuth, ProviderPrivacyLevel } from '../../../../enums'
+import { EndpointAuth, EndpointType, ProviderPrivacyLevel } from '../../../../enums'
 import { type RpcNode, type RpcProvider } from '../../../../types'
 import { validateRpcNode, validateRpcProvider } from '../../../tools/validations'
-import { RpcNodeFilter, type RpcProviderFilter } from '../../../types'
+import { type RpcNodeFilter, type RpcProviderFilter } from '../../../types'
 
 describe('RPC Node Validation Test', () => {
     //
@@ -13,8 +13,10 @@ describe('RPC Node Validation Test', () => {
     describe('pre-validation', () => {
         it('Should return true if filter is undefined', () => {
             const rpcNode: RpcNode = {
-                http: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-                wss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+                rpcNode: 'alchemy',
+                type: EndpointType.Authenticated,
+                http: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
+                wss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
                 provider: {
                     name: 'Alchemy',
                     provider: 'alchemy',
@@ -22,7 +24,6 @@ describe('RPC Node Validation Test', () => {
                     privacyLevel: ProviderPrivacyLevel.NoPrivacy,
                     privacyPolicy: ['https://www.alchemy.com/policies/privacy-policy/'],
                 },
-                authenticated: true,
             }
 
             let result = validateRpcNode(rpcNode, undefined)
@@ -35,7 +36,8 @@ describe('RPC Node Validation Test', () => {
         it('Should return false if filter is defined and param undefined', () => {
             const filter: RpcNodeFilter = {
                 filterType: 'include',
-                optional: ['authenticated'],
+                optional: ['type'],
+                type: ['authenticated'],
                 http: true,
                 wss: true,
                 provider: {
@@ -45,7 +47,6 @@ describe('RPC Node Validation Test', () => {
                     provider: ['infura'],
                     privacyLevel: ['partial privacy', ProviderPrivacyLevel.NoPrivacy],
                 },
-                authenticated: true,
             }
 
             const result = validateRpcNode(undefined, filter)
@@ -58,8 +59,10 @@ describe('RPC Node Validation Test', () => {
         describe('No filter type and no optional', () => {
             it('Should return true if a parameter has match', () => {
                 const rpcNode: RpcNode = {
-                    http: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-                    wss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+                    rpcNode: 'alchemy',
+                    type: EndpointType.Authenticated,
+                    http: [`https://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
+                    wss: [`wss://eth-mainnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
                     provider: {
                         name: 'Alchemy',
                         provider: 'alchemy',
@@ -67,10 +70,10 @@ describe('RPC Node Validation Test', () => {
                         privacyLevel: ProviderPrivacyLevel.NoPrivacy,
                         privacyPolicy: ['https://www.alchemy.com/policies/privacy-policy/'],
                     },
-                    authenticated: true,
                 }
 
-                let filter: RpcNodeFilter = {
+                const filter: RpcNodeFilter = {
+                    type: ['authenticated'],
                     http: true,
                     wss: true,
                     provider: {
@@ -80,42 +83,34 @@ describe('RPC Node Validation Test', () => {
                         provider: ['infura'],
                         privacyLevel: ['partial privacy', ProviderPrivacyLevel.NoPrivacy],
                     },
-                    authenticated: true,
                 }
 
-                let result = validateRpcNode(provider, filter)
+                let result = validateRpcNode(rpcNode, filter)
                 expect(result).to.equal(true)
 
-                filter = {
+                let providerFilter: RpcProviderFilter = {
                     filterType: 'include',
-                    optional: ['authenticated'],
-                    http: true,
-                    wss: true,
-                    provider: {
-                        filterType: 'include',
-                        optional: ['name', 'privacyLevel'],
-                        name: ['alchemy'],
-                        provider: ['infura'],
-                        privacyLevel: ['partial privacy', ProviderPrivacyLevel.NoPrivacy],
-                    },
-                    authenticated: true,
+                    optional: ['name', 'privacyLevel'],
+                    name: ['alchemy'],
+                    provider: ['infura'],
+                    privacyLevel: ['partial privacy', ProviderPrivacyLevel.NoPrivacy],
                 }
 
-                result = validateRpcProvider(provider, filter)
+                result = validateRpcProvider(rpcNode.provider, providerFilter)
                 expect(result).to.equal(true)
 
-                filter = {
+                providerFilter = {
                     privacyLevel: ['no privacy'],
                 }
 
-                result = validateRpcProvider(provider, filter)
+                result = validateRpcProvider(rpcNode.provider, providerFilter)
                 expect(result).to.equal(true)
 
-                filter = {
+                providerFilter = {
                     privacyLevel: ['privacy', ProviderPrivacyLevel.NoPrivacy],
                 }
 
-                result = validateRpcProvider(provider, filter)
+                result = validateRpcProvider(rpcNode.provider, providerFilter)
                 expect(result).to.equal(true)
             })
 

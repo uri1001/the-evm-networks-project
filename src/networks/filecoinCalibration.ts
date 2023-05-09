@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { filecoinProvider } from '../providers'
@@ -19,21 +19,21 @@ export const filecoinCalibration = {
     rpcNodes: {
         filecoin: {
             rpcNode: 'filecoin',
+            type: EndpointType.Public,
             http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.calibration.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

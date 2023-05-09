@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, avalancheProvider, blast, infura, omnia } from '../providers'
@@ -19,55 +19,75 @@ export const avalancheFujiTestnet = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://avalanche-fuji.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://avalanche-fuji.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/avax/fuji/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/avax/fuji/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/avax/fuji/public'],
             provider: omnia,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
+            type: EndpointType.Authenticated,
             http: [
-                `https://ava-testnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/rpc`,
-                `https://ava-testnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/avax`,
+                `https://ava-testnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/rpc`,
+                `https://ava-testnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/avax`,
             ],
-            wss: [`wss://ava-testnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/ws`],
+            wss: [`wss://ava-testnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/ws`],
             provider: blast,
-            authenticated: false,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
-            http: ['https://ava-testnet.public.blastapi.io/ext/bc/C/rpc'],
+            type: EndpointType.Public,
+            http: [
+                'https://ava-testnet.public.blastapi.io/ext/bc/C/rpc',
+                'https://ava-testnet.public.blastapi.io/ext/bc/C/avax',
+            ],
+            wss: ['wss://ava-testnet.public.blastapi.io/ext/bc/C/ws'],
             provider: blast,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [
+                `https://rpc.ankr.com/avalanche_fuji/${EndpointAuth.Key}`,
+                `https://rpc.ankr.com/avalanche_fuji-c/${EndpointAuth.Key}`,
+            ],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/avalanche_fuji', 'https://rpc.ankr.com/avalanche_fuji-c'],
             provider: ankr,
-            authenticated: false,
         },
         avalanche: {
             rpcNode: 'avalanche',
+            type: EndpointType.Public,
             http: ['https://api.avax-test.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.avax-test.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.avax-test.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

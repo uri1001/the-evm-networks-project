@@ -4,7 +4,7 @@
 // CONSIDER DOING FORMATTING IN SEPARATE FUNCTION
 // FILTERING BY BLOCK EXPLORER SHOULD BE POSSIBLE
 // ACCEPTS ARRAY OF NETWORKS
-const getBrowserEndpoints = (type?: 'none' | 'address' | 'tx' | 'block' | 'token'): string[] => {
+const getBrowserEndpoints = (_type?: 'none' | 'address' | 'tx' | 'block' | 'token'): string[] => {
     return []
 }
 

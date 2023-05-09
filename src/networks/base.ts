@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { baseProvider, blast } from '../providers'
+import { baseProvider } from '../providers'
 
 export const base = {
     id: 8453,
@@ -17,29 +17,23 @@ export const base = {
         decimals: 18,
     },
     rpcNodes: {
-        blast: {
-            rpcNode: 'blast',
-            http: [''],
-            provider: blast,
-            authenticated: false,
-        },
         base: {
             rpcNode: 'base',
+            type: EndpointType.Null,
             http: [''],
             provider: baseProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Null,
             http: [''],
             provider: baseProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Null,
             http: [''],
             provider: baseProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

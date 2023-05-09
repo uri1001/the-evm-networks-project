@@ -40,23 +40,43 @@ const validateNetwork = (
 
     let isValidRpcNodes = false
     const rpcNodes = Object.values(network.rpcNodes)
-    for (let i = 0; i < rpcNodes.length; i++)
-        isValidRpcNodes = isValidRpcNodes || validateRpcNode(rpcNodes[i], filter.rpcNodes)
+
+    if (rpcNodes.length === 0) {
+        if (filter.rpcNodes == null) isValidRpcNodes = true
+    } else {
+        for (let i = 0; i < rpcNodes.length; i++)
+            isValidRpcNodes = isValidRpcNodes || validateRpcNode(rpcNodes[i], filter.rpcNodes)
+    }
 
     let isValidBlockExplorers = false
-    if (network.blockExplorers != null) {
+    if (network.blockExplorers == null) {
+        if (filter.blockExplorers == null) isValidBlockExplorers = true
+    } else {
         const blockExplorers = Object.values(network.blockExplorers)
-        for (let i = 0; i < blockExplorers.length; i++)
-            isValidBlockExplorers =
-                isValidBlockExplorers ||
-                validateBlockExplorer(blockExplorers[i], filter.blockExplorers)
+
+        if (blockExplorers.length === 0) {
+            if (filter.blockExplorers == null) isValidBlockExplorers = true
+        } else {
+            for (let i = 0; i < blockExplorers.length; i++)
+                isValidBlockExplorers =
+                    isValidBlockExplorers ||
+                    validateBlockExplorer(blockExplorers[i], filter.blockExplorers)
+        }
     }
 
     let isValidContracts = false
-    if (network.contracts != null) {
+    if (network.contracts == null) {
+        if (filter.contracts == null) isValidContracts = true
+    } else {
         const contracts = Object.values(network.contracts)
-        for (let i = 0; i < contracts.length; i++)
-            isValidContracts = isValidContracts || validateContract(contracts[i], filter.contracts)
+
+        if (contracts.length === 0) {
+            if (filter.contracts == null) isValidContracts = true
+        } else {
+            for (let i = 0; i < contracts.length; i++)
+                isValidContracts =
+                    isValidContracts || validateContract(contracts[i], filter.contracts)
+        }
     }
 
     const isValidTestnet = validateBoolean(network.testnet, filter.testnet)

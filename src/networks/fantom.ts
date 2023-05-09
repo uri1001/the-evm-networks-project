@@ -1,7 +1,17 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, blast, blockpi, fantomProvider, omnia, onerpc, pokt, publicnode } from '../providers'
+import {
+    ankr,
+    blast,
+    blockpi,
+    fantomProvider,
+    lava,
+    omnia,
+    onerpc,
+    pokt,
+    publicnode,
+} from '../providers'
 
 export const fantom = {
     id: 250,
@@ -19,68 +29,90 @@ export const fantom = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://fantom-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://fantom-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://fantom-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Public,
+            http: [`https://g.w.lavanet.xyz:443/gateway/ftm250/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/ftm250/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/fantom/mainnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/fantom/mainnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/fantom/mainnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/ftm'],
             provider: onerpc,
-            authenticated: false,
         },
         publicnode: {
             rpcNode: 'publicnode',
+            type: EndpointType.Public,
             http: ['https://fantom.publicnode.com'],
             provider: publicnode,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/fantom/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/fantom'],
             provider: ankr,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://fantom-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://fantom-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://fantom-mainnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://fantom-mainnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://fantom-mainnet.public.blastapi.io'],
+            wss: ['wss://fantom-mainnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://fantom.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://fantom.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://fantom.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://fantom.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://fantom.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         fantom: {
             rpcNode: 'fantom',
+            type: EndpointType.Public,
             http: [
                 'https://rpcapi.fantom.network',
                 'https://rpc.fantom.network',
@@ -88,10 +120,10 @@ export const fantom = {
                 'https://rpc3.fantom.network',
             ],
             provider: fantomProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://rpcapi.fantom.network',
                 'https://rpc.fantom.network',
@@ -99,10 +131,10 @@ export const fantom = {
                 'https://rpc3.fantom.network',
             ],
             provider: fantomProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://rpcapi.fantom.network',
                 'https://rpc.fantom.network',
@@ -110,7 +142,6 @@ export const fantom = {
                 'https://rpc3.fantom.network',
             ],
             provider: fantomProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ubiqProvider } from '../providers'
@@ -19,21 +19,21 @@ export const ubiq = {
     rpcNodes: {
         ubiq: {
             rpcNode: 'ubiq',
+            type: EndpointType.Public,
             http: ['https://pyrus2.ubiqscan.io', 'https://rpc.octano.dev'],
             provider: ubiqProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://pyrus2.ubiqscan.io', 'https://rpc.octano.dev'],
             provider: ubiqProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://pyrus2.ubiqscan.io', 'https://rpc.octano.dev'],
             provider: ubiqProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

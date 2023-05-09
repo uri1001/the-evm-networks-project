@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { bronosProvider } from '../providers'
@@ -19,21 +19,21 @@ export const bronos = {
     rpcNodes: {
         bronos: {
             rpcNode: 'bronos',
+            type: EndpointType.Public,
             http: ['https://evm.bronos.org'],
             provider: bronosProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm.bronos.org'],
             provider: bronosProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm.bronos.org'],
             provider: bronosProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

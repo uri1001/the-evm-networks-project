@@ -1,5 +1,5 @@
 export type { default as RpcProviderAuth } from './auth/RpcProviderAuth'
-export type { default as blockExplorerAuth } from './auth/blockExplorerAuth'
+export type { default as BlockExplorerAuth } from './auth/blockExplorerAuth'
 export type { default as RpcProviderFilter } from './filters/RpcProviderFilter'
 export type { default as BlockExplorerFilter } from './filters/blockExplorerFilter'
 export type { default as ContractFilter } from './filters/contractFilter'

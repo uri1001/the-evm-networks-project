@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, blast, fantomProvider, omnia } from '../providers'
@@ -19,46 +19,60 @@ export const fantomTestnet = {
     rpcNodes: {
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/fantom/testnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/fantom/testnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/fantom/testnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/fantom_testnet/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/fantom_testnet'],
             provider: ankr,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://fantom-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://fantom-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://fantom-testnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://fantom-testnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
             http: ['https://fantom-testnet.public.blastapi.io'],
+            type: EndpointType.Public,
+            wss: ['wss://fantom-testnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         fantom: {
             rpcNode: 'fantom',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.fantom.network'],
             provider: fantomProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.fantom.network'],
             provider: fantomProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.testnet.fantom.network'],
             provider: fantomProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

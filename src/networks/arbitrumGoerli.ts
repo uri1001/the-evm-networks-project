@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { alchemy, arbitrumProvider, blast, infura, omnia } from '../providers'
+import { alchemy, arbitrumProvider, blast, infura, lava, omnia } from '../providers'
 
 export const arbitrumGoerli = {
     id: 421613,
@@ -19,46 +19,68 @@ export const arbitrumGoerli = {
     rpcNodes: {
         alchemy: {
             rpcNode: 'alchemy',
-            http: [`https://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://arb-goerli.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://arb-goerli.g.alchemy.com/v2/${EndpointAuth.Key}`],
+            wss: [`wss://arb-goerli.g.alchemy.com/v2/${EndpointAuth.Key}`],
             provider: alchemy,
-            authenticated: true,
         },
         infura: {
             rpcNode: 'infura',
-            http: [`https://arbitrum-goerli.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://arbitrum-goerli.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/arb1/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/arb1/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         blast: {
             rpcNode: 'blast',
-            http: ['https://arbitrum-goerli.public.blastapi.io'],
+            type: EndpointType.Authenticated,
+            http: [`https://arbitrum-goerli.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://arbitrum-goerli.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: false,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            type: EndpointType.Public,
+            http: ['https://arbitrum-goerli.public.blastapi.io'],
+            wss: ['wss://arbitrum-goerli.public.blastapi.io'],
+            provider: blast,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/arbitrum/goerli/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/arbitrum/goerli/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/arbitrum/goerli/public'],
             provider: omnia,
-            authenticated: false,
         },
         arbitrum: {
             rpcNode: 'arbitrum',
+            type: EndpointType.Public,
             http: ['https://goerli-rollup.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://goerli-rollup.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://goerli-rollup.arbitrum.io/rpc'],
             provider: arbitrumProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

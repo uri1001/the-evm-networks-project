@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { milkomedaProvider } from '../providers'
@@ -19,21 +19,21 @@ export const milkomedaA1Testnet = {
     rpcNodes: {
         milkomeda: {
             rpcNode: 'milkomeda',
+            type: EndpointType.Public,
             http: ['https://rpc-devnet-algorand-rollup.a1.milkomeda.com'],
             provider: milkomedaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc-devnet-algorand-rollup.a1.milkomeda.com'],
             provider: milkomedaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc-devnet-algorand-rollup.a1.milkomeda.com'],
             provider: milkomedaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

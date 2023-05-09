@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { kavaProvider, pokt } from '../providers'
@@ -19,39 +19,39 @@ export const kava = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://kava-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://kava-mainnet-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://kava-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://kava-mainnet-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://kava-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         kava: {
             rpcNode: 'kava',
+            type: EndpointType.Public,
             http: ['https://evm.kava.io', 'https://evm2.kava.io'],
             wss: ['wss://wevm.kava.io', 'wss://wevm2.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm.kava.io', 'https://evm2.kava.io'],
             wss: ['wss://wevm.kava.io', 'wss://wevm2.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm.kava.io', 'https://evm2.kava.io'],
             wss: ['wss://wevm.kava.io', 'wss://wevm2.kava.io'],
             provider: kavaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

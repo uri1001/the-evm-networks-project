@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { bobaProvider, pokt } from '../providers'
@@ -19,33 +19,33 @@ export const boba = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://boba-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://boba-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://boba-mainnet.gateway.pokt.network/v1/lb/623ad21b20354900396fed7f'],
             provider: pokt,
-            authenticated: false,
         },
         boba: {
             rpcNode: 'boba',
+            type: EndpointType.Public,
             http: ['https://mainnet.boba.network', 'https://lightning-replica.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://mainnet.boba.network', 'https://lightning-replica.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://mainnet.boba.network', 'https://lightning-replica.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

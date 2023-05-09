@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import {
@@ -28,70 +28,85 @@ export const sepolia = {
     rpcNodes: {
         alchemy: {
             rpcNode: 'alchemy',
-            http: [`https://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.Key}`],
+            wss: [`wss://eth-sepolia.g.alchemy.com/v2/${EndpointAuth.Key}`],
             provider: alchemy,
-            authenticated: true,
         },
         infura: {
             rpcNode: 'infura',
-            http: [`https://sepolia.infura.io/v3/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://sepolia.infura.io/ws/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://sepolia.infura.io/v3/${EndpointAuth.Key}`],
+            wss: [`wss://sepolia.infura.io/ws/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         alchemyPublic: {
             rpcNode: 'alchemyPublic',
+            type: EndpointType.Public,
             http: ['https://eth-sepolia.g.alchemy.com/v2/demo'],
             provider: alchemy,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/eth_sepolia/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/eth_sepolia'],
             provider: ankr,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://eth-sepolia.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://eth-sepolia.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://eth-sepolia.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://eth-sepolia.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://eth-sepolia.public.blastapi.io'],
+            wss: ['wss://eth-sepolia.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://ethereum-sepolia.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://ethereum-sepolia.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://ethereum-sepolia.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://ethereum-sepolia.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://ethereum-sepolia.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         flashbots: {
             rpcNode: 'flashbots',
+            type: EndpointType.Public,
             http: ['https://relay-sepolia.flashbots.net'],
             provider: flashbots,
-            authenticated: false,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/eth/sepolia/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/eth/sepolia/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/eth/sepolia/public'],
             provider: omnia,
-            authenticated: false,
         },
         sepolia: {
             rpcNode: 'sepolia',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.sepolia.org',
                 'https://rpc2.sepolia.org',
@@ -99,10 +114,10 @@ export const sepolia = {
                 'https://rpc.sepolia.dev',
             ],
             provider: sepoliaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.sepolia.org',
                 'https://rpc2.sepolia.org',
@@ -110,10 +125,10 @@ export const sepolia = {
                 'https://rpc.sepolia.dev',
             ],
             provider: sepoliaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.sepolia.org',
                 'https://rpc2.sepolia.org',
@@ -121,7 +136,6 @@ export const sepolia = {
                 'https://rpc.sepolia.dev',
             ],
             provider: sepoliaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

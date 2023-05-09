@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { blast } from '../providers'
@@ -19,28 +19,31 @@ export const palmTestnet = {
     rpcNodes: {
         blast: {
             rpcNode: 'blast',
-            http: [`https://palm-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://palm-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://palm-testnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://palm-testnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://palm-testnet.public.blastapi.io'],
+            wss: ['wss://palm-testnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://palm-testnet.public.blastapi.io'],
+            wss: ['wss://palm-testnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://palm-testnet.public.blastapi.io'],
+            wss: ['wss://palm-testnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
     },
     blockExplorers: {

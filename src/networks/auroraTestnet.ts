@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { auroraProvider, infura, omnia } from '../providers'
@@ -19,33 +19,40 @@ export const auroraTestnet = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://aurora-testnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://aurora-testnet.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/aurora/testnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/aurora/testnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/aurora/testnet/public/'],
             provider: omnia,
-            authenticated: false,
         },
         aurora: {
             rpcNode: 'aurora',
+            type: EndpointType.Public,
             http: ['https://testnet.aurora.dev/'],
             provider: auroraProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://testnet.aurora.dev/'],
             provider: auroraProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://testnet.aurora.dev'],
             provider: auroraProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

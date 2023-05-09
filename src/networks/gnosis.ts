@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, blast, blockpi, gnosisProvider, onfinality, pokt } from '../providers'
@@ -19,81 +19,88 @@ export const gnosis = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://poa-xdai.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://poa-xdai-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://poa-xdai.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://poa-xdai-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: [
                 'https://gnosischain-rpc.gateway.pokt.network',
                 'https://gnosischain-archival-rpc.gateway.pokt.network',
                 'https://xdai-rpc.gateway.pokt.network',
             ],
             provider: pokt,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/gnosis/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/gnosis'],
             provider: ankr,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://gnosis-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://gnosis-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://gnosis-mainnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://gnosis-mainnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://gnosis-mainnet.public.blastapi.io'],
+            wss: ['wss://gnosis-mainnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://gnosis.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://gnosis.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://gnosis.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://gnosis.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://gnosis.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         onfinality: {
             rpcNode: 'onfinality',
+            type: EndpointType.Public,
             http: ['https://gnosis.api.onfinality.io/public'],
             provider: onfinality,
-            authenticated: false,
         },
         gnosis: {
             rpcNode: 'gnosis',
+            type: EndpointType.Public,
             http: ['https://rpc.gnosischain.com'],
             wss: ['wss://rpc.gnosischain.com/wss'],
             provider: gnosisProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.gnosischain.com'],
             wss: ['wss://rpc.gnosischain.com/wss'],
             provider: gnosisProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.gnosischain.com'],
             wss: ['wss://rpc.gnosischain.com/wss'],
             provider: gnosisProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

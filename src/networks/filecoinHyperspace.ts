@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, filecoinProvider } from '../providers'
@@ -19,27 +19,33 @@ export const filecoinHyperspace = {
     rpcNodes: {
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/filecoin_testnet/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/filecoin_testnet'],
             provider: ankr,
-            authenticated: false,
         },
         filecoin: {
             rpcNode: 'filecoin',
+            type: EndpointType.Public,
             http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.hyperspace.node.glif.io/rpc/v1'],
             provider: filecoinProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

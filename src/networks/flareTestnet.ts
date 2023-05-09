@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { flareProvider } from '../providers'
@@ -19,21 +19,21 @@ export const flareTestnet = {
     rpcNodes: {
         flare: {
             rpcNode: 'flare',
+            type: EndpointType.Public,
             http: ['https://coston2-api.flare.network/ext/C/rpc'],
             provider: flareProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://coston2-api.flare.network/ext/C/rpc'],
             provider: flareProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://coston2-api.flare.network/ext/C/rpc'],
             provider: flareProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

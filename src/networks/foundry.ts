@@ -1,5 +1,6 @@
 import { type Network } from '../types'
 
+import { EndpointType } from '../enums'
 import { localhostProvider } from '../providers'
 
 export const foundry = {
@@ -18,15 +19,15 @@ export const foundry = {
     rpcNodes: {
         public: {
             rpcNode: 'public',
+            type: EndpointType.Local,
             http: ['http://127.0.0.1:8545'],
             provider: localhostProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Local,
             http: ['http://127.0.0.1:8545'],
             provider: localhostProvider,
-            authenticated: false,
         },
     },
     testnet: true,

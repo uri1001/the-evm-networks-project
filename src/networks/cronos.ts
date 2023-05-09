@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { blockpi, cronosProvider, publicnode } from '../providers'
@@ -19,40 +19,40 @@ export const cronos = {
     rpcNodes: {
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://cronos.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://cronos.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://cronos.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://cronos.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://cronos.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         publicnode: {
             rpcNode: 'publicnode',
+            type: EndpointType.Public,
             http: ['https://cronos-evm.publicnode.com'],
             provider: publicnode,
-            authenticated: false,
         },
         cronos: {
             rpcNode: 'cronos',
+            type: EndpointType.Public,
             http: ['https://evm.cronos.org', 'https://node.croswap.com/rpc'],
             provider: cronosProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://evm.cronos.org', 'https://node.croswap.com/rpc'],
             provider: cronosProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://evm.cronos.org', 'https://node.croswap.com/rpc'],
             provider: cronosProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

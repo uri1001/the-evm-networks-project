@@ -17,11 +17,13 @@
     ],
     "scripts": {
         "build": "tsc",
-        "clean": "rm -rf dist",
+        "clean": "rm -rf dist && rm -rf node_modules",
         "format": "eslint src/**/*.ts --fix",
         "lint": "eslint . --config .eslintrc.json",
         "lint:fix": "eslint . --fix --config .eslintrc.json",
-        "pretest": "npm run clean && npm run build",
+        "prebuild": "npm run lint",
+        "pretest": "npm run clean && npm run setup && npm run build",
+        "setup": "npm install",
         "test": "mocha ./dist/utils/tests/**/*.test.js --check-leaks"
     },
     "devDependencies": {

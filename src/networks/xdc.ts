@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { xdcProvider } from '../providers'
@@ -19,33 +19,33 @@ export const xdc = {
     rpcNodes: {
         xdc: {
             rpcNode: 'xdc',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.xinfin.network',
                 'https://erpc.xinfin.network',
                 'https://rpc1.xinfin.network',
             ],
             provider: xdcProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.xinfin.network',
                 'https://erpc.xinfin.network',
                 'https://rpc1.xinfin.network',
             ],
             provider: xdcProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.xinfin.network',
                 'https://erpc.xinfin.network',
                 'https://rpc1.xinfin.network',
             ],
             provider: xdcProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

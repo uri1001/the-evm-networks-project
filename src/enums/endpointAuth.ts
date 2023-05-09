@@ -1,6 +1,5 @@
 enum EndpointAuth {
-    PrivateKey = '<private-key>',
-    ProjectId = '<project-id>',
+    Key = '<auth-key>',
     Null = 'null',
 }
 

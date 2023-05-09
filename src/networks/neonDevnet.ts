@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { neonProvider } from '../providers'
@@ -19,21 +19,21 @@ export const neonDevnet = {
     rpcNodes: {
         neon: {
             rpcNode: 'neon',
+            type: EndpointType.Public,
             http: ['https://devnet.neonevm.org'],
             provider: neonProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://devnet.neonevm.org'],
             provider: neonProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://devnet.neonevm.org'],
             provider: neonProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

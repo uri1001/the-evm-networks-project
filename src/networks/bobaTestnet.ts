@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { bobaProvider } from '../providers'
@@ -19,21 +19,21 @@ export const bobaTestnet = {
     rpcNodes: {
         boba: {
             rpcNode: 'boba',
+            type: EndpointType.Public,
             http: ['https://goerli.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://goerli.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://goerli.boba.network'],
             provider: bobaProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

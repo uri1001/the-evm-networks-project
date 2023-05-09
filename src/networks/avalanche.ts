@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import {
@@ -7,6 +7,7 @@ import {
     blast,
     blockpi,
     infura,
+    lava,
     omnia,
     onerpc,
     pokt,
@@ -29,102 +30,129 @@ export const avalanche = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://avalanche-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://avalanche-mainnet.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/avax/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/avax/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://avax-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://avax-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://avax-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://avax-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: [
                 'https://avax-rpc.gateway.pokt.network',
                 'https://avax-mainnet.gateway.pokt.network/v1/lb/605238bf6b986eea7cf36d5e/ext/bc/C/rpc',
             ],
             provider: pokt,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/avax/c'],
             provider: onerpc,
-            authenticated: false,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/avax/mainnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/avax/mainnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/avax/mainnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         publicnode: {
             rpcNode: 'publicnode',
+            type: EndpointType.Public,
             http: ['https://avalanche-c-chain.publicnode.com'],
             provider: publicnode,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
+            type: EndpointType.Authenticated,
             http: [
-                `https://ava-mainnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/rpc`,
-                `https://ava-mainnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/avax`,
+                `https://ava-mainnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/rpc`,
+                `https://ava-mainnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/avax`,
             ],
-            wss: [`wss://ava-mainnet.blastapi.io/${EndpointAuth.PrivateKey}/ext/bc/C/ws`],
+            wss: [`wss://ava-mainnet.blastapi.io/${EndpointAuth.Key}/ext/bc/C/ws`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
-            http: ['https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc'],
+            type: EndpointType.Public,
+            http: [
+                'https://ava-mainnet.public.blastapi.io/ext/bc/C/rpc',
+                'https://ava-mainnet.public.blastapi.io/ext/bc/C/avax',
+            ],
+            wss: ['wss://ava-mainnet.public.blastapi.io/ext/bc/C/ws'],
             provider: blast,
-            authenticated: false,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://avalanche.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://avalanche.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://avalanche.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://avalanche.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://avalanche.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [
+                `https://rpc.ankr.com/avalanche/${EndpointAuth.Key}`,
+                `https://rpc.ankr.com/avalanche-c/${EndpointAuth.Key}`,
+            ],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: [
                 'https://avalanche.public-rpc.com',
                 'https://rpc.ankr.com/avalanche',
                 'https://rpc.ankr.com/avalanche-c',
             ],
             provider: ankr,
-            authenticated: false,
         },
         avalanche: {
             rpcNode: 'avalanche',
+            type: EndpointType.Public,
             http: ['https://api.avax.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.avax.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.avax.network/ext/bc/C/rpc'],
             provider: avalancheProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

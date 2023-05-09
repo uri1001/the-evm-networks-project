@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { harmonyProvider } from '../providers'
@@ -19,21 +19,21 @@ export const harmonyTestnet = {
     rpcNodes: {
         harmony: {
             rpcNode: 'harmony',
+            type: EndpointType.Public,
             http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://api.s0.b.hmny.io'],
             provider: harmonyProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { telosProvider } from '../providers'
@@ -19,21 +19,21 @@ export const telos = {
     rpcNodes: {
         telos: {
             rpcNode: 'telos',
+            type: EndpointType.Public,
             http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://mainnet.telos.net/evm'],
             provider: telosProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { baseProvider, blast } from '../providers'
+import { baseProvider, blast, lava, onerpc } from '../providers'
 
 export const baseGoerli = {
     id: 84531,
@@ -17,29 +17,50 @@ export const baseGoerli = {
         decimals: 18,
     },
     rpcNodes: {
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/baset/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/baset/rpc/${EndpointAuth.Key}`],
+            provider: lava,
+        },
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/base-goerli'],
+            provider: onerpc,
+        },
         blast: {
             rpcNode: 'blast',
-            http: ['https://base-goerli.public.blastapi.io'],
+            type: EndpointType.Authenticated,
+            http: [`https://base-goerli.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://base-goerli.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: false,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            type: EndpointType.Public,
+            http: ['https://base-goerli.public.blastapi.io'],
+            wss: ['wss://base-goerli.public.blastapi.io'],
+            provider: blast,
         },
         base: {
             rpcNode: 'base',
+            type: EndpointType.Public,
             http: ['https://goerli.base.org'],
             provider: baseProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://goerli.base.org'],
             provider: baseProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://goerli.base.org'],
             provider: baseProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { zkSyncProvider } from '../providers'
+import { onerpc, zkSyncProvider } from '../providers'
 
 export const zkSync = {
     id: 324,
@@ -17,26 +17,32 @@ export const zkSync = {
         decimals: 18,
     },
     rpcNodes: {
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/zksync2-era	'],
+            provider: onerpc,
+        },
         zkSync: {
             rpcNode: 'zkSync',
+            type: EndpointType.Public,
             http: ['https://zksync2-mainnet.zksync.io', 'https://mainnet.era.zksync.io'],
             wss: ['wss://zksync2-mainnet.zksync.io/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://zksync2-mainnet.zksync.io', 'https://mainnet.era.zksync.io'],
             wss: ['wss://zksync2-mainnet.zksync.io/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://zksync2-mainnet.zksync.io', 'https://mainnet.era.zksync.io'],
             wss: ['wss://zksync2-mainnet.zksync.io/ws'],
             provider: zkSyncProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

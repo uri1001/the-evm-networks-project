@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { meterProvider, pokt } from '../providers'
@@ -19,27 +19,27 @@ export const meterTestnet = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://meter-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://meter-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         meter: {
             rpcNode: 'meter',
+            type: EndpointType.Public,
             http: ['https://rpctest.meter.io'],
             provider: meterProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpctest.meter.io'],
             provider: meterProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpctest.meter.io'],
             provider: meterProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

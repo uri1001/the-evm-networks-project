@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { blockdaemon, nodestake } from '../providers'
+import { blockdaemon, lava, nodestake } from '../providers'
 
 export const evmosTestnet = {
     id: 9000,
@@ -17,32 +17,39 @@ export const evmosTestnet = {
         decimals: 18,
     },
     rpcNodes: {
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/evmost/json-rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/evmost/json-rpc/${EndpointAuth.Key}`],
+            provider: lava,
+        },
         nodestake: {
+            type: EndpointType.Public,
             rpcNode: 'nodestake',
             http: ['https://jsonrpc-t.evmos.nodestake.top/'],
             provider: nodestake,
-            authenticated: false,
         },
         blockdaemon: {
             rpcNode: 'blockdaemon',
+            type: EndpointType.Public,
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://eth.bd.evmos.dev:8545'],
             wss: ['wss://eth.bd.evmos.dev:8546'],
             provider: blockdaemon,
-            authenticated: false,
         },
     },
     blockExplorers: {
@@ -50,8 +57,8 @@ export const evmosTestnet = {
             name: 'Evmos Testnet Cosmos Explorer',
             blockExplorer: 'mintscan',
             type: BlockExplorerType.Independent,
-            browserUrl: 'https://testnet.mintscan.io/evmos-testnet',
             standard: BlockExplorerStandard.None,
+            browserUrl: 'https://testnet.mintscan.io/evmos-testnet',
         },
         evmosExplorer: {
             name: 'Evmos Testnet Block Explorer',

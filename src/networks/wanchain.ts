@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { wanchainProvider } from '../providers'
@@ -19,21 +19,21 @@ export const wanchain = {
     rpcNodes: {
         wanchain: {
             rpcNode: 'wanchain',
+            type: EndpointType.Public,
             http: ['https://gwan-ssl.wandevs.org:56891', 'https://gwan2-ssl.wandevs.org'],
             provider: wanchainProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://gwan-ssl.wandevs.org:56891', 'https://gwan2-ssl.wandevs.org'],
             provider: wanchainProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://gwan-ssl.wandevs.org:56891', 'https://gwan2-ssl.wandevs.org'],
             provider: wanchainProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

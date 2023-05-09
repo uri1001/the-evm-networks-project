@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, binance, blast, blockpi, omnia, onerpc, pokt, publicnode } from '../providers'
@@ -19,83 +19,103 @@ export const bsc = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://bsc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://bsc-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://bsc-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://bsc-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: [
                 'https://bsc-rpc.gateway.pokt.network',
                 'https://bsc-mainnet.gateway.pokt.network/v1/lb/6136201a7bad1500343e248d',
             ],
             provider: pokt,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/bnb'],
             provider: onerpc,
-            authenticated: false,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/bsc/mainnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/bsc/mainnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/bsc/mainnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         publicnode: {
             rpcNode: 'publicnode',
+            type: EndpointType.Public,
             http: ['https://bsc.publicnode.com'],
             provider: publicnode,
-            authenticated: false,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/bsc/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/bsc'],
             provider: ankr,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://bsc-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://bsc-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://bsc-mainnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://bsc-mainnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            type: EndpointType.Public,
+            http: ['https://bsc-mainnet.public.blastapi.io'],
+            wss: ['wss://bsc-mainnet.public.blastapi.io'],
+            provider: blast,
         },
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://bsc.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://bsc.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://bsc.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://bsc.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://bsc.blockpi.network/v1/rpc/public'],
             provider: blockpi,
-            authenticated: false,
         },
         binance: {
             rpcNode: 'binance',
+            type: EndpointType.Public,
             http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://bsc-dataseed.binance.org'],
             provider: binance,
-            authenticated: false,
         },
     },
     blockExplorers: {

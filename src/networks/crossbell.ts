@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { crossbellProvider } from '../providers'
@@ -19,21 +19,21 @@ export const crossbell = {
     rpcNodes: {
         crossbell: {
             rpcNode: 'crossbell',
+            type: EndpointType.Public,
             http: ['https://rpc.crossbell.io'],
             provider: crossbellProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.crossbell.io'],
             provider: crossbellProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.crossbell.io'],
             provider: crossbellProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

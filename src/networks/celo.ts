@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, forno, infura, onerpc, pokt } from '../providers'
+import { ankr, forno, infura, lava, onerpc, pokt } from '../providers'
 
 export const celo = {
     id: 42220,
@@ -19,48 +19,61 @@ export const celo = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://celo-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://celo-mainnet.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
+        },
+        lava: {
+            rpcNode: 'lava',
+            type: EndpointType.Authenticated,
+            http: [`https://g.w.lavanet.xyz:443/gateway/celo/rpc-http/${EndpointAuth.Key}`],
+            wss: [`wss://g.w.lavanet.xyz:443/gateway/celo/rpc/${EndpointAuth.Key}`],
+            provider: lava,
         },
         pokt: {
             rpcNode: 'pokt',
-            http: [`https://celo-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://celo-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/celo/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/celo'],
             provider: ankr,
-            authenticated: false,
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Public,
             http: ['https://1rpc.io/celo'],
             provider: onerpc,
-            authenticated: false,
         },
         forno: {
             rpcNode: 'forno',
+            type: EndpointType.Public,
             http: ['https://forno.celo.org'],
             wss: ['wss://forno.celo.org/ws'],
             provider: forno,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://forno.celo.org'],
             wss: ['wss://forno.celo.org/ws'],
             provider: forno,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://forno.celo.org'],
             wss: ['wss://forno.celo.org/ws'],
             provider: forno,
-            authenticated: false,
         },
     },
     blockExplorers: {

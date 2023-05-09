@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { fuseProvider } from '../providers'
@@ -19,21 +19,21 @@ export const fuseSparknet = {
     rpcNodes: {
         fuse: {
             rpcNode: 'fuse',
+            type: EndpointType.Public,
             http: ['https://rpc.fusespark.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.fusespark.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.fusespark.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

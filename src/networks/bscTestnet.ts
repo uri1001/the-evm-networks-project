@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, binance, blast, omnia } from '../providers'
@@ -19,52 +19,72 @@ export const bscTestnet = {
     rpcNodes: {
         blast: {
             rpcNode: 'blast',
-            http: [`https://bsc-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://bsc-testnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://bsc-testnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://bsc-testnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            type: EndpointType.Public,
+            http: ['https://bsc-testnet.public.blastapi.io'],
+            wss: ['wss://bsc-testnet.public.blastapi.io'],
+            provider: blast,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/bsc_testnet_chapel/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/bsc_testnet_chapel'],
             provider: ankr,
-            authenticated: false,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/bsc/testnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/bsc/testnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/bsc/testnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         binance: {
             rpcNode: 'binance',
+            type: EndpointType.Public,
             http: [
                 'https://data-seed-prebsc-1-s1.binance.org:8545',
                 'https://data-seed-prebsc-1-s2.binance.org:8545',
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://data-seed-prebsc-1-s1.binance.org:8545',
                 'https://data-seed-prebsc-1-s2.binance.org:8545',
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://data-seed-prebsc-1-s1.binance.org:8545',
                 'https://data-seed-prebsc-1-s2.binance.org:8545',
                 'https://data-seed-prebsc-1-s3.binance.org:8545',
             ],
             provider: binance,
-            authenticated: false,
         },
     },
     blockExplorers: {

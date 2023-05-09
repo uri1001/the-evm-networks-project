@@ -1,7 +1,7 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { auroraProvider, infura, omnia } from '../providers'
+import { auroraProvider, infura, omnia, onerpc } from '../providers'
 
 export const aurora = {
     id: 1313161554,
@@ -19,33 +19,46 @@ export const aurora = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://aurora-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://aurora-mainnet.infura.io/v3/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
+        },
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/aurora'],
+            provider: onerpc,
         },
         omnia: {
             rpcNode: 'omnia',
+            type: EndpointType.Authenticated,
+            http: [`https://endpoints.omniatech.io/v1/aurora/mainnet/${EndpointAuth.Key}`],
+            wss: [`wss://endpoints.omniatech.io/v1/aurora/mainnet/${EndpointAuth.Key}`],
+            provider: omnia,
+        },
+        omniaPublic: {
+            rpcNode: 'omniaPublic',
+            type: EndpointType.Public,
             http: ['https://endpoints.omniatech.io/v1/aurora/mainnet/public'],
             provider: omnia,
-            authenticated: false,
         },
         aurora: {
             rpcNode: 'aurora',
+            type: EndpointType.Public,
             http: ['https://mainnet.aurora.dev'],
             provider: auroraProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://mainnet.aurora.dev'],
             provider: auroraProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://mainnet.aurora.dev'],
             provider: auroraProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

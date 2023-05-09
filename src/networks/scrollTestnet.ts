@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { blast, blockpi, scrollProvider } from '../providers'
@@ -19,50 +19,51 @@ export const scrollTestnet = {
     rpcNodes: {
         blockpi: {
             rpcNode: 'blockpi',
-            http: [`https://scroll-testnet.blockpi.network/v1/rpc/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://scroll-testnet.blockpi.network/v1/ws/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://scroll-testnet.blockpi.network/v1/rpc/${EndpointAuth.Key}`],
+            wss: [`wss://scroll-testnet.blockpi.network/v1/ws/${EndpointAuth.Key}`],
             provider: blockpi,
-            authenticated: true,
         },
         blockpiPublic: {
             rpcNode: 'blockpiPublic',
+            type: EndpointType.Public,
             http: ['https://scroll-testnet.blockpi.network/v1/rpc/public'],
+            wss: ['wss://scroll-alphanet.public.blastapi.io'],
             provider: blockpi,
-            authenticated: false,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://scroll-alphanet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://scroll-alphanet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://scroll-alphanet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://scroll-alphanet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://scroll-alphanet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         scroll: {
             rpcNode: 'scroll',
+            type: EndpointType.Public,
             http: ['https://alpha-rpc.scroll.io/l2'],
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://alpha-rpc.scroll.io/l2'],
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://alpha-rpc.scroll.io/l2'],
             wss: ['wss://alpha-rpc.scroll.io/l2/ws'],
             provider: scrollProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

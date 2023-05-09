@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { gnosisProvider } from '../providers'
@@ -19,37 +19,44 @@ export const gnosisChiado = {
     rpcNodes: {
         blast: {
             rpcNode: 'blast',
-            http: [`https://gnosis-chiado.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://gnosis-chiado.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://gnosis-chiado.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://gnosis-chiado.blastapi.io/${EndpointAuth.Key}`],
             provider: gnosisProvider,
-            authenticated: false,
+        },
+        blastPublic: {
+            rpcNode: 'blastPublic',
+            type: EndpointType.Public,
+            http: ['https://gnosis-chiado.public.blastapi.io'],
+            wss: ['wss://gnosis-chiado.public.blastapi.io'],
+            provider: gnosisProvider,
         },
         gnosis: {
             rpcNode: 'gnosis',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.chiadochain.net',
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado',
             ],
             provider: gnosisProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.chiadochain.net',
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado',
             ],
             provider: gnosisProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.chiadochain.net',
                 'https://rpc.eu-central-2.gateway.fm/v3/gnosis/archival/chiado',
             ],
             provider: gnosisProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

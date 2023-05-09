@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { fuseProvider, pokt } from '../providers'
@@ -19,36 +19,36 @@ export const fuse = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
+            type: EndpointType.Authenticated,
             http: [
-                `https://fuse-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-                `https://fuse-archival.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
+                `https://fuse-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
+                `https://fuse-archival.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`,
             ],
             provider: pokt,
-            authenticated: true,
         },
         poktPublic: {
             rpcNode: 'poktPublic',
+            type: EndpointType.Public,
             http: ['https://fuse-rpc.gateway.pokt.network'],
             provider: pokt,
-            authenticated: false,
         },
         fuse: {
             rpcNode: 'fuse',
+            type: EndpointType.Public,
             http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.fuse.io'],
             provider: fuseProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

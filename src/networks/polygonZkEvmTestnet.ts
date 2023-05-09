@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { alchemy, ankr, polygonProvider } from '../providers'
@@ -19,34 +19,40 @@ export const polygonZkEvmTestnet = {
     rpcNodes: {
         alchemy: {
             rpcNode: 'alchemy',
-            http: [`https://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
+            wss: [`wss://polygonzkevm-testnet.g.alchemy.com/v2/${EndpointAuth.Key}`],
             provider: alchemy,
-            authenticated: true,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Authenticated,
+            http: [`https://rpc.ankr.com/polygon_zkevm_testnet/${EndpointAuth.Key}`],
+            provider: ankr,
+        },
+        ankrPublic: {
+            rpcNode: 'ankrPublic',
+            type: EndpointType.Public,
             http: ['https://rpc.ankr.com/polygon_zkevm_testnet'],
             provider: ankr,
-            authenticated: false,
         },
         polygon: {
             rpcNode: 'polygon',
+            type: EndpointType.Public,
             http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.public.zkevm-test.net'],
             provider: polygonProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

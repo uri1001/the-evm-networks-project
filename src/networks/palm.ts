@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { blast, infura } from '../providers'
@@ -19,35 +19,38 @@ export const palm = {
     rpcNodes: {
         infura: {
             rpcNode: 'infura',
-            http: [`https://palm-mainnet.infura.io/v3/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://palm-mainnet.infura.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://palm-mainnet.infura.io/v3/${EndpointAuth.Key}`],
+            wss: [`wss://palm-mainnet.infura.io/${EndpointAuth.Key}`],
             provider: infura,
-            authenticated: true,
         },
         blast: {
             rpcNode: 'blast',
-            http: [`https://palm-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
-            wss: [`wss://palm-mainnet.blastapi.io/${EndpointAuth.PrivateKey}`],
+            type: EndpointType.Authenticated,
+            http: [`https://palm-mainnet.blastapi.io/${EndpointAuth.Key}`],
+            wss: [`wss://palm-mainnet.blastapi.io/${EndpointAuth.Key}`],
             provider: blast,
-            authenticated: true,
         },
         blastPublic: {
             rpcNode: 'blastPublic',
+            type: EndpointType.Public,
             http: ['https://palm-mainnet.public.blastapi.io'],
+            wss: ['wss://palm-mainnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://palm-mainnet.public.blastapi.io'],
+            wss: ['wss://palm-mainnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://palm-mainnet.public.blastapi.io'],
+            wss: ['wss://palm-mainnet.public.blastapi.io'],
             provider: blast,
-            authenticated: false,
         },
     },
     blockExplorers: {

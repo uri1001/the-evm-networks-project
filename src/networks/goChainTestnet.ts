@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { goChainProvider } from '../providers'
@@ -19,21 +19,21 @@ export const goChainTestnet = {
     rpcNodes: {
         goChain: {
             rpcNode: 'goChain',
+            type: EndpointType.Public,
             http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://testnet-rpc.gochain.io'],
             provider: goChainProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

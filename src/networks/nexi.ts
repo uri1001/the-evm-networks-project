@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { nexiProvider } from '../providers'
@@ -19,21 +19,21 @@ export const nexi = {
     rpcNodes: {
         nexi: {
             rpcNode: 'nexi',
+            type: EndpointType.Public,
             http: ['https://rpc.chain.nexi.technology', 'https://chain.nexi.evmnode.online'],
             provider: nexiProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: ['https://rpc.chain.nexi.technology', 'https://chain.nexi.evmnode.online'],
             provider: nexiProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: ['https://rpc.chain.nexi.technology', 'https://chain.nexi.evmnode.online'],
             provider: nexiProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {

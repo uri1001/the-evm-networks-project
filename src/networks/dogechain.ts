@@ -1,4 +1,4 @@
-import { BlockExplorerStandard, BlockExplorerType, EndpointAuth } from '../enums'
+import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
 import { ankr, dogechainProvider, pokt } from '../providers'
@@ -19,47 +19,45 @@ export const dogechain = {
     rpcNodes: {
         pokt: {
             rpcNode: 'pokt',
-            http: [
-                `https://dogechain-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.PrivateKey}`,
-            ],
+            type: EndpointType.Authenticated,
+            http: [`https://dogechain-mainnet.gateway.pokt.network/v1/lb/${EndpointAuth.Key}`],
             provider: pokt,
-            authenticated: true,
         },
         ankr: {
             rpcNode: 'ankr',
+            type: EndpointType.Public,
             http: ['https://www.ankr.com/rpc/dogechain'],
             provider: ankr,
-            authenticated: false,
         },
         dogechain: {
             rpcNode: 'dogechain',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.dogechain.dog',
                 'https://rpc-us.dogechain.dog',
                 'https://rpc01.dogechain.dog',
             ],
             provider: dogechainProvider,
-            authenticated: false,
         },
         public: {
             rpcNode: 'public',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.dogechain.dog',
                 'https://rpc-us.dogechain.dog',
                 'https://rpc01.dogechain.dog',
             ],
             provider: dogechainProvider,
-            authenticated: false,
         },
         default: {
             rpcNode: 'default',
+            type: EndpointType.Public,
             http: [
                 'https://rpc.dogechain.dog',
                 'https://rpc-us.dogechain.dog',
                 'https://rpc01.dogechain.dog',
             ],
             provider: dogechainProvider,
-            authenticated: false,
         },
     },
     blockExplorers: {
