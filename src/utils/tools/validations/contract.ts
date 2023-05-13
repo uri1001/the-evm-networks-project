@@ -24,13 +24,13 @@ const validateContract = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidName = validateString(contract.name, filter.name)
-    const isValidContract = validateString(contract.contract, filter.contract)
-    const isValidAddress = validateString(contract.address, filter.address)
+    const isValidName: boolean = validateString(contract.name, filter.name)
+    const isValidContract: boolean = validateString(contract.contract, filter.contract)
+    const isValidAddress: boolean = validateString(contract.address, filter.address)
 
-    const isValidDeployBlock = validateNumber(contract.deployBlock, filter.deployBlock)
+    const isValidDeployBlock: boolean = validateNumber(contract.deployBlock, filter.deployBlock)
 
-    const isValidDeployTxHash = validateString(contract.deployTxHash, filter.deployTxHash)
+    const isValidDeployTxHash: boolean = validateString(contract.deployTxHash, filter.deployTxHash)
 
     if (filter.optional != null) {
         filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
@@ -50,11 +50,11 @@ const validateContract = (
         and.push(isValidDeployTxHash)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 

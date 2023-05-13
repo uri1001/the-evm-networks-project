@@ -33,9 +33,9 @@ const validateRpcNode = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidRpcNode = validateString(rpcNode.rpcNode, filter.rpcNode)
+    const isValidRpcNode: boolean = validateString(rpcNode.rpcNode, filter.rpcNode)
 
-    const isValidEndpointType = validateEndpointType(rpcNode.type, filter.type)
+    const isValidEndpointType: boolean = validateEndpointType(rpcNode.type, filter.type)
 
     let isValidHtpp = true
     let isValidWss = true
@@ -63,11 +63,11 @@ const validateRpcNode = (
         and.push(isValidProvider)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 

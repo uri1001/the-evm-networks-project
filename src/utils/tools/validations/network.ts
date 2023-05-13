@@ -28,17 +28,17 @@ const validateNetwork = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidId = validateNumber(network.id, filter.id)
+    const isValidId: boolean = validateNumber(network.id, filter.id)
 
-    const isValidName = validateString(network.name, filter.name)
-    const isValidNetwork = validateString(network.network, filter.network)
+    const isValidName: boolean = validateString(network.name, filter.name)
+    const isValidNetwork: boolean = validateString(network.network, filter.network)
 
-    const isValidNativeCurrency = validateNativeCurrency(
+    const isValidNativeCurrency: boolean = validateNativeCurrency(
         network.nativeCurrency,
         filter.nativeCurrency,
     )
 
-    let isValidRpcNodes = false
+    let isValidRpcNodes: boolean = false
     const rpcNodes = Object.values(network.rpcNodes)
 
     if (rpcNodes.length === 0) {
@@ -48,7 +48,7 @@ const validateNetwork = (
             isValidRpcNodes = isValidRpcNodes || validateRpcNode(rpcNodes[i], filter.rpcNodes)
     }
 
-    let isValidBlockExplorers = false
+    let isValidBlockExplorers: boolean = false
     if (network.blockExplorers == null) {
         if (filter.blockExplorers == null) isValidBlockExplorers = true
     } else {
@@ -64,7 +64,7 @@ const validateNetwork = (
         }
     }
 
-    let isValidContracts = false
+    let isValidContracts: boolean = false
     if (network.contracts == null) {
         if (filter.contracts == null) isValidContracts = true
     } else {
@@ -79,9 +79,9 @@ const validateNetwork = (
         }
     }
 
-    const isValidTestnet = validateBoolean(network.testnet, filter.testnet)
+    const isValidTestnet: boolean = validateBoolean(network.testnet, filter.testnet)
 
-    const isValidMainnetId = validateNumber(network.mainnetId, filter.mainnetId)
+    const isValidMainnetId: boolean = validateNumber(network.mainnetId, filter.mainnetId)
 
     if (filter.optional != null) {
         filter.optional?.includes('id') ? or.push(isValidId) : and.push(isValidId)
@@ -113,11 +113,11 @@ const validateNetwork = (
         and.push(isValidMainnetId)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 

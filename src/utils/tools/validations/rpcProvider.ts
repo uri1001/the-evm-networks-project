@@ -24,10 +24,10 @@ const validateRpcProvider = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidName = validateString(provider.name, filter.name)
-    const isValidProvider = validateString(provider.provider, filter.provider)
+    const isValidName: boolean = validateString(provider.name, filter.name)
+    const isValidProvider: boolean = validateString(provider.provider, filter.provider)
 
-    const isPrivacyLevel = validatePrivacyLevel(provider.privacyLevel, filter.privacyLevel)
+    const isPrivacyLevel: boolean = validatePrivacyLevel(provider.privacyLevel, filter.privacyLevel)
 
     if (filter.optional != null) {
         filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
@@ -41,11 +41,11 @@ const validateRpcProvider = (
         and.push(isPrivacyLevel)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 

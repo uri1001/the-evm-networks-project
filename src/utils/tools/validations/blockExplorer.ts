@@ -30,18 +30,18 @@ const validateBlockExplorer = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidName = validateString(blockExplorer.name, filter.name)
-    const isValidBlockExplorer = validateString(blockExplorer.blockExplorer, filter.blockExplorer)
+    const isValidName: boolean = validateString(blockExplorer.name, filter.name)
+    const isValidBlockExplorer: boolean = validateString(blockExplorer.blockExplorer, filter.blockExplorer)
 
-    const isValidType = validateBlockExplorerType(blockExplorer.type, filter.type)
-    const isValidStandard = validateBlockExplorerStandard(blockExplorer.standard, filter.standard)
+    const isValidType: boolean = validateBlockExplorerType(blockExplorer.type, filter.type)
+    const isValidStandard: boolean = validateBlockExplorerStandard(blockExplorer.standard, filter.standard)
 
-    const isValidBrowserUrl = validateHttpEndpoints([blockExplorer.browserUrl], filter.browserUrl)
-    const isValidApiUrl = validateHttpEndpoints(
+    const isValidBrowserUrl: boolean = validateHttpEndpoints([blockExplorer.browserUrl], filter.browserUrl)
+    const isValidApiUrl: boolean = validateHttpEndpoints(
         blockExplorer.apiUrl != null ? [blockExplorer.apiUrl] : undefined,
         filter.apiUrl,
     )
-    const isValidDocsUrl = validateHttpEndpoints(
+    const isValidDocsUrl: boolean = validateHttpEndpoints(
         blockExplorer.docsUrl != null ? [blockExplorer.docsUrl] : undefined,
         filter.docsUrl,
     )
@@ -68,11 +68,11 @@ const validateBlockExplorer = (
         and.push(isValidDocsUrl)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 

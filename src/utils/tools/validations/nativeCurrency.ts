@@ -24,11 +24,11 @@ const validateNativeCurrency = (
     const and: boolean[] = []
     const or: boolean[] = []
 
-    const isValidName = validateString(nativeCurrency.name, filter.name)
-    const isValidSymbol = validateString(nativeCurrency.symbol, filter.symbol)
-    const isValidUSymbol = validateString(nativeCurrency.uSymbol, filter.uSymbol)
+    const isValidName: boolean = validateString(nativeCurrency.name, filter.name)
+    const isValidSymbol: boolean = validateString(nativeCurrency.symbol, filter.symbol)
+    const isValidUSymbol: boolean = validateString(nativeCurrency.uSymbol, filter.uSymbol)
 
-    const isValidDecimals = validateNumber(nativeCurrency.decimals, filter.decimals)
+    const isValidDecimals: boolean = validateNumber(nativeCurrency.decimals, filter.decimals)
 
     if (filter.optional != null) {
         filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
@@ -42,11 +42,11 @@ const validateNativeCurrency = (
         and.push(isValidDecimals)
     }
 
-    const v = validateFinalValidations(and, or)
+    const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) {
+    if (filter.filterType != null) 
         if (filter.filterType === 'exclude') return !v
-    }
+    
     return v
 }
 
