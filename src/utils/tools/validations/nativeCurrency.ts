@@ -31,10 +31,10 @@ const validateNativeCurrency = (
     const isValidDecimals: boolean = validateNumber(nativeCurrency.decimals, filter.decimals)
 
     if (filter.optional != null) {
-        filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
-        filter.optional?.includes('symbol') ? or.push(isValidSymbol) : and.push(isValidSymbol)
-        filter.optional?.includes('uSymbol') ? or.push(isValidUSymbol) : and.push(isValidUSymbol)
-        filter.optional?.includes('decimals') ? or.push(isValidDecimals) : and.push(isValidDecimals)
+        filter.optional.includes('name') ? or.push(isValidName) : and.push(isValidName)
+        filter.optional.includes('symbol') ? or.push(isValidSymbol) : and.push(isValidSymbol)
+        filter.optional.includes('uSymbol') ? or.push(isValidUSymbol) : and.push(isValidUSymbol)
+        filter.optional.includes('decimals') ? or.push(isValidDecimals) : and.push(isValidDecimals)
     } else {
         and.push(isValidName)
         and.push(isValidSymbol)
@@ -44,9 +44,8 @@ const validateNativeCurrency = (
 
     const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) 
-        if (filter.filterType === 'exclude') return !v
-    
+    if (filter.filterType != null) if (filter.filterType === 'exclude') return !v
+
     return v
 }
 

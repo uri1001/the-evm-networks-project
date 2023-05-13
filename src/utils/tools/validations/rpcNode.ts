@@ -48,13 +48,13 @@ const validateRpcNode = (
     const isValidProvider = validateRpcProvider(rpcNode.provider, filter.provider)
 
     if (filter.optional != null) {
-        filter.optional?.includes('rpcNode') ? or.push(isValidRpcNode) : and.push(isValidRpcNode)
-        filter.optional?.includes('type')
+        filter.optional.includes('rpcNode') ? or.push(isValidRpcNode) : and.push(isValidRpcNode)
+        filter.optional.includes('type')
             ? or.push(isValidEndpointType)
             : and.push(isValidEndpointType)
-        filter.optional?.includes('http') ? or.push(isValidHtpp) : and.push(isValidHtpp)
-        filter.optional?.includes('wss') ? or.push(isValidWss) : and.push(isValidWss)
-        filter.optional?.includes('provider') ? or.push(isValidProvider) : and.push(isValidProvider)
+        filter.optional.includes('http') ? or.push(isValidHtpp) : and.push(isValidHtpp)
+        filter.optional.includes('wss') ? or.push(isValidWss) : and.push(isValidWss)
+        filter.optional.includes('provider') ? or.push(isValidProvider) : and.push(isValidProvider)
     } else {
         and.push(isValidRpcNode)
         and.push(isValidEndpointType)
@@ -65,9 +65,8 @@ const validateRpcNode = (
 
     const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) 
-        if (filter.filterType === 'exclude') return !v
-    
+    if (filter.filterType != null) if (filter.filterType === 'exclude') return !v
+
     return v
 }
 

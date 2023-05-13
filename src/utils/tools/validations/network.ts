@@ -84,21 +84,21 @@ const validateNetwork = (
     const isValidMainnetId: boolean = validateNumber(network.mainnetId, filter.mainnetId)
 
     if (filter.optional != null) {
-        filter.optional?.includes('id') ? or.push(isValidId) : and.push(isValidId)
-        filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
-        filter.optional?.includes('network') ? or.push(isValidNetwork) : and.push(isValidNetwork)
-        filter.optional?.includes('nativeCurrency')
+        filter.optional.includes('id') ? or.push(isValidId) : and.push(isValidId)
+        filter.optional.includes('name') ? or.push(isValidName) : and.push(isValidName)
+        filter.optional.includes('network') ? or.push(isValidNetwork) : and.push(isValidNetwork)
+        filter.optional.includes('nativeCurrency')
             ? or.push(isValidNativeCurrency)
             : and.push(isValidNativeCurrency)
-        filter.optional?.includes('rpcNodes') ? or.push(isValidRpcNodes) : and.push(isValidRpcNodes)
-        filter.optional?.includes('blockExplorers')
+        filter.optional.includes('rpcNodes') ? or.push(isValidRpcNodes) : and.push(isValidRpcNodes)
+        filter.optional.includes('blockExplorers')
             ? or.push(isValidBlockExplorers)
             : and.push(isValidBlockExplorers)
-        filter.optional?.includes('contracts')
+        filter.optional.includes('contracts')
             ? or.push(isValidContracts)
             : and.push(isValidContracts)
-        filter.optional?.includes('testnet') ? or.push(isValidTestnet) : and.push(isValidTestnet)
-        filter.optional?.includes('mainnetId')
+        filter.optional.includes('testnet') ? or.push(isValidTestnet) : and.push(isValidTestnet)
+        filter.optional.includes('mainnetId')
             ? or.push(isValidMainnetId)
             : and.push(isValidMainnetId)
     } else {
@@ -115,9 +115,8 @@ const validateNetwork = (
 
     const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) 
-        if (filter.filterType === 'exclude') return !v
-    
+    if (filter.filterType != null) if (filter.filterType === 'exclude') return !v
+
     return v
 }
 

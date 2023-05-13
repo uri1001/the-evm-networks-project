@@ -33,13 +33,13 @@ const validateContract = (
     const isValidDeployTxHash: boolean = validateString(contract.deployTxHash, filter.deployTxHash)
 
     if (filter.optional != null) {
-        filter.optional?.includes('name') ? or.push(isValidName) : and.push(isValidName)
-        filter.optional?.includes('contract') ? or.push(isValidContract) : and.push(isValidContract)
-        filter.optional?.includes('address') ? or.push(isValidAddress) : and.push(isValidAddress)
-        filter.optional?.includes('deployBlock')
+        filter.optional.includes('name') ? or.push(isValidName) : and.push(isValidName)
+        filter.optional.includes('contract') ? or.push(isValidContract) : and.push(isValidContract)
+        filter.optional.includes('address') ? or.push(isValidAddress) : and.push(isValidAddress)
+        filter.optional.includes('deployBlock')
             ? or.push(isValidDeployBlock)
             : and.push(isValidDeployBlock)
-        filter.optional?.includes('deployTxHash')
+        filter.optional.includes('deployTxHash')
             ? or.push(isValidDeployTxHash)
             : and.push(isValidDeployTxHash)
     } else {
@@ -52,9 +52,8 @@ const validateContract = (
 
     const v: boolean = validateFinalValidations(and, or)
 
-    if (filter.filterType != null) 
-        if (filter.filterType === 'exclude') return !v
-    
+    if (filter.filterType != null) if (filter.filterType === 'exclude') return !v
+
     return v
 }
 
