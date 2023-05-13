@@ -119,13 +119,13 @@ export const bsc = {
         },
     },
     blockExplorers: {
-        bscScan: {
+        bscscan: {
             name: 'BscScan',
-            blockExplorer: 'bscScan',
+            blockExplorer: 'bscscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://bscscan.com',
-            apiUrl: 'https://api.bscscan.com',
+            apiUrl: 'https://api.bscscan.com/api',
             docsUrl: 'https://docs.bscscan.com',
         },
         default: {
@@ -134,7 +134,7 @@ export const bsc = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://bscscan.com',
-            apiUrl: 'https://api.bscscan.com',
+            apiUrl: 'https://api.bscscan.com/api',
             docsUrl: 'https://docs.bscscan.com',
         },
     },

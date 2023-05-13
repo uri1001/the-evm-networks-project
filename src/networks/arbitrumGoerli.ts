@@ -97,7 +97,7 @@ export const arbitrumGoerli = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://goerli.arbiscan.io',
-            apiUrl: 'https://api-goerli.arbiscan.io',
+            apiUrl: 'https://api-goerli.arbiscan.io/api',
             docsUrl: 'https://docs.arbiscan.io/v/goerli-arbiscan',
         },
         default: {
@@ -106,7 +106,7 @@ export const arbitrumGoerli = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://goerli.arbiscan.io',
-            apiUrl: 'https://api-goerli.arbiscan.io',
+            apiUrl: 'https://api-goerli.arbiscan.io/api',
             docsUrl: 'https://docs.arbiscan.io/v/goerli-arbiscan',
         },
     },

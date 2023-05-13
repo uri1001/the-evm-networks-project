@@ -1,11 +1,50 @@
-// can accept an array of networks to extract endpoints from
+import { networks as allNetworks } from '../..'
 
-// RETURNS ARRAY OF BLOCK EXPLORER BROWSER ENDPOINTS FROM GIVEN NETWORKS OR FILTERING NETWORKS
-// CONSIDER DOING FORMATTING IN SEPARATE FUNCTION
-// FILTERING BY BLOCK EXPLORER SHOULD BE POSSIBLE
-// ACCEPTS ARRAY OF NETWORKS
-const getBrowserEndpoints = (_type?: 'none' | 'address' | 'tx' | 'block' | 'token'): string[] => {
-    return []
+import { type Network } from '../../types'
+import { type BlockExplorerFilter, type NetworkFilter } from '../types'
+
+import { extractBrowserEndpoints, filterNetworks } from '../tools'
+
+export interface GetBrowserEndpointsArgs {
+    type?: 'none' | 'address' | 'tx' | 'block' | 'token'
+    typeArg?: string
+    endpointsFilter?: BlockExplorerFilter
+    networks?: Network[]
+    networkFilter?: NetworkFilter
+}
+
+const getBrowserEndpoints = (args: GetBrowserEndpointsArgs): string[] => {
+    let { type, typeArg, endpointsFilter, networks, networkFilter } = args
+
+    // Filter Networks
+    if (networks == null) {
+        if (networkFilter != null) {
+            networks = filterNetworks(allNetworks, networkFilter)
+        } else {
+            networks = allNetworks
+        }
+    } else {
+        if (networkFilter != null) networks = filterNetworks(networks, networkFilter)
+    }
+
+    // Extract Endpoints
+    let endpoints: string[] = []
+
+    for (let i = 0; i < networks.length; i++) {
+        endpoints = endpoints.concat(
+            extractBrowserEndpoints(type, typeArg, endpointsFilter, networks[i]),
+        )
+    }
+
+    // Check & Remove Duplicated Endpoints
+    for (let i = endpoints.length - 1; i >= 0; i--) {
+        if (endpoints.indexOf(endpoints[i]) !== i) {
+            endpoints[i] = endpoints[endpoints.length - 1]
+            endpoints.pop()
+        }
+    }
+
+    return endpoints
 }
 
 export default getBrowserEndpoints

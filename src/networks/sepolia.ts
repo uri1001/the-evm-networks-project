@@ -152,7 +152,7 @@ export const sepolia = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://sepolia.etherscan.io',
-            apiUrl: 'https://api-sepolia.etherscan.io',
+            apiUrl: 'https://api-sepolia.etherscan.io/api',
             docsUrl: 'https://docs.etherscan.io/v/sepolia-etherscan',
         },
         default: {
@@ -161,7 +161,7 @@ export const sepolia = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://sepolia.etherscan.io',
-            apiUrl: 'https://api-sepolia.etherscan.io',
+            apiUrl: 'https://api-sepolia.etherscan.io/api',
             docsUrl: 'https://docs.etherscan.io/v/sepolia-etherscan',
         },
     },

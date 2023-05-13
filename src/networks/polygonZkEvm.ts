@@ -74,9 +74,9 @@ export const polygonZkEvm = {
         },
     },
     blockExplorers: {
-        polygonScan: {
+        polygonscan: {
             name: 'zkEVM PolygonScan',
-            blockExplorer: 'polygonScan',
+            blockExplorer: 'polygonscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://zkevm.polygonscan.com',

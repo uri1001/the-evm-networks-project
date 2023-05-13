@@ -143,7 +143,7 @@ export const arbitrumOne = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://arbiscan.io',
-            apiUrl: 'https://api.arbiscan.io',
+            apiUrl: 'https://api.arbiscan.io/api',
             docsUrl: 'https://docs.arbiscan.io',
         },
         default: {
@@ -152,7 +152,7 @@ export const arbitrumOne = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://arbiscan.io',
-            apiUrl: 'https://api.arbiscan.io',
+            apiUrl: 'https://api.arbiscan.io/api',
             docsUrl: 'https://docs.arbiscan.io',
         },
     },

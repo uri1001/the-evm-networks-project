@@ -163,13 +163,13 @@ export const polygon = {
         },
     },
     blockExplorers: {
-        polygonScan: {
+        polygonscan: {
             name: 'PolygonScan',
-            blockExplorer: 'polygonScan',
+            blockExplorer: 'polygonscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://polygonscan.com',
-            apiUrl: 'https://api.polygonscan.com',
+            apiUrl: 'https://api.polygonscan.com/api',
             docsUrl: 'https://docs.polygonscan.com',
         },
         default: {
@@ -178,7 +178,7 @@ export const polygon = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://polygonscan.com',
-            apiUrl: 'https://api.polygonscan.com',
+            apiUrl: 'https://api.polygonscan.com/api',
             docsUrl: 'https://docs.polygonscan.com',
         },
     },

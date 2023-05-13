@@ -155,7 +155,7 @@ export const goerli = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://goerli.etherscan.io',
-            apiUrl: 'https://api-goerli.etherscan.io',
+            apiUrl: 'https://api-goerli.etherscan.io/api',
             docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan',
         },
         default: {
@@ -164,7 +164,7 @@ export const goerli = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://goerli.etherscan.io',
-            apiUrl: 'https://api-goerli.etherscan.io',
+            apiUrl: 'https://api-goerli.etherscan.io/api',
             docsUrl: 'https://docs.etherscan.io/v/goerli-etherscan',
         },
     },

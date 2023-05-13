@@ -145,13 +145,22 @@ export const optimisticEthereum = {
         },
     },
     blockExplorers: {
-        optimismScan: {
+        optimismExplorer: {
+            name: 'Optimism Blockchain Explorer',
+            blockExplorer: 'optimismExplorer',
+            type: BlockExplorerType.Blockscout,
+            standard: BlockExplorerStandard.EIP3091,
+            browserUrl: 'https://blockscout.com/optimism/mainnet',
+            apiUrl: 'https://blockscout.com/optimism/mainnet/api',
+            docsUrl: 'https://blockscout.com/optimism/mainnet/api-docs',
+        },
+        optimismscan: {
             name: 'Optimism Etherscan',
-            blockExplorer: 'optimismScan',
+            blockExplorer: 'optimismscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://optimistic.etherscan.io',
-            apiUrl: 'https://api-optimistic.etherscan.io',
+            apiUrl: 'https://api-optimistic.etherscan.io/api',
             docsUrl: 'https://docs.optimism.etherscan.io',
         },
         default: {
@@ -160,7 +169,7 @@ export const optimisticEthereum = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://optimistic.etherscan.io',
-            apiUrl: 'https://api-optimistic.etherscan.io',
+            apiUrl: 'https://api-optimistic.etherscan.io/api',
             docsUrl: 'https://docs.optimism.etherscan.io',
         },
     },

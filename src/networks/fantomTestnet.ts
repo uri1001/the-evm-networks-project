@@ -76,13 +76,13 @@ export const fantomTestnet = {
         },
     },
     blockExplorers: {
-        ftmScan: {
+        ftmscan: {
             name: 'Testnet FTMScan',
-            blockExplorer: 'ftmScan',
+            blockExplorer: 'ftmscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.ftmscan.com',
-            apiUrl: 'https://api-testnet.ftmscan.com',
+            apiUrl: 'https://api-testnet.ftmscan.com/api',
             docsUrl: 'https://docs.ftmscan.com/v/testnet-ftmscan',
         },
         default: {
@@ -91,7 +91,7 @@ export const fantomTestnet = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.ftmscan.com',
-            apiUrl: 'https://api-testnet.ftmscan.com',
+            apiUrl: 'https://api-testnet.ftmscan.com/api',
             docsUrl: 'https://docs.ftmscan.com/v/testnet-ftmscan',
         },
     },

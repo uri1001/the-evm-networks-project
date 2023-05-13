@@ -18,6 +18,7 @@ import validateRpcProvider from './rpcProvider'
 const validateRpcNode = (
     rpcNode: RpcNode | undefined,
     filter: RpcNodeFilter | undefined,
+    endpoints?: string,
 ): boolean => {
     // pre-validation
 
@@ -36,8 +37,13 @@ const validateRpcNode = (
 
     const isValidEndpointType = validateEndpointType(rpcNode.type, filter.type)
 
-    const isValidHtpp = validateHttpEndpoints(rpcNode.http, filter.http)
-    const isValidWss = validateWssEndpoints(rpcNode.wss, filter.wss)
+    let isValidHtpp = true
+    let isValidWss = true
+
+    if (endpoints == null) {
+        isValidHtpp = validateHttpEndpoints(rpcNode.http, filter.http)
+        isValidWss = validateWssEndpoints(rpcNode.wss, filter.wss)
+    }
 
     const isValidProvider = validateRpcProvider(rpcNode.provider, filter.provider)
 

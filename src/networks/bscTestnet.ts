@@ -88,13 +88,13 @@ export const bscTestnet = {
         },
     },
     blockExplorers: {
-        bscScan: {
+        bscscan: {
             name: 'Testnet BscScan',
-            blockExplorer: 'bscScan',
+            blockExplorer: 'bscscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.bscscan.com',
-            apiUrl: 'https://api-testnet.bscscan.com',
+            apiUrl: 'https://api-testnet.bscscan.com/api',
             docsUrl: 'https://docs.bscscan.com/v/bscscan-testnet',
         },
         default: {
@@ -103,7 +103,7 @@ export const bscTestnet = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.bscscan.com',
-            apiUrl: 'https://api-testnet.bscscan.com',
+            apiUrl: 'https://api-testnet.bscscan.com/api',
             docsUrl: 'https://docs.bscscan.com/v/bscscan-testnet',
         },
     },

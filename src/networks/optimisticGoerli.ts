@@ -108,12 +108,12 @@ export const optimisticGoerli = {
             type: BlockExplorerType.Blockscout,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://blockscout.com/optimism/goerli',
-            apiUrl: 'https://blockscout.com/optimism/goerli/api-docs',
-            docsUrl: 'https://blockscout.com/optimism/goerli/api',
+            apiUrl: 'https://blockscout.com/optimism/goerli/api',
+            docsUrl: 'https://blockscout.com/optimism/goerli/api-docs',
         },
-        optimismScan: {
+        optimismscan: {
             name: 'Goerli Optimism Etherscan',
-            blockExplorer: 'optimismScan',
+            blockExplorer: 'optimismscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://goerli-optimism.etherscan.io',

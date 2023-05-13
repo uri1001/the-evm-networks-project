@@ -1,7 +1,3 @@
-type RpcProviderAuth = Array<{
-    provider: string
-    key: string
-    network?: number | string
-}>
+type RpcProviderAuth = Record<string, Record<string, string>>
 
 export default RpcProviderAuth

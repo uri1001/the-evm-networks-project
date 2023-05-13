@@ -33,7 +33,7 @@ export const auroraTestnet = {
         omniaPublic: {
             rpcNode: 'omniaPublic',
             type: EndpointType.Public,
-            http: ['https://endpoints.omniatech.io/v1/aurora/testnet/public/'],
+            http: ['https://endpoints.omniatech.io/v1/aurora/testnet/public'],
             provider: omnia,
         },
         aurora: {

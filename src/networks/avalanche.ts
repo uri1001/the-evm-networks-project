@@ -159,7 +159,7 @@ export const avalanche = {
         avascan: {
             name: 'Avascan',
             blockExplorer: 'avascan',
-            type: BlockExplorerType.Etherscan,
+            type: BlockExplorerType.Blockscout,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://avascan.info/blockchain/c',
             apiUrl: 'https://api.avascan.info/v2/network/mainnet/evm/43114/etherscan',
@@ -171,7 +171,7 @@ export const avalanche = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://snowtrace.io',
-            apiUrl: 'https://api.snowtrace.io',
+            apiUrl: 'https://api.snowtrace.io/api',
             docsUrl: 'https://docs.snowtrace.io',
         },
         default: {
@@ -180,7 +180,7 @@ export const avalanche = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://snowtrace.io',
-            apiUrl: 'https://api.snowtrace.io',
+            apiUrl: 'https://api.snowtrace.io/api',
             docsUrl: 'https://docs.snowtrace.io',
         },
     },

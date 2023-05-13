@@ -4,9 +4,7 @@
     "description": "EVM Networks & RPC Node Providers Parameters Documentation",
     "author": "Oriol Rodríguez Setó <uri1001@pm.me>",
     "license": "MIT",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "homepage": "https://github.com/uri1001/the-evm-networks-project#readme",
+    "homepage": "https://the-evm-networks-project.gitbook.io/documentation",
     "repository": {
         "type": "git",
         "url": "https://github.com/uri1001/the-evm-networks-project"
@@ -24,7 +22,44 @@
         "prebuild": "npm run lint",
         "pretest": "npm run clean && npm run setup && npm run build",
         "setup": "npm install",
-        "test": "mocha ./dist/utils/tests/**/*.test.js --check-leaks"
+        "test": "mocha \"./dist/utils/tests/**/*.test.js\""
+    },
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "typings": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js",
+            "default": "./dist/index.js"
+        },
+        "./enums": {
+            "types": "./dist/enums/index.d.ts",
+            "import": "./dist/enums/index.js",
+            "default": "./dist/enums/index.js"
+        },
+        "./networks": {
+            "types": "./dist/networks/index.d.ts",
+            "import": "./dist/networks/index.js",
+            "default": "./dist/networks/index.js"
+        },
+        "./providers": {
+            "types": "./dist/providers/index.d.ts",
+            "import": "./dist/providers/index.js",
+            "default": "./dist/providers/index.js"
+        },
+        "./types": {
+            "types": "./dist/types/index.d.ts",
+            "import": "./dist/types/index.js",
+            "default": "./dist/types/index.js"
+        },
+        "./utils": {
+            "types": "./dist/utils/index.d.ts",
+            "import": "./dist/utils/index.js",
+            "default": "./dist/utils/index.js"
+        },
+        "./package.json": "./package.json"
     },
     "devDependencies": {
         "@types/chai": "^4.3.4",

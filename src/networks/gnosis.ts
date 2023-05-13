@@ -117,7 +117,7 @@ export const gnosis = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://gnosisscan.io',
-            apiUrl: 'https://api.gnosisscan.io',
+            apiUrl: 'https://api.gnosisscan.io/api',
             docsUrl: 'https://docs.gnosisscan.io',
         },
         default: {
@@ -126,7 +126,7 @@ export const gnosis = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://gnosisscan.io',
-            apiUrl: 'https://api.gnosisscan.io',
+            apiUrl: 'https://api.gnosisscan.io/api',
             docsUrl: 'https://docs.gnosisscan.io',
         },
     },

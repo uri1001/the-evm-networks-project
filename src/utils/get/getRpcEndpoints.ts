@@ -3,26 +3,24 @@ import { networks as allNetworks } from '../..'
 import { type Network } from '../../types'
 import { type NetworkFilter, type RpcNodeFilter, type RpcProviderAuth } from '../types'
 
-import { EndpointAuth, EndpointType } from '../../enums'
+import { EndpointAuth } from '../../enums'
 
 import { extractRpcEndpoints, filterNetworks } from '../tools'
-import { validateEndpointType } from '../tools/validations/core'
 
-interface GetRpcEndpointsArgs {
-    filter?: RpcNodeFilter
+export interface GetRpcEndpointsArgs {
+    endpointsFilter?: RpcNodeFilter
     authConfig?: RpcProviderAuth
+    authStrict?: boolean
     networks?: Network[]
     networkFilter?: NetworkFilter
 }
 
 const getRpcEndpoints = (args: GetRpcEndpointsArgs): string[] => {
-    let { filter, authConfig, networks, networkFilter } = args
+    let { endpointsFilter, authConfig, authStrict, networks, networkFilter } = args
 
-    // Check Missing Auth Config
-    if (filter != null) {
-        const v = validateEndpointType(EndpointType.Authenticated, filter.type)
-        if (v && authConfig == null) throw new Error('missing rpc endpoints auth config')
-    }
+    // Check Missing Auth Config if Auth is in Strict Mode
+    if ((authStrict ?? false) && authConfig == null)
+        throw new Error('auth strict mode: missing rpc endpoints auth config')
 
     // Filter Networks
     if (networks == null) {
@@ -39,12 +37,15 @@ const getRpcEndpoints = (args: GetRpcEndpointsArgs): string[] => {
     let endpoints: string[] = []
 
     for (let i = 0; i < networks.length; i++) {
-        endpoints = endpoints.concat(extractRpcEndpoints(networks[i], filter, authConfig))
+        endpoints = endpoints.concat(extractRpcEndpoints(endpointsFilter, authConfig, networks[i]))
     }
 
-    // Check & Remove Duplicated Endpoints & Auth Endpoints With No Key
+    // Check & Remove Duplicated Endpoints
     for (let i = endpoints.length - 1; i >= 0; i--) {
-        if (endpoints.indexOf(endpoints[i]) !== i || endpoints[i].includes(EndpointAuth.Key)) {
+        if (
+            endpoints.indexOf(endpoints[i]) !== i ||
+            ((authStrict ?? false) && endpoints[i].includes(EndpointAuth.Key))
+        ) {
             endpoints[i] = endpoints[endpoints.length - 1]
             endpoints.pop()
         }

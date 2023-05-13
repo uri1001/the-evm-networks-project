@@ -65,9 +65,9 @@ export const polygonZkEvmTestnet = {
             apiUrl: 'https://explorer.public.zkevm-test.net/api',
             docsUrl: 'https://explorer.public.zkevm-test.net/api-docs',
         },
-        polygonScan: {
+        polygonscan: {
             name: 'zkEVM Testnet PolygonScan',
-            blockExplorer: 'polygonScan',
+            blockExplorer: 'polygonscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet-zkevm.polygonscan.com',

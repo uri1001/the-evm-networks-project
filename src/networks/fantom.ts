@@ -161,13 +161,13 @@ export const fantom = {
             standard: BlockExplorerStandard.None,
             browserUrl: 'https://explorer.fantom.network',
         },
-        ftmScan: {
+        ftmscan: {
             name: 'FTMScan',
-            blockExplorer: 'ftmScan',
+            blockExplorer: 'ftmscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://ftmscan.com',
-            apiUrl: 'https://api.ftmscan.com',
+            apiUrl: 'https://api.ftmscan.com/api',
             docsUrl: 'https://docs.ftmscan.com',
         },
         default: {
@@ -176,7 +176,7 @@ export const fantom = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://ftmscan.com',
-            apiUrl: 'https://api.ftmscan.com',
+            apiUrl: 'https://api.ftmscan.com/api',
             docsUrl: 'https://docs.ftmscan.com',
         },
     },

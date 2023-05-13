@@ -1,1 +1,1 @@
-export { default as extractRpcEndpoints } from './extractRpcEndpoints'
+export { default as extractRpcEndpoints } from './rpcEndpoints'

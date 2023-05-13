@@ -5,7 +5,7 @@ import { forno, infura, lava } from '../providers'
 
 export const celoAlfajores = {
     id: 44787,
-    name: 'Alfajores',
+    name: 'Celo Alfajores',
     network: 'celoAlfajores',
     infoUrl: 'https://docs.celo.org',
     docsUrl: 'https://docs.celo.org/network',
@@ -53,9 +53,9 @@ export const celoAlfajores = {
         },
     },
     blockExplorers: {
-        celoScan: {
+        celoscan: {
             name: 'CeloScan Alfajores',
-            blockExplorer: 'celoScan',
+            blockExplorer: 'celoscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://alfajores.celoscan.io',

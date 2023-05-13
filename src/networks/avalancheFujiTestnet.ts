@@ -94,7 +94,7 @@ export const avalancheFujiTestnet = {
         avascan: {
             name: 'Avascan',
             blockExplorer: 'avascan',
-            type: BlockExplorerType.Etherscan,
+            type: BlockExplorerType.Blockscout,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.avascan.info/blockchain/c',
             apiUrl: 'https://api.avascan.info/v2/network/testnet/evm/43113/etherscan',
@@ -106,7 +106,7 @@ export const avalancheFujiTestnet = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.snowtrace.io',
-            apiUrl: 'https://api-testnet.snowtrace.io',
+            apiUrl: 'https://api-testnet.snowtrace.io/api',
             docsUrl: 'https://docs.snowtrace.io/v/fuji-snowtrace',
         },
         default: {
@@ -115,7 +115,7 @@ export const avalancheFujiTestnet = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://testnet.snowtrace.io',
-            apiUrl: 'https://api-testnet.snowtrace.io',
+            apiUrl: 'https://api-testnet.snowtrace.io/api',
             docsUrl: 'https://docs.snowtrace.io/v/fuji-snowtrace',
         },
     },

@@ -77,9 +77,9 @@ export const celo = {
         },
     },
     blockExplorers: {
-        celoScan: {
+        celoscan: {
             name: 'CeloScan',
-            blockExplorer: 'celoScan',
+            blockExplorer: 'celoscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://celoscan.io',

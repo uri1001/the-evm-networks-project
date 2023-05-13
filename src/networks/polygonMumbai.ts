@@ -132,13 +132,13 @@ export const polygonMumbai = {
         },
     },
     blockExplorers: {
-        polygonScan: {
+        polygonscan: {
             name: 'Mumbai PolygonScan',
-            blockExplorer: 'polygonScan',
+            blockExplorer: 'polygonscan',
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://mumbai.polygonscan.com',
-            apiUrl: 'https://api-testnet.polygonscan.com',
+            apiUrl: 'https://api-testnet.polygonscan.com/api',
             docsUrl: 'https://docs.polygonscan.com/v/mumbai-polygonscan',
         },
         default: {
@@ -147,7 +147,7 @@ export const polygonMumbai = {
             type: BlockExplorerType.Etherscan,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://mumbai.polygonscan.com',
-            apiUrl: 'https://api-testnet.polygonscan.com',
+            apiUrl: 'https://api-testnet.polygonscan.com/api',
             docsUrl: 'https://docs.polygonscan.com/v/mumbai-polygonscan',
         },
     },
