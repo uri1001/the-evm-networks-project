@@ -7,5 +7,9 @@ node_modules
 # distribution
 dist
 
+# test coverage
+.nyc_output
+coverage
+
 # misc
 .DS_Store

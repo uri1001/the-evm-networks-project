@@ -16,15 +16,17 @@
     "scripts": {
         "build": "tsc",
         "build:ci": "tsc",
-        "clean": "rm -rf dist && rm -rf node_modules",
+        "clean": "rm -rf dist && rm -rf node_modules && rm -rf ./.nyc_output && rm -rf ./coverage",
+        "coverage": "nyc report --temp-dir ./.nyc_output --reporter json --report-dir ./coverage",
         "format": "eslint src/**/*.ts --fix",
         "lint": "eslint . --config .eslintrc.json",
         "lint:fix": "eslint . --fix --config .eslintrc.json",
+        "posttest": "npm run coverage",
         "prebuild": "npm run lint",
         "pretest": "npm run clean && npm run setup && npm run build",
         "setup": "npm install",
-        "test": "mocha \"./dist/utils/tests/**/*.test.js\"",
-        "test:ci": "nyc mocha \"./dist/utils/tests/**/*.test.js\""
+        "test": "nyc --reporter=text-summary mocha \"./dist/utils/tests/**/*.test.js\"",
+        "test:ci": "nyc --reporter=text-summary mocha \"./dist/utils/tests/**/*.test.js\" && npm run coverage"
     },
     "main": "./dist/index.js",
     "exports": {
