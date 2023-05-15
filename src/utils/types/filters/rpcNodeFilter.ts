@@ -1,6 +1,6 @@
 import { type EndpointType } from '../../../enums'
 
-import type RpcProviderFilter from './RpcProviderFilter'
+import type RpcProviderFilter from './rpcProviderFilter'
 
 export const rpcNodeFilterParams: Array<'rpcNode' | 'type' | 'http' | 'wss' | 'provider'> = [
     'rpcNode',

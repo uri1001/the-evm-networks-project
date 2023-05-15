@@ -1,3 +1,9 @@
-{
-  "files": ["dist",  "package.json", "LICENSE", "README.md"],
-}
+# exclude
+.github
+.eslintignore
+.eslintrc.json
+.prettierrc
+
+dist/utils/tests/
+src
+tsconfig.json

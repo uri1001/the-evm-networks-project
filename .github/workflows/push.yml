@@ -8,30 +8,43 @@
 # Source repository: https://github.com/actions/dependency-review-action
 # Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
 #
-name: 'Push on Master Branch'
+name: Push on Master Branch
 on:
-  push:
-    branches: [master]
+    push:
+        branches: [master]
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  test:
-    name: Node v${{ matrix.node }} code test
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [ 14, 16, 18 ]
-    steps:
-      - name: 'Checkout Repository'
-        uses: actions/checkout@v3
-        
-      - name: 'Run tests'
-        shell: bash
-        run: npm run test
-      
-      - name: 'Upload coverage reports to Codecov'
-        uses: codecov/codecov-action@v3
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+    test:
+        name: Node JS v${{ matrix.node }} code test
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: [14, 16, 18, 20]
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v3
+
+            - name: Set Up Node JS ${{ matrix.node }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node }}
+
+            - name: Install Project Dependencies
+              shell: bash
+              run: npm install
+
+            - name: Build Project
+              shell: bash
+              run: npm run build:ci
+
+            - name: Test Project
+              shell: bash
+              run: npm run test:ci
+
+            - name: Upload Coverage Reports to Codecov
+              uses: codecov/codecov-action@v3
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}

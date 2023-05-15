@@ -30,21 +30,9 @@ const validateRpcProvider = (
     const isPrivacyLevel: boolean = validatePrivacyLevel(provider.privacyLevel, filter.privacyLevel)
 
     if (filter.optional != null) {
-        if (filter.optional.includes('name') ?? false) {
-            or.push(isValidName)
-        } else {
-            and.push(isValidName)
-        }
-        if (filter.optional.includes('provider') ?? false) {
-            or.push(isValidProvider)
-        } else {
-            and.push(isValidProvider)
-        }
-        if (filter.optional.includes('privacyLevel') ?? false) {
-            or.push(isPrivacyLevel)
-        } else {
-            and.push(isPrivacyLevel)
-        }
+        filter.optional.includes('name') ? or.push(isValidName) : and.push(isValidName)
+        filter.optional.includes('provider') ? or.push(isValidProvider) : and.push(isValidProvider)
+        filter.optional.includes('privacyLevel') ? or.push(isPrivacyLevel) : and.push(isPrivacyLevel)
     } else {
         and.push(isValidName)
         and.push(isValidProvider)

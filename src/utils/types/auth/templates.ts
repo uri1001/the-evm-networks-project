@@ -1,5 +1,5 @@
-import type RpcProviderAuth from './RpcProviderAuth'
 import type BlockExplorerAuth from './blockExplorerAuth'
+import type RpcProviderAuth from './rpcProviderAuth'
 
 export const rpcProviderAuthTemplate: RpcProviderAuth = {
     alchemy: {

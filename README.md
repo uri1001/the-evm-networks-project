@@ -28,16 +28,19 @@
         <a href="https://github.com/uri1001/the-evm-networks-project/pulse">
         <img src="https://img.shields.io/github/watchers/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Watchers">
     </a>
-    <a target="_blank" href="https://github.com/uri1001/the-evm-networks-project/graphs/commit-activity">
-        <img src="https://img.shields.io/github/commit-activity/m/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="Commits">
+    <a target="_blank" href="https://app.codecov.io/gh/uri1001/the-evm-networks-project">
+        <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=21262d&colorB=21262d&style=flat">
+        <img src="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=f6f8fa&colorB=f6f8fa&style=flat" alt="Coverage">
+        </picture>
     </a>
     <br />
-  <a target="_blank" href="https://www.npmjs.com/package/evm-networks">
-    <img src="https://img.shields.io/npm/v/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Version">
-  </a>
-  <a target="_blank" href="https://www.npmjs.com/package/evm-networks">
-    <img src="https://img.shields.io/npm/dm/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Downloads per month">
-  </a>
+    <a target="_blank" href="https://www.npmjs.com/package/evm-networks">
+        <img src="https://img.shields.io/npm/v/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Version">
+    </a>
+    <a target="_blank" href="https://www.npmjs.com/package/evm-networks">
+        <img src="https://img.shields.io/npm/dm/evm-networks?colorA=21262d&colorB=161b22&style=flat" alt="Downloads per month">
+    </a>
     <a target="_blank" href="https://github.com/uri1001/the-evm-networks-project/blob/master/LICENSE">
         <img src="https://img.shields.io/github/license/uri1001/the-evm-networks-project.svg?colorA=21262d&colorB=161b22&style=flat" alt="License">
     </a>

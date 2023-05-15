@@ -5,12 +5,24 @@ import * as allProviders from './providers'
 
 export * from './networks'
 export * from './providers'
-export type { Network, RpcProvider } from './types'
-export type { NetworkFilter } from './utils/types'
+export type { BlockExplorer, Contract, NativeCurrency, Network, RpcNode, RpcProvider } from './types'
+export * from './utils'
+export type {
+    BlockExplorerAuth,
+    BlockExplorerFilter,
+    ContractFilter,
+    NativeCurrencyFilter,
+    NetworkFilter,
+    RpcNodeFilter,
+    RpcProviderAuth,
+    RpcProviderFilter,
+} from './utils/types'
 
 export const networks: Network[] = []
+export const providers: RpcProvider[] = []
 
-let k: keyof typeof allNetworks
-for (k in allNetworks) networks.push(allNetworks[k])
+let n: keyof typeof allNetworks
+for (n in allNetworks) networks.push(allNetworks[n])
 
-export const providers: RpcProvider[] = Object.values(allProviders)
+let p: keyof typeof allProviders
+for (p in allProviders) providers.push(allProviders[p])
