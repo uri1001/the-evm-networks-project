@@ -30,8 +30,8 @@
     </a>
     <a target="_blank" href="https://app.codecov.io/gh/uri1001/the-evm-networks-project">
         <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=21262d&colorB=21262d&style=flat">
-        <img src="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=f6f8fa&colorB=f6f8fa&style=flat" alt="Coverage">
+            <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=21262d&colorB=21262d&style=flat">
+            <img src="https://img.shields.io/codecov/c/github/uri1001/the-evm-networks-project?colorA=f6f8fa&colorB=f6f8fa&style=flat" alt="Coverage">
         </picture>
     </a>
     <br />
@@ -295,6 +295,8 @@ TO BE DONE
 -   Ethereum Community EVM Networks List - [Networks List](https://github.com/ethereum-lists/chains/)
 
 -   WagmiSH EVM Networks Repository - [Networks Repository](https://github.com/wagmi-dev/references/tree/f0f19f3c36400058ff8fdf9eb01541a2f43a92fe/packages/chains/)
+
+-   RPC Providers Source Tool - [RPC Providers](https://rpcproviders.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

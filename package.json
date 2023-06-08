@@ -20,6 +20,7 @@
         "coverage": "nyc report --temp-dir ./.nyc_output --reporter json --report-dir ./coverage",
         "format": "eslint src/**/*.ts --fix",
         "lint": "eslint . --config .eslintrc.json",
+        "lint:ci": "eslint .",
         "lint:fix": "eslint . --fix --config .eslintrc.json",
         "posttest": "npm run coverage",
         "prebuild": "npm run lint",

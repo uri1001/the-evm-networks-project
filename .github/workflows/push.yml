@@ -40,6 +40,10 @@ jobs:
               shell: bash
               run: npm run build:ci
 
+            - name: Lint Project
+              shell: bash
+              run: npm run lint:ci
+
             - name: Test Project
               shell: bash
               run: npm run test:ci

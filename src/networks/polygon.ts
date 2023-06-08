@@ -113,6 +113,12 @@ export const polygon = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/matic`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/matic'],
             provider: onerpc,

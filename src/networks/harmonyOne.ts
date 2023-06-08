@@ -37,6 +37,12 @@ export const harmonyOne = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/one`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/one'],
             provider: onerpc,

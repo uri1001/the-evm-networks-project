@@ -50,6 +50,12 @@ export const polygonZkEvm = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/zkevm`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/zkevm'],
             provider: onerpc,

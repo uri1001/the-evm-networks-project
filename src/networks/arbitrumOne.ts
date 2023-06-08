@@ -93,6 +93,12 @@ export const arbitrumOne = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/arb`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/arb'],
             provider: onerpc,

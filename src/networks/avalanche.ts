@@ -61,6 +61,12 @@ export const avalanche = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/avax/c`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/avax/c'],
             provider: onerpc,

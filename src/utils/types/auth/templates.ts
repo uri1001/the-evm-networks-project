@@ -20,6 +20,9 @@ export const rpcProviderAuthTemplate: RpcProviderAuth = {
     blast: {
         key: '<blast-rpc-api-key>',
     },
+    onerpc: {
+        key: '<onerpc-rpc-api-key>',
+    },
     omnia: {
         mainnet: '<omnia-mainnet-rpc-api-key>',
         goerli: '<omnia-goerli-rpc-api-key>',
@@ -68,14 +71,14 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         arbiscan: '<arbitrum-etherscan-api-key>',
         default: '<arbitrum-etherscan-api-key>',
     },
-    aurora: {
-        auroraExplorer: '<aurora-blockscout-api-key>',
-        default: '<aurora-blockscout-api-key>',
-    },
-    auroraTestnet: {
-        auroraExplorer: '<aurora-blockscout-api-key>',
-        default: '<aurora-blockscout-api-key>',
-    },
+    // aurora: {
+    //     auroraExplorer: '<aurora-blockscout-api-key>',
+    //     default: '<aurora-blockscout-api-key>',
+    // },
+    // auroraTestnet: {
+    //     auroraExplorer: '<aurora-blockscout-api-key>',
+    //     default: '<aurora-blockscout-api-key>',
+    // },
     avalanche: {
         snowtrace: '<avalanche-etherscan-api-key>',
         default: '<avalanche-etherscan-api-key>',
@@ -84,11 +87,12 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         snowtrace: '<avalanche-etherscan-api-key>',
         default: '<avalanche-etherscan-api-key>',
     },
-    baseGoerli: {
-        baseExplorer: '<base-blockscout-api-key>',
-        basescan: '<base-etherscan-api-key>',
-        default: '<base-etherscan-api-key>',
-    },
+    // BaseScan Should Be Reviewed - Unable To Get API Key
+    // baseGoerli: {
+    //     baseExplorer: '<base-blockscout-api-key>',
+    //     basescan: '<base-etherscan-api-key>',
+    //     default: '<base-etherscan-api-key>',
+    // },
     boba: {
         bobascan: '<boba-etherscan-api-key>',
         default: '<boba-etherscan-api-key>',
@@ -97,10 +101,11 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         bobascan: '<boba-etherscan-api-key>',
         default: '<boba-etherscan-api-key>',
     },
-    bronosTestnet: {
-        bobascan: '<bronos-etherscan-api-key>',
-        default: '<bronos-etherscan-api-key>',
-    },
+    // Explorer Not Working Currently
+    // bronosTestnet: {
+    //     bobascan: '<bronos-etherscan-api-key>',
+    //     default: '<bronos-etherscan-api-key>',
+    // },
     bsc: {
         bscscan: '<bsc-etherscan-api-key>',
         default: '<bsc-etherscan-api-key>',
@@ -111,21 +116,21 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
     },
     celo: {
         celoscan: '<celo-etherscan-api-key>',
-        celoExplorer: '<celo-blockscout-api-key>',
-        default: '<celo-blockscout-api-key>',
+        celoExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     celoAlfajores: {
         celoscan: '<celo-etherscan-api-key>',
-        celoExplorer: '<celo-blockscout-api-key>',
-        default: '<celo-blockscout-api-key>',
+        celoExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     cronos: {
-        cronosExplorer: '<cronos-blockscout-api-key>',
+        cronosExplorer: '<no-auth>',
         cronosScan: '<cronos-etherscan-api-key>',
         default: '<cronos-etherscan-api-key>',
     },
     cronosTestnet: {
-        cronosExplorer: '<cronos-blockscout-api-key>',
+        cronosExplorer: '<no-auth>',
         cronosScan: '<cronos-etherscan-api-key>',
         default: '<cronos-etherscan-api-key>',
     },
@@ -138,24 +143,25 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         default: '<fantom-etherscan-api-key>',
     },
     gnosis: {
+        gnosisExplorer: '<gnosis-blockscout-api-key>',
         gnosisScan: '<gnosis-etherscan-api-key>',
         default: '<gnosis-etherscan-api-key>',
     },
     gnosisChiado: {
-        gnosisExplorer: '<gnosis-blockscout-api-key>',
-        default: '<gnosis-blockscout-api-key>',
+        gnosisExplorer: '<gnosis-chiado-blockscout-api-key>',
+        default: '<gnosis-chiado-blockscout-api-key>',
     },
     goerli: {
         etherscan: '<mainnet-etherscan-api-key>',
         default: '<mainnet-etherscan-api-key>',
     },
     kava: {
-        kavaExplorer: '<kava-blockscout-api-key>',
-        default: '<kava-blockscout-api-key>',
+        kavaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     kavaTestnet: {
-        kavaExplorer: '<kava-blockscout-api-key>',
-        default: '<kava-blockscout-api-key>',
+        kavaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     mainnet: {
         blockscout: '<mainnet-blockscout-api-key>',
@@ -163,43 +169,43 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         default: '<mainnet-etherscan-api-key>',
     },
     metis: {
-        metisExplorer: '<metis-blockscout-api-key>',
-        default: '<metis-blockscout-api-key>',
+        metisExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     metisTestnet: {
-        metisExplorer: '<metis-blockscout-api-key>',
-        default: '<metis-blockscout-api-key>',
+        metisExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     milkomedaA1: {
-        milkomedaExplorer: '<milkomeda-a1-blockscout-api-key>',
-        default: '<milkomeda-a1-blockscout-api-key>',
+        milkomedaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     milkomedaA1Testnet: {
-        milkomedaExplorer: '<milkomeda-a1-blockscout-api-key>',
-        default: '<milkomeda-a1-blockscout-api-key>',
+        milkomedaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     milkomedaC1: {
-        milkomedaExplorer: '<milkomeda-c1-blockscout-api-key>',
-        default: '<milkomeda-c1-blockscout-api-key>',
+        milkomedaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     milkomedaC1Testnet: {
-        milkomedaExplorer: '<milkomeda-c1-blockscout-api-key>',
-        default: '<milkomeda-c1-blockscout-api-key>',
+        milkomedaExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     moonbaseAlpha: {
-        moonbaseExplorer: '<moonbeam-blockscout-api-key>',
+        moonbaseExplorer: '<no-auth>',
         moonscan: '<moonbeam-etherscan-api-key>',
         default: '<moonbeam-etherscan-api-key>',
     },
     moonbeam: {
-        moonbeamExplorer: '<moonbeam-blockscout-api-key>',
+        moonbeamExplorer: '<no-auth>',
         moonscan: '<moonbeam-etherscan-api-key>',
         default: '<moonbeam-etherscan-api-key>',
     },
     moonriver: {
-        moonriverExplorer: '<moonbeam-blockscout-api-key>',
-        moonscan: '<moonbeam-etherscan-api-key>',
-        default: '<moonbeam-etherscan-api-key>',
+        moonriverExplorer: '<no-auth>',
+        moonscan: '<moonriver-etherscan-api-key>',
+        default: '<moonriver-etherscan-api-key>',
     },
     optimisticEthereum: {
         optimismExplorer: '<optimism-blockscout-api-key>',
@@ -207,7 +213,7 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         default: '<optimism-etherscan-api-key>',
     },
     optimisticGoerli: {
-        optimismExplorer: '<optimism-blockscout-api-key>',
+        optimismExplorer: '<optimism-goerli-blockscout-api-key>',
         optimismscan: '<optimism-etherscan-api-key>',
         default: '<optimism-etherscan-api-key>',
     },
@@ -224,24 +230,24 @@ export const blockExplorerAuthTemplate: BlockExplorerAuth = {
         default: '<polygon-etherscan-api-key>',
     },
     polygonZkEvmTestnet: {
-        polygonExplorer: '<polygon-blockscout-api-key>',
+        polygonExplorer: '<no-auth>',
         polygonscan: '<polygon-etherscan-api-key>',
         default: '<polygon-etherscan-api-key>',
     },
     scrollTestnet: {
-        scrollExplorer: '<scroll-blockscout-api-key>',
-        default: '<scroll-blockscout-api-key>',
+        scrollExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     sepolia: {
         etherscan: '<mainnet-etherscan-api-key>',
         default: '<mainnet-etherscan-api-key>',
     },
     songbird: {
-        songbirdExplorer: '<songbird-blockscout-api-key>',
-        default: '<songbird-blockscout-api-key>',
+        songbirdExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
     songbirdTestnet: {
-        costonExplorer: '<coston-blockscout-api-key>',
-        default: '<coston-blockscout-api-key>',
+        costonExplorer: '<no-auth>',
+        default: '<no-auth>',
     },
 }

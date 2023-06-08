@@ -26,6 +26,12 @@ export const baseGoerli = {
         },
         onerpc: {
             rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/base-goerli`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
             type: EndpointType.Public,
             http: ['https://1rpc.io/base-goerli'],
             provider: onerpc,
@@ -70,7 +76,7 @@ export const baseGoerli = {
             type: BlockExplorerType.Blockscout,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://base-goerli.blockscout.com',
-            apiUrl: 'https://eth-goerli.blockscout.com/api',
+            apiUrl: 'https://base-goerli.blockscout.com/api',
             docsUrl: 'https://docs.blockscout.com/for-users/api/rpc-endpoints',
         },
         basescan: {

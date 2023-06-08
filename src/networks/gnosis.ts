@@ -110,6 +110,8 @@ export const gnosis = {
             type: BlockExplorerType.Blockscout,
             standard: BlockExplorerStandard.EIP3091,
             browserUrl: 'https://blockscout.com/xdai/mainnet',
+            apiUrl: 'https://blockscout.com/xdai/mainnet/api',
+            docsUrl: 'https://docs.blockscout.com/for-users/api',
         },
         gnosisScan: {
             name: 'GnosisScan',

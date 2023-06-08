@@ -1,7 +1,7 @@
 import { BlockExplorerStandard, BlockExplorerType, EndpointAuth, EndpointType } from '../enums'
 import { type Network } from '../types'
 
-import { ankr, blockpi, klaytnProvider, pokt } from '../providers'
+import { ankr, blockpi, klaytnProvider, onerpc, pokt } from '../providers'
 
 export const klaytn = {
     id: 8217,
@@ -28,6 +28,18 @@ export const klaytn = {
             type: EndpointType.Public,
             http: ['https://klaytn-rpc.gateway.pokt.network'],
             provider: pokt,
+        },
+        onerpc: {
+            rpcNode: 'onerpc',
+            type: EndpointType.Authenticated,
+            http: [`https://1rpc.io/${EndpointAuth.Key}/klay`],
+            provider: onerpc,
+        },
+        onerpcPublic: {
+            rpcNode: 'onerpcPublic',
+            type: EndpointType.Public,
+            http: ['https://1rpc.io/klay'],
+            provider: onerpc,
         },
         ankr: {
             rpcNode: 'ankr',
